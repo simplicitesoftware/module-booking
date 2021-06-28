@@ -1,0 +1,9 @@
+{
+    "date": "2021-06-28 09:44:42",
+    "name": "Booking",
+    "format": "xml",
+    "files": ["Booking.xml"],
+    "repository": {},
+    "version": "0.1",
+    "platform": "5.2.0-alpha"
+}

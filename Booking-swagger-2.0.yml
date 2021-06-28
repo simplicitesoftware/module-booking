@@ -1,0 +1,3814 @@
+#  ___ _            _ _    _ _    __
+# / __(_)_ __  _ __| (_)__(_) |_ /_/
+# \__ \ | '  \| '_ \ | / _| |  _/ -_)
+# |___/_|_|_|_| .__/_|_\__|_|\__\___|
+#             |_| Module: Booking 0.1
+paths:
+  /rest/BookPaymentMethod/{row_id}:
+    post:
+      summary: Create a new BookPaymentMethodbusiness object record
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-bookpaymentmethod-create
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/BookPaymentMethod'
+          description: Success in creating a new business object record
+        '400':
+          schema:
+            $ref: '#/definitions/Error400'
+          description: Bad request
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+      parameters:
+      - in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        type: string
+        required: true
+      - schema:
+          $ref: '#/definitions/BookPaymentMethod'
+        in: body
+        name: body
+      tags:
+      - BookPaymentMethod
+      consumes:
+      - application/json
+    get:
+      summary: Get a BookPaymentMethod business object record
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-bookpaymentmethod-get
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/BookPaymentMethod'
+          description: Success in getting a single business object record
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+        '404':
+          schema:
+            $ref: '#/definitions/Error404'
+          description: Not found
+      parameters:
+      - in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        type: string
+        required: true
+      - in: query
+        name: _inline_documents
+        description: Inline documents?
+        type: boolean
+        required: false
+      - in: query
+        name: _inline_thumbnails
+        description: Inline documents' thumbnails?
+        type: boolean
+        required: false
+      - in: query
+        name: _inline_objects
+        description: Inline objects?
+        type: boolean
+        required: false
+      tags:
+      - BookPaymentMethod
+    delete:
+      summary: Delete a BookPaymentMethod business object record
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-bookpaymentmethod-delete
+      responses:
+        '200':
+          description: Success in deleting a business object record
+        '400':
+          schema:
+            $ref: '#/definitions/Error400'
+          description: Bad request
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+        '404':
+          schema:
+            $ref: '#/definitions/Error404'
+          description: Not found
+      parameters:
+      - in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        type: string
+        required: true
+      tags:
+      - BookPaymentMethod
+    put:
+      summary: Update a BookPaymentMethodbusiness object record
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-bookpaymentmethod-update
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/BookPaymentMethod'
+          description: Success in updating a business object record
+        '400':
+          schema:
+            $ref: '#/definitions/Error400'
+          description: Bad request
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+        '404':
+          schema:
+            $ref: '#/definitions/Error404'
+          description: Not found
+      parameters:
+      - in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        type: string
+        required: true
+      - schema:
+          $ref: '#/definitions/BookPaymentMethod'
+        in: body
+        name: body
+      tags:
+      - BookPaymentMethod
+      consumes:
+      - application/json
+  /rest/BookRoom:
+    get:
+      summary: Search BookRoom business object records or get contextualized metadata
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-bookroom-search
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/ArrayOfBookRoom'
+          description: Success in searching business object records (or in getting
+            contextualized business object metadata, documentation, ...)
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+      parameters:
+      - in: query
+        name: _metadata
+        description: Metadata?
+        type: boolean
+        required: false
+      - in: query
+        name: _count
+        description: Count?
+        type: boolean
+        required: false
+      - in: query
+        name: _doc
+        description: Documentation?
+        type: boolean
+        required: false
+      - in: query
+        name: bookRoomCode
+        description: Search filter for book room code
+        type: string
+        required: false
+      - in: query
+        name: bookRoomLabel
+        description: Search filter for book room label
+        type: string
+        required: false
+      - in: query
+        name: BookRoom_BookRoomType_id
+        description: Search filter for Room Type
+        type: string
+        required: false
+      - in: query
+        name: BookRoom_BookRoomType_id__bookRoomtypCode
+        description: Search filter for Room Type book roomtyp code
+        type: string
+        required: false
+      - in: query
+        name: BookRoom_BookRoomType_id__bookRoomtypType
+        description: Search filter for Room Type book roomtyp type
+        type: string
+        required: false
+      - in: query
+        name: bookRoomDesc
+        description: Search filter for book room desc
+        type: string
+        required: false
+      - in: query
+        name: bookRoomSuperficie
+        description: Search filter for book room superficie
+        type: string
+        required: false
+        enum:
+        - '12'
+        - '15'
+        - '17'
+        - '22'
+      - in: query
+        name: bookRoomFloor
+        description: Search filter for book room floor
+        type: string
+        required: false
+        enum:
+        - '0'
+        - '1'
+        - '2'
+        - '3'
+        - '4'
+        - '5'
+        - '6'
+      - in: query
+        name: bookRoomPhoto
+        description: Search filter for book room photo
+        type: string
+        required: false
+      - in: query
+        name: bookRoomPriceht
+        description: Search filter for book room priceht
+        type: number
+        required: false
+      tags:
+      - BookRoom
+  /login:
+    get:
+      summary: Login (obtain bearer token)
+      security:
+      - basicAuth: []
+      produces:
+      - text/plain
+      - application/json
+      operationId: login
+      responses:
+        '200':
+          description: Successful login
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+      parameters:
+      - in: query
+        name: _output
+        description: Optional output format
+        type: string
+        required: false
+        enum:
+        - json
+        - oauth2
+        - token
+      tags:
+      - session
+  /rest/BookRoomBookRoomService/{row_id}:
+    post:
+      summary: Create a new BookRoomBookRoomServicebusiness object record
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-bookroombookroomservice-create
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/BookRoomBookRoomService'
+          description: Success in creating a new business object record
+        '400':
+          schema:
+            $ref: '#/definitions/Error400'
+          description: Bad request
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+      parameters:
+      - in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        type: string
+        required: true
+      - schema:
+          $ref: '#/definitions/BookRoomBookRoomService'
+        in: body
+        name: body
+      tags:
+      - BookRoomBookRoomService
+      consumes:
+      - application/json
+    get:
+      summary: Get a BookRoomBookRoomService business object record
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-bookroombookroomservice-get
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/BookRoomBookRoomService'
+          description: Success in getting a single business object record
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+        '404':
+          schema:
+            $ref: '#/definitions/Error404'
+          description: Not found
+      parameters:
+      - in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        type: string
+        required: true
+      - in: query
+        name: _inline_documents
+        description: Inline documents?
+        type: boolean
+        required: false
+      - in: query
+        name: _inline_thumbnails
+        description: Inline documents' thumbnails?
+        type: boolean
+        required: false
+      - in: query
+        name: _inline_objects
+        description: Inline objects?
+        type: boolean
+        required: false
+      tags:
+      - BookRoomBookRoomService
+    delete:
+      summary: Delete a BookRoomBookRoomService business object record
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-bookroombookroomservice-delete
+      responses:
+        '200':
+          description: Success in deleting a business object record
+        '400':
+          schema:
+            $ref: '#/definitions/Error400'
+          description: Bad request
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+        '404':
+          schema:
+            $ref: '#/definitions/Error404'
+          description: Not found
+      parameters:
+      - in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        type: string
+        required: true
+      tags:
+      - BookRoomBookRoomService
+    put:
+      summary: Update a BookRoomBookRoomServicebusiness object record
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-bookroombookroomservice-update
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/BookRoomBookRoomService'
+          description: Success in updating a business object record
+        '400':
+          schema:
+            $ref: '#/definitions/Error400'
+          description: Bad request
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+        '404':
+          schema:
+            $ref: '#/definitions/Error404'
+          description: Not found
+      parameters:
+      - in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        type: string
+        required: true
+      - schema:
+          $ref: '#/definitions/BookRoomBookRoomService'
+        in: body
+        name: body
+      tags:
+      - BookRoomBookRoomService
+      consumes:
+      - application/json
+  /rest/BookGuests:
+    get:
+      summary: Search BookGuests business object records or get contextualized metadata
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-bookguests-search
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/ArrayOfBookGuests'
+          description: Success in searching business object records (or in getting
+            contextualized business object metadata, documentation, ...)
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+      parameters:
+      - in: query
+        name: _metadata
+        description: Metadata?
+        type: boolean
+        required: false
+      - in: query
+        name: _count
+        description: Count?
+        type: boolean
+        required: false
+      - in: query
+        name: _doc
+        description: Documentation?
+        type: boolean
+        required: false
+      - in: query
+        name: usr_title
+        description: Search filter for Title
+        type: string
+        required: false
+        enum:
+        - MR
+        - MRS
+        - MS
+      - in: query
+        name: usr_last_name
+        description: Search filter for Last name
+        type: string
+        required: false
+      - in: query
+        name: usr_first_name
+        description: Search filter for First name
+        type: string
+        required: false
+      - in: query
+        name: usr_work_num
+        description: Search filter for Work phone number
+        type: string
+        required: false
+      - in: query
+        name: usr_home_num
+        description: Search filter for Home phone
+        type: string
+        required: false
+      - in: query
+        name: usr_cell_num
+        description: Search filter for Mobile/cellular phone number
+        type: string
+        required: false
+      - in: query
+        name: usr_address1
+        description: Search filter for Address line 1
+        type: string
+        required: false
+      - in: query
+        name: usr_address2
+        description: Search filter for Address line 2
+        type: string
+        required: false
+      - in: query
+        name: usr_zipcode
+        description: Search filter for Postal/ZIP code
+        type: string
+        required: false
+      - in: query
+        name: usr_city
+        description: Search filter for City
+        type: string
+        required: false
+      - in: query
+        name: usr_state
+        description: Search filter for State
+        type: string
+        required: false
+      - in: query
+        name: usr_country
+        description: Search filter for Country
+        type: string
+        required: false
+        enum:
+        - FR
+        - UK
+        - ES
+        - DE
+        - BE
+        - CH
+        - IE
+        - US
+        - CA
+      - in: query
+        name: bookBookusersEmail
+        description: Search filter for book bookusers email
+        type: string
+        required: false
+      - in: query
+        name: bookBookusersType
+        description: Search filter for book bookusers type
+        type: string
+        required: false
+        enum:
+        - CUS
+        - ACC
+      tags:
+      - BookGuests
+  /rest/BookRoomEquipment:
+    get:
+      summary: Search BookRoomEquipment business object records or get contextualized
+        metadata
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-bookroomequipment-search
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/ArrayOfBookRoomEquipment'
+          description: Success in searching business object records (or in getting
+            contextualized business object metadata, documentation, ...)
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+      parameters:
+      - in: query
+        name: _metadata
+        description: Metadata?
+        type: boolean
+        required: false
+      - in: query
+        name: _count
+        description: Count?
+        type: boolean
+        required: false
+      - in: query
+        name: _doc
+        description: Documentation?
+        type: boolean
+        required: false
+      - in: query
+        name: bookEquLibell
+        description: Search filter for book equ libell
+        type: string
+        required: false
+      - in: query
+        name: bookEquCode
+        description: Search filter for book equ code
+        type: string
+        required: false
+      tags:
+      - BookRoomEquipment
+  /rest/BookRoomBookRoomService:
+    get:
+      summary: Search BookRoomBookRoomService business object records or get contextualized
+        metadata
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-bookroombookroomservice-search
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/ArrayOfBookRoomBookRoomService'
+          description: Success in searching business object records (or in getting
+            contextualized business object metadata, documentation, ...)
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+      parameters:
+      - in: query
+        name: _metadata
+        description: Metadata?
+        type: boolean
+        required: false
+      - in: query
+        name: _count
+        description: Count?
+        type: boolean
+        required: false
+      - in: query
+        name: _doc
+        description: Documentation?
+        type: boolean
+        required: false
+      - in: query
+        name: app_BookRoom_fk
+        description: Search filter for app book room fk
+        type: string
+        required: false
+      - in: query
+        name: app_BookRoom_fk__bookRoomCode
+        description: Search filter for app book room fk book room code
+        type: string
+        required: false
+      - in: query
+        name: app_BookRoomService_fk
+        description: Search filter for app book room service fk
+        type: string
+        required: false
+      - in: query
+        name: app_BookRoomService_fk__bookRservCode
+        description: Search filter for app book room service fk book rserv code
+        type: string
+        required: false
+      tags:
+      - BookRoomBookRoomService
+  /rest/BookEquRoom:
+    get:
+      summary: Search BookEquRoom business object records or get contextualized metadata
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-bookequroom-search
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/ArrayOfBookEquRoom'
+          description: Success in searching business object records (or in getting
+            contextualized business object metadata, documentation, ...)
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+      parameters:
+      - in: query
+        name: _metadata
+        description: Metadata?
+        type: boolean
+        required: false
+      - in: query
+        name: _count
+        description: Count?
+        type: boolean
+        required: false
+      - in: query
+        name: _doc
+        description: Documentation?
+        type: boolean
+        required: false
+      - in: query
+        name: bookEquroomEquId
+        description: Search filter for book equroom equ id
+        type: string
+        required: false
+      - in: query
+        name: bookEquroomEquId__bookEquCode
+        description: Search filter for book equroom equ id book equ code
+        type: string
+        required: false
+      - in: query
+        name: bookEquroomRoomId
+        description: Search filter for book equroom room id
+        type: string
+        required: false
+      - in: query
+        name: bookEquroomRoomId__bookRoomCode
+        description: Search filter for book equroom room id book room code
+        type: string
+        required: false
+      tags:
+      - BookEquRoom
+  /rest/BookRoom/{row_id}:
+    post:
+      summary: Create a new BookRoombusiness object record
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-bookroom-create
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/BookRoom'
+          description: Success in creating a new business object record
+        '400':
+          schema:
+            $ref: '#/definitions/Error400'
+          description: Bad request
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+      parameters:
+      - in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        type: string
+        required: true
+      - schema:
+          $ref: '#/definitions/BookRoom'
+        in: body
+        name: body
+      tags:
+      - BookRoom
+      consumes:
+      - application/json
+    get:
+      summary: Get a BookRoom business object record
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-bookroom-get
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/BookRoom'
+          description: Success in getting a single business object record
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+        '404':
+          schema:
+            $ref: '#/definitions/Error404'
+          description: Not found
+      parameters:
+      - in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        type: string
+        required: true
+      - in: query
+        name: _inline_documents
+        description: Inline documents?
+        type: boolean
+        required: false
+      - in: query
+        name: _inline_thumbnails
+        description: Inline documents' thumbnails?
+        type: boolean
+        required: false
+      - in: query
+        name: _inline_objects
+        description: Inline objects?
+        type: boolean
+        required: false
+      tags:
+      - BookRoom
+    delete:
+      summary: Delete a BookRoom business object record
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-bookroom-delete
+      responses:
+        '200':
+          description: Success in deleting a business object record
+        '400':
+          schema:
+            $ref: '#/definitions/Error400'
+          description: Bad request
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+        '404':
+          schema:
+            $ref: '#/definitions/Error404'
+          description: Not found
+      parameters:
+      - in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        type: string
+        required: true
+      tags:
+      - BookRoom
+    put:
+      summary: Update a BookRoombusiness object record
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-bookroom-update
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/BookRoom'
+          description: Success in updating a business object record
+        '400':
+          schema:
+            $ref: '#/definitions/Error400'
+          description: Bad request
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+        '404':
+          schema:
+            $ref: '#/definitions/Error404'
+          description: Not found
+      parameters:
+      - in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        type: string
+        required: true
+      - schema:
+          $ref: '#/definitions/BookRoom'
+        in: body
+        name: body
+      tags:
+      - BookRoom
+      consumes:
+      - application/json
+  /rest/BookBookingsBookGuests/{row_id}:
+    post:
+      summary: Create a new BookBookingsBookGuestsbusiness object record
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-bookbookingsbookguests-create
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/BookBookingsBookGuests'
+          description: Success in creating a new business object record
+        '400':
+          schema:
+            $ref: '#/definitions/Error400'
+          description: Bad request
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+      parameters:
+      - in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        type: string
+        required: true
+      - schema:
+          $ref: '#/definitions/BookBookingsBookGuests'
+        in: body
+        name: body
+      tags:
+      - BookBookingsBookGuests
+      consumes:
+      - application/json
+    get:
+      summary: Get a BookBookingsBookGuests business object record
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-bookbookingsbookguests-get
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/BookBookingsBookGuests'
+          description: Success in getting a single business object record
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+        '404':
+          schema:
+            $ref: '#/definitions/Error404'
+          description: Not found
+      parameters:
+      - in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        type: string
+        required: true
+      - in: query
+        name: _inline_documents
+        description: Inline documents?
+        type: boolean
+        required: false
+      - in: query
+        name: _inline_thumbnails
+        description: Inline documents' thumbnails?
+        type: boolean
+        required: false
+      - in: query
+        name: _inline_objects
+        description: Inline objects?
+        type: boolean
+        required: false
+      tags:
+      - BookBookingsBookGuests
+    delete:
+      summary: Delete a BookBookingsBookGuests business object record
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-bookbookingsbookguests-delete
+      responses:
+        '200':
+          description: Success in deleting a business object record
+        '400':
+          schema:
+            $ref: '#/definitions/Error400'
+          description: Bad request
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+        '404':
+          schema:
+            $ref: '#/definitions/Error404'
+          description: Not found
+      parameters:
+      - in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        type: string
+        required: true
+      tags:
+      - BookBookingsBookGuests
+    put:
+      summary: Update a BookBookingsBookGuestsbusiness object record
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-bookbookingsbookguests-update
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/BookBookingsBookGuests'
+          description: Success in updating a business object record
+        '400':
+          schema:
+            $ref: '#/definitions/Error400'
+          description: Bad request
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+        '404':
+          schema:
+            $ref: '#/definitions/Error404'
+          description: Not found
+      parameters:
+      - in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        type: string
+        required: true
+      - schema:
+          $ref: '#/definitions/BookBookingsBookGuests'
+        in: body
+        name: body
+      tags:
+      - BookBookingsBookGuests
+      consumes:
+      - application/json
+  /rest/BookBookings:
+    get:
+      summary: Search BookBookings business object records or get contextualized metadata
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-bookbookings-search
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/ArrayOfBookBookings'
+          description: Success in searching business object records (or in getting
+            contextualized business object metadata, documentation, ...)
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+      parameters:
+      - in: query
+        name: _metadata
+        description: Metadata?
+        type: boolean
+        required: false
+      - in: query
+        name: _count
+        description: Count?
+        type: boolean
+        required: false
+      - in: query
+        name: _doc
+        description: Documentation?
+        type: boolean
+        required: false
+      - in: query
+        name: BookBookings_BookUsers_id
+        description: Search filter for Book users
+        type: string
+        required: false
+      - in: query
+        name: BookBookings_BookUsers_id__usr_title
+        description: Search filter for Title
+        type: string
+        required: false
+        enum:
+        - MR
+        - MRS
+        - MS
+      - in: query
+        name: BookBookings_BookUsers_id__usr_last_name
+        description: Search filter for Last name
+        type: string
+        required: false
+      - in: query
+        name: BookBookings_BookUsers_id__usr_first_name
+        description: Search filter for First name
+        type: string
+        required: false
+      - in: query
+        name: BookBookings_BookUsers_id__bookBookusersEmail
+        description: Search filter for Book users book bookusers email
+        type: string
+        required: false
+      - in: query
+        name: bookBookbookingsDate
+        description: Search filter for book bookbookings date
+        type: string
+        required: false
+      - in: query
+        name: bookBookbookingsHour
+        description: Search filter for book bookbookings hour
+        type: string
+        required: false
+      - in: query
+        name: bookBookbookingsStartDate
+        description: Search filter for book bookbookings start date
+        type: string
+        required: false
+      - in: query
+        name: bookBookbookingsEndDate
+        description: Search filter for book bookbookings end date
+        type: string
+        required: false
+      - in: query
+        name: bookBookbookingsPaymentTDate
+        description: Search filter for book bookbookings payment Tdate
+        type: string
+        required: false
+      - in: query
+        name: bookBookbookingsAmountDate
+        description: Search filter for book bookbookings amount date
+        type: string
+        required: false
+      - in: query
+        name: bookBookbookingsPaymentDone
+        description: Search filter for book bookbookings payment done
+        type: boolean
+        required: false
+      - in: query
+        name: bookBookbookingsComments
+        description: Search filter for book bookbookings comments
+        type: string
+        required: false
+      - in: query
+        name: bookBookbookingsStatut
+        description: Search filter for book bookbookings statut
+        type: string
+        required: false
+        enum:
+        - EA
+        - TR
+        - Cl
+      - in: query
+        name: bookBookbookingsRoomNumber
+        description: Search filter for book bookbookings room number
+        type: string
+        required: false
+        enum:
+        - '1'
+        - '2'
+        - '3'
+        - '4'
+        - '5'
+        - '6'
+        - '7'
+        - '8'
+        - '9'
+        - '10'
+      - in: query
+        name: bookBookbookingsGuestNumber
+        description: Search filter for book bookbookings guest number
+        type: string
+        required: false
+        enum:
+        - '1'
+        - '2'
+        - '3'
+        - '4'
+        - '5'
+        - '6'
+        - '7'
+        - '8'
+        - '9'
+        - '10'
+      tags:
+      - BookBookings
+  /rest/BookRoomType/{row_id}:
+    post:
+      summary: Create a new BookRoomTypebusiness object record
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-bookroomtype-create
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/BookRoomType'
+          description: Success in creating a new business object record
+        '400':
+          schema:
+            $ref: '#/definitions/Error400'
+          description: Bad request
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+      parameters:
+      - in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        type: string
+        required: true
+      - schema:
+          $ref: '#/definitions/BookRoomType'
+        in: body
+        name: body
+      tags:
+      - BookRoomType
+      consumes:
+      - application/json
+    get:
+      summary: Get a BookRoomType business object record
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-bookroomtype-get
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/BookRoomType'
+          description: Success in getting a single business object record
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+        '404':
+          schema:
+            $ref: '#/definitions/Error404'
+          description: Not found
+      parameters:
+      - in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        type: string
+        required: true
+      - in: query
+        name: _inline_documents
+        description: Inline documents?
+        type: boolean
+        required: false
+      - in: query
+        name: _inline_thumbnails
+        description: Inline documents' thumbnails?
+        type: boolean
+        required: false
+      - in: query
+        name: _inline_objects
+        description: Inline objects?
+        type: boolean
+        required: false
+      tags:
+      - BookRoomType
+    delete:
+      summary: Delete a BookRoomType business object record
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-bookroomtype-delete
+      responses:
+        '200':
+          description: Success in deleting a business object record
+        '400':
+          schema:
+            $ref: '#/definitions/Error400'
+          description: Bad request
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+        '404':
+          schema:
+            $ref: '#/definitions/Error404'
+          description: Not found
+      parameters:
+      - in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        type: string
+        required: true
+      tags:
+      - BookRoomType
+    put:
+      summary: Update a BookRoomTypebusiness object record
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-bookroomtype-update
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/BookRoomType'
+          description: Success in updating a business object record
+        '400':
+          schema:
+            $ref: '#/definitions/Error400'
+          description: Bad request
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+        '404':
+          schema:
+            $ref: '#/definitions/Error404'
+          description: Not found
+      parameters:
+      - in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        type: string
+        required: true
+      - schema:
+          $ref: '#/definitions/BookRoomType'
+        in: body
+        name: body
+      tags:
+      - BookRoomType
+      consumes:
+      - application/json
+  /rest/BookUsers:
+    get:
+      summary: Search BookUsers business object records or get contextualized metadata
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-bookusers-search
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/ArrayOfBookUsers'
+          description: Success in searching business object records (or in getting
+            contextualized business object metadata, documentation, ...)
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+      parameters:
+      - in: query
+        name: _metadata
+        description: Metadata?
+        type: boolean
+        required: false
+      - in: query
+        name: _count
+        description: Count?
+        type: boolean
+        required: false
+      - in: query
+        name: _doc
+        description: Documentation?
+        type: boolean
+        required: false
+      - in: query
+        name: usr_title
+        description: Search filter for Title
+        type: string
+        required: false
+        enum:
+        - MR
+        - MRS
+        - MS
+      - in: query
+        name: usr_last_name
+        description: Search filter for Last name
+        type: string
+        required: false
+      - in: query
+        name: usr_first_name
+        description: Search filter for First name
+        type: string
+        required: false
+      - in: query
+        name: usr_work_num
+        description: Search filter for Work phone number
+        type: string
+        required: false
+      - in: query
+        name: usr_home_num
+        description: Search filter for Home phone
+        type: string
+        required: false
+      - in: query
+        name: usr_cell_num
+        description: Search filter for Mobile/cellular phone number
+        type: string
+        required: false
+      - in: query
+        name: usr_address1
+        description: Search filter for Address line 1
+        type: string
+        required: false
+      - in: query
+        name: usr_address2
+        description: Search filter for Address line 2
+        type: string
+        required: false
+      - in: query
+        name: usr_zipcode
+        description: Search filter for Postal/ZIP code
+        type: string
+        required: false
+      - in: query
+        name: usr_city
+        description: Search filter for City
+        type: string
+        required: false
+      - in: query
+        name: usr_state
+        description: Search filter for State
+        type: string
+        required: false
+      - in: query
+        name: usr_country
+        description: Search filter for Country
+        type: string
+        required: false
+        enum:
+        - FR
+        - UK
+        - ES
+        - DE
+        - BE
+        - CH
+        - IE
+        - US
+        - CA
+      - in: query
+        name: bookBookusersEmail
+        description: Search filter for book bookusers email
+        type: string
+        required: false
+      - in: query
+        name: bookBookusersType
+        description: Search filter for book bookusers type
+        type: string
+        required: false
+        enum:
+        - CUS
+        - ACC
+      tags:
+      - BookUsers
+  /rest/BookRoomService:
+    get:
+      summary: Search BookRoomService business object records or get contextualized
+        metadata
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-bookroomservice-search
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/ArrayOfBookRoomService'
+          description: Success in searching business object records (or in getting
+            contextualized business object metadata, documentation, ...)
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+      parameters:
+      - in: query
+        name: _metadata
+        description: Metadata?
+        type: boolean
+        required: false
+      - in: query
+        name: _count
+        description: Count?
+        type: boolean
+        required: false
+      - in: query
+        name: _doc
+        description: Documentation?
+        type: boolean
+        required: false
+      - in: query
+        name: bookRservCode
+        description: Search filter for book rserv code
+        type: string
+        required: false
+      - in: query
+        name: bookRservLibell
+        description: Search filter for book rserv libell
+        type: string
+        required: false
+      tags:
+      - BookRoomService
+  /rest/BookEquRoom/{row_id}:
+    post:
+      summary: Create a new BookEquRoombusiness object record
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-bookequroom-create
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/BookEquRoom'
+          description: Success in creating a new business object record
+        '400':
+          schema:
+            $ref: '#/definitions/Error400'
+          description: Bad request
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+      parameters:
+      - in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        type: string
+        required: true
+      - schema:
+          $ref: '#/definitions/BookEquRoom'
+        in: body
+        name: body
+      tags:
+      - BookEquRoom
+      consumes:
+      - application/json
+    get:
+      summary: Get a BookEquRoom business object record
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-bookequroom-get
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/BookEquRoom'
+          description: Success in getting a single business object record
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+        '404':
+          schema:
+            $ref: '#/definitions/Error404'
+          description: Not found
+      parameters:
+      - in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        type: string
+        required: true
+      - in: query
+        name: _inline_documents
+        description: Inline documents?
+        type: boolean
+        required: false
+      - in: query
+        name: _inline_thumbnails
+        description: Inline documents' thumbnails?
+        type: boolean
+        required: false
+      - in: query
+        name: _inline_objects
+        description: Inline objects?
+        type: boolean
+        required: false
+      tags:
+      - BookEquRoom
+    delete:
+      summary: Delete a BookEquRoom business object record
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-bookequroom-delete
+      responses:
+        '200':
+          description: Success in deleting a business object record
+        '400':
+          schema:
+            $ref: '#/definitions/Error400'
+          description: Bad request
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+        '404':
+          schema:
+            $ref: '#/definitions/Error404'
+          description: Not found
+      parameters:
+      - in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        type: string
+        required: true
+      tags:
+      - BookEquRoom
+    put:
+      summary: Update a BookEquRoombusiness object record
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-bookequroom-update
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/BookEquRoom'
+          description: Success in updating a business object record
+        '400':
+          schema:
+            $ref: '#/definitions/Error400'
+          description: Bad request
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+        '404':
+          schema:
+            $ref: '#/definitions/Error404'
+          description: Not found
+      parameters:
+      - in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        type: string
+        required: true
+      - schema:
+          $ref: '#/definitions/BookEquRoom'
+        in: body
+        name: body
+      tags:
+      - BookEquRoom
+      consumes:
+      - application/json
+  /rest/BookUsers/{row_id}:
+    post:
+      summary: Create a new BookUsersbusiness object record
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-bookusers-create
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/BookUsers'
+          description: Success in creating a new business object record
+        '400':
+          schema:
+            $ref: '#/definitions/Error400'
+          description: Bad request
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+      parameters:
+      - in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        type: string
+        required: true
+      - schema:
+          $ref: '#/definitions/BookUsers'
+        in: body
+        name: body
+      tags:
+      - BookUsers
+      consumes:
+      - application/json
+    get:
+      summary: Get a BookUsers business object record
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-bookusers-get
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/BookUsers'
+          description: Success in getting a single business object record
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+        '404':
+          schema:
+            $ref: '#/definitions/Error404'
+          description: Not found
+      parameters:
+      - in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        type: string
+        required: true
+      - in: query
+        name: _inline_documents
+        description: Inline documents?
+        type: boolean
+        required: false
+      - in: query
+        name: _inline_thumbnails
+        description: Inline documents' thumbnails?
+        type: boolean
+        required: false
+      - in: query
+        name: _inline_objects
+        description: Inline objects?
+        type: boolean
+        required: false
+      tags:
+      - BookUsers
+    delete:
+      summary: Delete a BookUsers business object record
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-bookusers-delete
+      responses:
+        '200':
+          description: Success in deleting a business object record
+        '400':
+          schema:
+            $ref: '#/definitions/Error400'
+          description: Bad request
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+        '404':
+          schema:
+            $ref: '#/definitions/Error404'
+          description: Not found
+      parameters:
+      - in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        type: string
+        required: true
+      tags:
+      - BookUsers
+    put:
+      summary: Update a BookUsersbusiness object record
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-bookusers-update
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/BookUsers'
+          description: Success in updating a business object record
+        '400':
+          schema:
+            $ref: '#/definitions/Error400'
+          description: Bad request
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+        '404':
+          schema:
+            $ref: '#/definitions/Error404'
+          description: Not found
+      parameters:
+      - in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        type: string
+        required: true
+      - schema:
+          $ref: '#/definitions/BookUsers'
+        in: body
+        name: body
+      tags:
+      - BookUsers
+      consumes:
+      - application/json
+  /rest/BookRoomService/{row_id}:
+    post:
+      summary: Create a new BookRoomServicebusiness object record
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-bookroomservice-create
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/BookRoomService'
+          description: Success in creating a new business object record
+        '400':
+          schema:
+            $ref: '#/definitions/Error400'
+          description: Bad request
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+      parameters:
+      - in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        type: string
+        required: true
+      - schema:
+          $ref: '#/definitions/BookRoomService'
+        in: body
+        name: body
+      tags:
+      - BookRoomService
+      consumes:
+      - application/json
+    get:
+      summary: Get a BookRoomService business object record
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-bookroomservice-get
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/BookRoomService'
+          description: Success in getting a single business object record
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+        '404':
+          schema:
+            $ref: '#/definitions/Error404'
+          description: Not found
+      parameters:
+      - in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        type: string
+        required: true
+      - in: query
+        name: _inline_documents
+        description: Inline documents?
+        type: boolean
+        required: false
+      - in: query
+        name: _inline_thumbnails
+        description: Inline documents' thumbnails?
+        type: boolean
+        required: false
+      - in: query
+        name: _inline_objects
+        description: Inline objects?
+        type: boolean
+        required: false
+      tags:
+      - BookRoomService
+    delete:
+      summary: Delete a BookRoomService business object record
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-bookroomservice-delete
+      responses:
+        '200':
+          description: Success in deleting a business object record
+        '400':
+          schema:
+            $ref: '#/definitions/Error400'
+          description: Bad request
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+        '404':
+          schema:
+            $ref: '#/definitions/Error404'
+          description: Not found
+      parameters:
+      - in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        type: string
+        required: true
+      tags:
+      - BookRoomService
+    put:
+      summary: Update a BookRoomServicebusiness object record
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-bookroomservice-update
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/BookRoomService'
+          description: Success in updating a business object record
+        '400':
+          schema:
+            $ref: '#/definitions/Error400'
+          description: Bad request
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+        '404':
+          schema:
+            $ref: '#/definitions/Error404'
+          description: Not found
+      parameters:
+      - in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        type: string
+        required: true
+      - schema:
+          $ref: '#/definitions/BookRoomService'
+        in: body
+        name: body
+      tags:
+      - BookRoomService
+      consumes:
+      - application/json
+  /rest/BookPaymentMethod:
+    get:
+      summary: Search BookPaymentMethod business object records or get contextualized
+        metadata
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-bookpaymentmethod-search
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/ArrayOfBookPaymentMethod'
+          description: Success in searching business object records (or in getting
+            contextualized business object metadata, documentation, ...)
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+      parameters:
+      - in: query
+        name: _metadata
+        description: Metadata?
+        type: boolean
+        required: false
+      - in: query
+        name: _count
+        description: Count?
+        type: boolean
+        required: false
+      - in: query
+        name: _doc
+        description: Documentation?
+        type: boolean
+        required: false
+      - in: query
+        name: bookPaymCode
+        description: Search filter for book paym code
+        type: string
+        required: false
+      - in: query
+        name: bookPaymLibell
+        description: Search filter for book paym libell
+        type: string
+        required: false
+      tags:
+      - BookPaymentMethod
+  /rest/BookBookings/{row_id}:
+    post:
+      summary: Create a new BookBookingsbusiness object record
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-bookbookings-create
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/BookBookings'
+          description: Success in creating a new business object record
+        '400':
+          schema:
+            $ref: '#/definitions/Error400'
+          description: Bad request
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+      parameters:
+      - in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        type: string
+        required: true
+      - schema:
+          $ref: '#/definitions/BookBookings'
+        in: body
+        name: body
+      tags:
+      - BookBookings
+      consumes:
+      - application/json
+    get:
+      summary: Get a BookBookings business object record
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-bookbookings-get
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/BookBookings'
+          description: Success in getting a single business object record
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+        '404':
+          schema:
+            $ref: '#/definitions/Error404'
+          description: Not found
+      parameters:
+      - in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        type: string
+        required: true
+      - in: query
+        name: _inline_documents
+        description: Inline documents?
+        type: boolean
+        required: false
+      - in: query
+        name: _inline_thumbnails
+        description: Inline documents' thumbnails?
+        type: boolean
+        required: false
+      - in: query
+        name: _inline_objects
+        description: Inline objects?
+        type: boolean
+        required: false
+      tags:
+      - BookBookings
+    delete:
+      summary: Delete a BookBookings business object record
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-bookbookings-delete
+      responses:
+        '200':
+          description: Success in deleting a business object record
+        '400':
+          schema:
+            $ref: '#/definitions/Error400'
+          description: Bad request
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+        '404':
+          schema:
+            $ref: '#/definitions/Error404'
+          description: Not found
+      parameters:
+      - in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        type: string
+        required: true
+      tags:
+      - BookBookings
+    put:
+      summary: Update a BookBookingsbusiness object record
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-bookbookings-update
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/BookBookings'
+          description: Success in updating a business object record
+        '400':
+          schema:
+            $ref: '#/definitions/Error400'
+          description: Bad request
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+        '404':
+          schema:
+            $ref: '#/definitions/Error404'
+          description: Not found
+      parameters:
+      - in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        type: string
+        required: true
+      - schema:
+          $ref: '#/definitions/BookBookings'
+        in: body
+        name: body
+      tags:
+      - BookBookings
+      consumes:
+      - application/json
+  /rest/BookRoomEquipment/{row_id}:
+    post:
+      summary: Create a new BookRoomEquipmentbusiness object record
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-bookroomequipment-create
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/BookRoomEquipment'
+          description: Success in creating a new business object record
+        '400':
+          schema:
+            $ref: '#/definitions/Error400'
+          description: Bad request
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+      parameters:
+      - in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        type: string
+        required: true
+      - schema:
+          $ref: '#/definitions/BookRoomEquipment'
+        in: body
+        name: body
+      tags:
+      - BookRoomEquipment
+      consumes:
+      - application/json
+    get:
+      summary: Get a BookRoomEquipment business object record
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-bookroomequipment-get
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/BookRoomEquipment'
+          description: Success in getting a single business object record
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+        '404':
+          schema:
+            $ref: '#/definitions/Error404'
+          description: Not found
+      parameters:
+      - in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        type: string
+        required: true
+      - in: query
+        name: _inline_documents
+        description: Inline documents?
+        type: boolean
+        required: false
+      - in: query
+        name: _inline_thumbnails
+        description: Inline documents' thumbnails?
+        type: boolean
+        required: false
+      - in: query
+        name: _inline_objects
+        description: Inline objects?
+        type: boolean
+        required: false
+      tags:
+      - BookRoomEquipment
+    delete:
+      summary: Delete a BookRoomEquipment business object record
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-bookroomequipment-delete
+      responses:
+        '200':
+          description: Success in deleting a business object record
+        '400':
+          schema:
+            $ref: '#/definitions/Error400'
+          description: Bad request
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+        '404':
+          schema:
+            $ref: '#/definitions/Error404'
+          description: Not found
+      parameters:
+      - in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        type: string
+        required: true
+      tags:
+      - BookRoomEquipment
+    put:
+      summary: Update a BookRoomEquipmentbusiness object record
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-bookroomequipment-update
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/BookRoomEquipment'
+          description: Success in updating a business object record
+        '400':
+          schema:
+            $ref: '#/definitions/Error400'
+          description: Bad request
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+        '404':
+          schema:
+            $ref: '#/definitions/Error404'
+          description: Not found
+      parameters:
+      - in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        type: string
+        required: true
+      - schema:
+          $ref: '#/definitions/BookRoomEquipment'
+        in: body
+        name: body
+      tags:
+      - BookRoomEquipment
+      consumes:
+      - application/json
+  /logout:
+    get:
+      summary: Logout (revoke bearer token)
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: logout
+      responses:
+        '200':
+          description: Successfull logout
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+      tags:
+      - session
+  /rest/BookGuests/{row_id}:
+    post:
+      summary: Create a new BookGuestsbusiness object record
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-bookguests-create
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/BookGuests'
+          description: Success in creating a new business object record
+        '400':
+          schema:
+            $ref: '#/definitions/Error400'
+          description: Bad request
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+      parameters:
+      - in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        type: string
+        required: true
+      - schema:
+          $ref: '#/definitions/BookGuests'
+        in: body
+        name: body
+      tags:
+      - BookGuests
+      consumes:
+      - application/json
+    get:
+      summary: Get a BookGuests business object record
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-bookguests-get
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/BookGuests'
+          description: Success in getting a single business object record
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+        '404':
+          schema:
+            $ref: '#/definitions/Error404'
+          description: Not found
+      parameters:
+      - in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        type: string
+        required: true
+      - in: query
+        name: _inline_documents
+        description: Inline documents?
+        type: boolean
+        required: false
+      - in: query
+        name: _inline_thumbnails
+        description: Inline documents' thumbnails?
+        type: boolean
+        required: false
+      - in: query
+        name: _inline_objects
+        description: Inline objects?
+        type: boolean
+        required: false
+      tags:
+      - BookGuests
+    delete:
+      summary: Delete a BookGuests business object record
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-bookguests-delete
+      responses:
+        '200':
+          description: Success in deleting a business object record
+        '400':
+          schema:
+            $ref: '#/definitions/Error400'
+          description: Bad request
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+        '404':
+          schema:
+            $ref: '#/definitions/Error404'
+          description: Not found
+      parameters:
+      - in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        type: string
+        required: true
+      tags:
+      - BookGuests
+    put:
+      summary: Update a BookGuestsbusiness object record
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-bookguests-update
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/BookGuests'
+          description: Success in updating a business object record
+        '400':
+          schema:
+            $ref: '#/definitions/Error400'
+          description: Bad request
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+        '404':
+          schema:
+            $ref: '#/definitions/Error404'
+          description: Not found
+      parameters:
+      - in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        type: string
+        required: true
+      - schema:
+          $ref: '#/definitions/BookGuests'
+        in: body
+        name: body
+      tags:
+      - BookGuests
+      consumes:
+      - application/json
+  /rest/BookPayments:
+    get:
+      summary: Search BookPayments business object records or get contextualized metadata
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-bookpayments-search
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/ArrayOfBookPayments'
+          description: Success in searching business object records (or in getting
+            contextualized business object metadata, documentation, ...)
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+      parameters:
+      - in: query
+        name: _metadata
+        description: Metadata?
+        type: boolean
+        required: false
+      - in: query
+        name: _count
+        description: Count?
+        type: boolean
+        required: false
+      - in: query
+        name: _doc
+        description: Documentation?
+        type: boolean
+        required: false
+      - in: query
+        name: BookPayments_BookBookings_id
+        description: Search filter for Booking|Bookings
+        type: string
+        required: false
+      - in: query
+        name: BookPayments_BookBookings_id__BookBookings_BookUsers_id
+        description: Search filter for Booking|Bookings Book users
+        type: string
+        required: false
+      - in: query
+        name: BookPayments_BookBookings_id__bookBookbookingsDate
+        description: Search filter for Booking|Bookings book bookbookings date
+        type: string
+        required: false
+      - in: query
+        name: BookPayments_BookBookings_id__bookBookbookingsHour
+        description: Search filter for Booking|Bookings book bookbookings hour
+        type: string
+        required: false
+      - in: query
+        name: BookPayments_BookBookings_id__BookBookings_BookUsers_id__usr_title
+        description: Search filter for Title
+        type: string
+        required: false
+        enum:
+        - MR
+        - MRS
+        - MS
+      - in: query
+        name: BookPayments_BookBookings_id__BookBookings_BookUsers_id__usr_last_name
+        description: Search filter for Last name
+        type: string
+        required: false
+      - in: query
+        name: BookPayments_BookBookings_id__BookBookings_BookUsers_id__usr_first_name
+        description: Search filter for First name
+        type: string
+        required: false
+      - in: query
+        name: BookPayments_BookBookings_id__BookBookings_BookUsers_id__bookBookusersEmail
+        description: Search filter for Booking|Bookings Book users book bookusers
+          email
+        type: string
+        required: false
+      - in: query
+        name: BookPayments_BookBookings_id__bookBookbookingsStartDate
+        description: Search filter for Booking|Bookings book bookbookings start date
+        type: string
+        required: false
+      - in: query
+        name: BookPayments_BookBookings_id__bookBookbookingsEndDate
+        description: Search filter for Booking|Bookings book bookbookings end date
+        type: string
+        required: false
+      - in: query
+        name: bookPayPaymId
+        description: Search filter for Payment method
+        type: string
+        required: false
+      - in: query
+        name: bookPayPaymId__bookPaymCode
+        description: Search filter for Payment method book paym code
+        type: string
+        required: false
+      - in: query
+        name: bookPayPaymId__bookPaymLibell
+        description: Search filter for Payment method book paym libell
+        type: string
+        required: false
+      - in: query
+        name: bookPayAmount
+        description: Search filter for book pay amount
+        type: number
+        required: false
+      - in: query
+        name: bookPayComments
+        description: Search filter for book pay comments
+        type: string
+        required: false
+      tags:
+      - BookPayments
+  /rest/BookRoomType:
+    get:
+      summary: Search BookRoomType business object records or get contextualized metadata
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-bookroomtype-search
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/ArrayOfBookRoomType'
+          description: Success in searching business object records (or in getting
+            contextualized business object metadata, documentation, ...)
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+      parameters:
+      - in: query
+        name: _metadata
+        description: Metadata?
+        type: boolean
+        required: false
+      - in: query
+        name: _count
+        description: Count?
+        type: boolean
+        required: false
+      - in: query
+        name: _doc
+        description: Documentation?
+        type: boolean
+        required: false
+      - in: query
+        name: bookRoomtypCode
+        description: Search filter for book roomtyp code
+        type: string
+        required: false
+      - in: query
+        name: bookRoomtypType
+        description: Search filter for book roomtyp type
+        type: string
+        required: false
+      tags:
+      - BookRoomType
+  /:
+    get:
+      summary: Get user session information
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: info
+      responses:
+        '200':
+          description: Success in getting user session information
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+      parameters:
+      - in: query
+        name: texts
+        description: Texts?
+        type: boolean
+        required: false
+      tags:
+      - session
+  /rest/BookBookingsBookGuests:
+    get:
+      summary: Search BookBookingsBookGuests business object records or get contextualized
+        metadata
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-bookbookingsbookguests-search
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/ArrayOfBookBookingsBookGuests'
+          description: Success in searching business object records (or in getting
+            contextualized business object metadata, documentation, ...)
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+      parameters:
+      - in: query
+        name: _metadata
+        description: Metadata?
+        type: boolean
+        required: false
+      - in: query
+        name: _count
+        description: Count?
+        type: boolean
+        required: false
+      - in: query
+        name: _doc
+        description: Documentation?
+        type: boolean
+        required: false
+      - in: query
+        name: bookBookingsfk
+        description: Search filter for app book bookings fk
+        type: string
+        required: false
+      - in: query
+        name: bookBookingsfk__BookBookings_BookUsers_id
+        description: Search filter for app book bookings fk Book users
+        type: string
+        required: false
+      - in: query
+        name: bookBookingsfk__BookBookings_BookUsers_id__usr_last_name
+        description: Search filter for Last name
+        type: string
+        required: false
+      - in: query
+        name: bookBookingsfk__BookBookings_BookUsers_id__usr_first_name
+        description: Search filter for First name
+        type: string
+        required: false
+      - in: query
+        name: bookBookingsfk__BookBookings_BookUsers_id__bookBookusersEmail
+        description: Search filter for app book bookings fk Book users book bookusers
+          email
+        type: string
+        required: false
+      - in: query
+        name: bookBookingsfk__bookBookbookingsDate
+        description: Search filter for app book bookings fk book bookbookings date
+        type: string
+        required: false
+      - in: query
+        name: bookBookingsfk__bookBookbookingsHour
+        description: Search filter for app book bookings fk book bookbookings hour
+        type: string
+        required: false
+      - in: query
+        name: bookBookingsfk__bookBookbookingsStartDate
+        description: Search filter for app book bookings fk book bookbookings start
+          date
+        type: string
+        required: false
+      - in: query
+        name: bookBookingsfk__bookBookbookingsEndDate
+        description: Search filter for app book bookings fk book bookbookings end
+          date
+        type: string
+        required: false
+      - in: query
+        name: bookBookingsfk__bookBookbookingsStatut
+        description: Search filter for app book bookings fk book bookbookings statut
+        type: string
+        required: false
+        enum:
+        - EA
+        - TR
+        - Cl
+      - in: query
+        name: bookGuestsId
+        description: Search filter for app book guests fk
+        type: string
+        required: false
+      - in: query
+        name: bookGuestsId__usr_last_name
+        description: Search filter for Last name
+        type: string
+        required: false
+      - in: query
+        name: bookGuestsId__usr_first_name
+        description: Search filter for First name
+        type: string
+        required: false
+      - in: query
+        name: bookGuestsId__bookBookusersEmail
+        description: Search filter for app book guests fk book bookusers email
+        type: string
+        required: false
+      - in: query
+        name: bookBookingsBookGuestsBookRoomId
+        description: Search filter for Room|Rooms
+        type: string
+        required: false
+      - in: query
+        name: bookBookingsBookGuestsBookRoomId__bookRoomCode
+        description: Search filter for Room|Rooms book room code
+        type: string
+        required: false
+      - in: query
+        name: bookBookingsBookGuestsBookRoomId__bookRoomLabel
+        description: Search filter for Room|Rooms book room label
+        type: string
+        required: false
+      - in: query
+        name: bookBookingsBookGuestsBookRoomId__BookRoom_BookRoomType_id__bookRoomtypType
+        description: Search filter for Room|Rooms Room Type book roomtyp type
+        type: string
+        required: false
+      - in: query
+        name: bookBookingsBookGuestsBookRoomId__BookRoom_BookRoomType_id
+        description: Search filter for Room|Rooms Room Type
+        type: string
+        required: false
+      - in: query
+        name: bookBookingsBookGuestsBookRoomId__bookRoomSuperficie
+        description: Search filter for Room|Rooms book room superficie
+        type: string
+        required: false
+        enum:
+        - '12'
+        - '15'
+        - '17'
+        - '22'
+      - in: query
+        name: bookBookingsBookGuestsBookRoomId__bookRoomFloor
+        description: Search filter for Room|Rooms book room floor
+        type: string
+        required: false
+        enum:
+        - '0'
+        - '1'
+        - '2'
+        - '3'
+        - '4'
+        - '5'
+        - '6'
+      - in: query
+        name: bookBookingsBookGuestsBookRoomId__bookRoomPhoto
+        description: Search filter for Room|Rooms book room photo
+        type: string
+        required: false
+      tags:
+      - BookBookingsBookGuests
+  /rest/BookPayments/{row_id}:
+    post:
+      summary: Create a new BookPaymentsbusiness object record
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-bookpayments-create
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/BookPayments'
+          description: Success in creating a new business object record
+        '400':
+          schema:
+            $ref: '#/definitions/Error400'
+          description: Bad request
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+      parameters:
+      - in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        type: string
+        required: true
+      - schema:
+          $ref: '#/definitions/BookPayments'
+        in: body
+        name: body
+      tags:
+      - BookPayments
+      consumes:
+      - application/json
+    get:
+      summary: Get a BookPayments business object record
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-bookpayments-get
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/BookPayments'
+          description: Success in getting a single business object record
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+        '404':
+          schema:
+            $ref: '#/definitions/Error404'
+          description: Not found
+      parameters:
+      - in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        type: string
+        required: true
+      - in: query
+        name: _inline_documents
+        description: Inline documents?
+        type: boolean
+        required: false
+      - in: query
+        name: _inline_thumbnails
+        description: Inline documents' thumbnails?
+        type: boolean
+        required: false
+      - in: query
+        name: _inline_objects
+        description: Inline objects?
+        type: boolean
+        required: false
+      tags:
+      - BookPayments
+    delete:
+      summary: Delete a BookPayments business object record
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-bookpayments-delete
+      responses:
+        '200':
+          description: Success in deleting a business object record
+        '400':
+          schema:
+            $ref: '#/definitions/Error400'
+          description: Bad request
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+        '404':
+          schema:
+            $ref: '#/definitions/Error404'
+          description: Not found
+      parameters:
+      - in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        type: string
+        required: true
+      tags:
+      - BookPayments
+    put:
+      summary: Update a BookPaymentsbusiness object record
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-bookpayments-update
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/BookPayments'
+          description: Success in updating a business object record
+        '400':
+          schema:
+            $ref: '#/definitions/Error400'
+          description: Bad request
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+        '404':
+          schema:
+            $ref: '#/definitions/Error404'
+          description: Not found
+      parameters:
+      - in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        type: string
+        required: true
+      - schema:
+          $ref: '#/definitions/BookPayments'
+        in: body
+        name: body
+      tags:
+      - BookPayments
+      consumes:
+      - application/json
+securityDefinitions:
+  basicAuth:
+    type: basic
+  bearerAuth:
+    in: header
+    name: Authorization
+    type: apiKey
+definitions:
+  Error404:
+    type: object
+    properties:
+      error:
+        description: Error message
+        type: string
+      status:
+        description: Error status
+        type: integer
+        enum:
+        - 404
+  BookPaymentMethod:
+    type: object
+    properties:
+      bookPaymCode:
+        description: book paym code
+        type: string
+      row_id:
+        description: Unique technical row ID
+        type: string
+      bookPaymLibell:
+        description: book paym libell
+        type: string
+  ArrayOfBookGuests:
+    type: array
+    items:
+      $ref: '#/definitions/BookGuests'
+  BookRoomEquipment:
+    type: object
+    properties:
+      bookEquLibell:
+        description: book equ libell
+        type: string
+      row_id:
+        description: Unique technical row ID
+        type: string
+      bookEquCode:
+        description: book equ code
+        type: string
+  BookGuests:
+    type: object
+    properties:
+      usr_home_num:
+        description: Home phone
+        type: string
+      usr_country:
+        description: Country
+        type: string
+        enum:
+        - FR
+        - UK
+        - ES
+        - DE
+        - BE
+        - CH
+        - IE
+        - US
+        - CA
+      usr_title:
+        description: Title
+        type: string
+        enum:
+        - MR
+        - MRS
+        - MS
+      usr_zipcode:
+        description: Postal/ZIP code
+        type: string
+      usr_address1:
+        description: Address line 1
+        type: string
+      usr_address2:
+        description: Address line 2
+        type: string
+      usr_last_name:
+        description: Last name
+        type: string
+      usr_cell_num:
+        description: Mobile/cellular phone number
+        type: string
+      usr_city:
+        description: City
+        type: string
+      bookBookusersEmail:
+        description: book bookusers email
+        type: string
+      row_id:
+        description: Unique technical row ID
+        type: string
+      usr_work_num:
+        description: Work phone number
+        type: string
+      usr_state:
+        description: State
+        type: string
+      usr_first_name:
+        description: First name
+        type: string
+      bookBookusersType:
+        description: book bookusers type
+        type: string
+        enum:
+        - CUS
+        - ACC
+  BookBookingsBookGuests:
+    type: object
+    properties:
+      bookGuestsId__usr_first_name:
+        description: First name
+        type: string
+      bookBookingsfk__BookBookings_BookUsers_id__bookBookusersEmail:
+        description: app book bookings fk Book users book bookusers email
+        type: string
+      bookGuestsId__usr_last_name:
+        description: Last name
+        type: string
+      bookBookingsBookGuestsBookRoomId__bookRoomSuperficie:
+        description: Room|Rooms book room superficie
+        type: string
+        enum:
+        - '12'
+        - '15'
+        - '17'
+        - '22'
+      bookBookingsfk__bookBookbookingsEndDate:
+        description: app book bookings fk book bookbookings end date
+        type: string
+        example: yyyy-MM-dd
+      bookBookingsBookGuestsBookRoomId__bookRoomLabel:
+        description: Room|Rooms book room label
+        type: string
+      bookBookingsfk__bookBookbookingsHour:
+        description: app book bookings fk book bookbookings hour
+        type: string
+        example: HH:mm:ss
+      bookBookingsfk__BookBookings_BookUsers_id__usr_last_name:
+        description: Last name
+        type: string
+      bookBookingsfk:
+        description: app book bookings fk
+        type: string
+      bookBookingsBookGuestsBookRoomId__BookRoom_BookRoomType_id:
+        description: Room|Rooms Room Type
+        type: string
+      bookBookingsBookGuestsBookRoomId__bookRoomFloor:
+        description: Room|Rooms book room floor
+        type: string
+        enum:
+        - '0'
+        - '1'
+        - '2'
+        - '3'
+        - '4'
+        - '5'
+        - '6'
+      bookGuestsId:
+        description: app book guests fk
+        type: string
+      bookBookingsfk__BookBookings_BookUsers_id__usr_first_name:
+        description: First name
+        type: string
+      bookBookingsfk__BookBookings_BookUsers_id:
+        description: app book bookings fk Book users
+        type: string
+      bookBookingsBookGuestsBookRoomId__bookRoomPhoto:
+        description: Room|Rooms book room photo
+        type: object
+      bookBookingsfk__bookBookbookingsDate:
+        description: app book bookings fk book bookbookings date
+        type: string
+        example: yyyy-MM-dd
+      bookBookingsBookGuestsBookRoomId__BookRoom_BookRoomType_id__bookRoomtypType:
+        description: Room|Rooms Room Type book roomtyp type
+        type: string
+      bookBookingsfk__bookBookbookingsStartDate:
+        description: app book bookings fk book bookbookings start date
+        type: string
+        example: yyyy-MM-dd
+      bookGuestsId__bookBookusersEmail:
+        description: app book guests fk book bookusers email
+        type: string
+      row_id:
+        description: Unique technical row ID
+        type: string
+      bookBookingsBookGuestsBookRoomId:
+        description: Room|Rooms
+        type: string
+      bookBookingsBookGuestsBookRoomId__bookRoomCode:
+        description: Room|Rooms book room code
+        type: string
+      bookBookingsfk__bookBookbookingsStatut:
+        description: app book bookings fk book bookbookings statut
+        type: string
+        enum:
+        - EA
+        - TR
+        - Cl
+  ArrayOfBookUsers:
+    type: array
+    items:
+      $ref: '#/definitions/BookUsers'
+  PublicationResult:
+    type: object
+    properties:
+      mime:
+        description: MIME type
+        type: string
+      content:
+        description: Content (plain text or base64 encoded)
+        type: string
+  ArrayOfBookRoom:
+    type: array
+    items:
+      $ref: '#/definitions/BookRoom'
+  BookRoomBookRoomService:
+    type: object
+    properties:
+      app_BookRoom_fk:
+        description: app book room fk
+        type: string
+      app_BookRoom_fk__bookRoomCode:
+        description: app book room fk book room code
+        type: string
+      app_BookRoomService_fk__bookRservCode:
+        description: app book room service fk book rserv code
+        type: string
+      row_id:
+        description: Unique technical row ID
+        type: string
+      app_BookRoomService_fk:
+        description: app book room service fk
+        type: string
+  BookRoom:
+    type: object
+    properties:
+      BookRoom_BookRoomType_id:
+        description: Room Type
+        type: string
+      BookRoom_BookRoomType_id__bookRoomtypType:
+        description: Room Type book roomtyp type
+        type: string
+      bookRoomFloor:
+        description: book room floor
+        type: string
+        enum:
+        - '0'
+        - '1'
+        - '2'
+        - '3'
+        - '4'
+        - '5'
+        - '6'
+      bookRoomLabel:
+        description: book room label
+        type: string
+      BookRoom_BookRoomType_id__bookRoomtypCode:
+        description: Room Type book roomtyp code
+        type: string
+      bookRoomSuperficie:
+        description: book room superficie
+        type: string
+        enum:
+        - '12'
+        - '15'
+        - '17'
+        - '22'
+      bookRoomCode:
+        description: book room code
+        type: string
+      bookRoomPhoto:
+        description: book room photo
+        type: object
+      row_id:
+        description: Unique technical row ID
+        type: string
+      bookRoomDesc:
+        description: book room desc
+        type: string
+      bookRoomPriceht:
+        description: book room priceht
+        type: number
+  ArrayOfBookBookingsBookGuests:
+    type: array
+    items:
+      $ref: '#/definitions/BookBookingsBookGuests'
+  ArrayOfBookBookings:
+    type: array
+    items:
+      $ref: '#/definitions/BookBookings'
+  Error400:
+    type: object
+    properties:
+      error:
+        description: Error message
+        type: string
+      status:
+        description: Error status
+        type: integer
+        enum:
+        - 400
+  Error401:
+    type: object
+    properties:
+      error:
+        description: Error message
+        type: string
+      status:
+        description: Error status
+        type: integer
+        enum:
+        - 401
+  Error500:
+    type: object
+    properties:
+      error:
+        description: Error message
+        type: string
+      status:
+        description: Error status
+        type: integer
+        enum:
+        - 500
+  Error403:
+    type: object
+    properties:
+      error:
+        description: Error message
+        type: string
+      status:
+        description: Error status
+        type: integer
+        enum:
+        - 403
+  ArrayOfBookPaymentMethod:
+    type: array
+    items:
+      $ref: '#/definitions/BookPaymentMethod'
+  ArrayOfBookRoomEquipment:
+    type: array
+    items:
+      $ref: '#/definitions/BookRoomEquipment'
+  ArrayOfBookRoomType:
+    type: array
+    items:
+      $ref: '#/definitions/BookRoomType'
+  ArrayOfBookRoomBookRoomService:
+    type: array
+    items:
+      $ref: '#/definitions/BookRoomBookRoomService'
+  ArrayOfBookEquRoom:
+    type: array
+    items:
+      $ref: '#/definitions/BookEquRoom'
+  BookEquRoom:
+    type: object
+    properties:
+      bookEquroomRoomId:
+        description: book equroom room id
+        type: string
+      bookEquroomEquId__bookEquCode:
+        description: book equroom equ id book equ code
+        type: string
+      bookEquroomEquId:
+        description: book equroom equ id
+        type: string
+      bookEquroomRoomId__bookRoomCode:
+        description: book equroom room id book room code
+        type: string
+      row_id:
+        description: Unique technical row ID
+        type: string
+  BookBookings:
+    type: object
+    properties:
+      bookBookbookingsGuestNumber:
+        description: book bookbookings guest number
+        type: string
+        enum:
+        - '1'
+        - '2'
+        - '3'
+        - '4'
+        - '5'
+        - '6'
+        - '7'
+        - '8'
+        - '9'
+        - '10'
+      bookBookbookingsDate:
+        description: book bookbookings date
+        type: string
+        example: yyyy-MM-dd
+      bookBookbookingsPaymentTDate:
+        description: book bookbookings payment Tdate
+        type: string
+        example: yyyy-MM-dd
+      bookBookbookingsComments:
+        description: book bookbookings comments
+        type: string
+      BookBookings_BookUsers_id__usr_last_name:
+        description: Last name
+        type: string
+      bookBookbookingsStatut:
+        description: book bookbookings statut
+        type: string
+        enum:
+        - EA
+        - TR
+        - Cl
+      BookBookings_BookUsers_id__usr_title:
+        description: Title
+        type: string
+        enum:
+        - MR
+        - MRS
+        - MS
+      bookBookbookingsPaymentDone:
+        description: book bookbookings payment done
+        type: boolean
+      bookBookbookingsHour:
+        description: book bookbookings hour
+        type: string
+        example: HH:mm:ss
+      bookBookbookingsStartDate:
+        description: book bookbookings start date
+        type: string
+        example: yyyy-MM-dd
+      bookBookbookingsRoomNumber:
+        description: book bookbookings room number
+        type: string
+        enum:
+        - '1'
+        - '2'
+        - '3'
+        - '4'
+        - '5'
+        - '6'
+        - '7'
+        - '8'
+        - '9'
+        - '10'
+      BookBookings_BookUsers_id__usr_first_name:
+        description: First name
+        type: string
+      BookBookings_BookUsers_id__bookBookusersEmail:
+        description: Book users book bookusers email
+        type: string
+      bookBookbookingsAmountDate:
+        description: book bookbookings amount date
+        type: string
+        example: yyyy-MM-dd
+      BookBookings_BookUsers_id:
+        description: Book users
+        type: string
+      bookBookbookingsEndDate:
+        description: book bookbookings end date
+        type: string
+        example: yyyy-MM-dd
+      row_id:
+        description: Unique technical row ID
+        type: string
+  BookUsers:
+    type: object
+    properties:
+      usr_home_num:
+        description: Home phone
+        type: string
+      usr_country:
+        description: Country
+        type: string
+        enum:
+        - FR
+        - UK
+        - ES
+        - DE
+        - BE
+        - CH
+        - IE
+        - US
+        - CA
+      usr_title:
+        description: Title
+        type: string
+        enum:
+        - MR
+        - MRS
+        - MS
+      usr_zipcode:
+        description: Postal/ZIP code
+        type: string
+      usr_address1:
+        description: Address line 1
+        type: string
+      usr_address2:
+        description: Address line 2
+        type: string
+      usr_last_name:
+        description: Last name
+        type: string
+      usr_cell_num:
+        description: Mobile/cellular phone number
+        type: string
+      usr_city:
+        description: City
+        type: string
+      bookBookusersEmail:
+        description: book bookusers email
+        type: string
+      row_id:
+        description: Unique technical row ID
+        type: string
+      usr_work_num:
+        description: Work phone number
+        type: string
+      usr_state:
+        description: State
+        type: string
+      usr_first_name:
+        description: First name
+        type: string
+      bookBookusersType:
+        description: book bookusers type
+        type: string
+        enum:
+        - CUS
+        - ACC
+  ArrayOfBookPayments:
+    type: array
+    items:
+      $ref: '#/definitions/BookPayments'
+  BookRoomType:
+    type: object
+    properties:
+      bookRoomtypCode:
+        description: book roomtyp code
+        type: string
+      row_id:
+        description: Unique technical row ID
+        type: string
+      bookRoomtypType:
+        description: book roomtyp type
+        type: string
+  ActionResult:
+    type: object
+    properties:
+      result:
+        description: Action result
+        type: string
+  TreeviewData:
+    type: object
+    properties:
+      item:
+        description: Object item with lists of linked objects' items
+        type: object
+  BookPayments:
+    type: object
+    properties:
+      BookPayments_BookBookings_id__BookBookings_BookUsers_id__usr_first_name:
+        description: First name
+        type: string
+      bookPayAmount:
+        description: book pay amount
+        type: number
+      BookPayments_BookBookings_id__bookBookbookingsHour:
+        description: Booking|Bookings book bookbookings hour
+        type: string
+        example: HH:mm:ss
+      BookPayments_BookBookings_id__BookBookings_BookUsers_id:
+        description: Booking|Bookings Book users
+        type: string
+      BookPayments_BookBookings_id__bookBookbookingsEndDate:
+        description: Booking|Bookings book bookbookings end date
+        type: string
+        example: yyyy-MM-dd
+      bookPayPaymId__bookPaymCode:
+        description: Payment method book paym code
+        type: string
+      BookPayments_BookBookings_id__bookBookbookingsStartDate:
+        description: Booking|Bookings book bookbookings start date
+        type: string
+        example: yyyy-MM-dd
+      BookPayments_BookBookings_id__BookBookings_BookUsers_id__usr_title:
+        description: Title
+        type: string
+        enum:
+        - MR
+        - MRS
+        - MS
+      BookPayments_BookBookings_id__BookBookings_BookUsers_id__usr_last_name:
+        description: Last name
+        type: string
+      BookPayments_BookBookings_id__BookBookings_BookUsers_id__bookBookusersEmail:
+        description: Booking|Bookings Book users book bookusers email
+        type: string
+      BookPayments_BookBookings_id:
+        description: Booking|Bookings
+        type: string
+      bookPayPaymId:
+        description: Payment method
+        type: string
+      row_id:
+        description: Unique technical row ID
+        type: string
+      bookPayComments:
+        description: book pay comments
+        type: string
+      BookPayments_BookBookings_id__bookBookbookingsDate:
+        description: Booking|Bookings book bookbookings date
+        type: string
+        example: yyyy-MM-dd
+      bookPayPaymId__bookPaymLibell:
+        description: Payment method book paym libell
+        type: string
+  BookRoomService:
+    type: object
+    properties:
+      bookRservCode:
+        description: book rserv code
+        type: string
+      row_id:
+        description: Unique technical row ID
+        type: string
+      bookRservLibell:
+        description: book rserv libell
+        type: string
+  ArrayOfBookRoomService:
+    type: array
+    items:
+      $ref: '#/definitions/BookRoomService'
+swagger: '2.0'
+info:
+  license:
+    name: Simplicite license
+    url: http://www.simplicitesoftware.com
+  contact:
+    name: Simplicite Software
+    url: http://www.simplicitesoftware.com
+    email: contact@simplicitesoftware.com
+  description: API for module Booking
+  title: Booking
+  version: '0.1'
+tags:
+- name: BookBookings
+  description: Booking
+- name: BookBookingsBookGuests
+  description: App book bookings book guests
+- name: BookEquRoom
+  description: Book equ room
+- name: BookGuests
+  description: Guests
+- name: BookPaymentMethod
+  description: Payment method
+- name: BookPayments
+  description: Book payments
+- name: BookRoom
+  description: Room
+- name: BookRoomBookRoomService
+  description: App book room book room service
+- name: BookRoomEquipment
+  description: Book room equipment
+- name: BookRoomService
+  description: Book room service
+- name: BookRoomType
+  description: Room Type
+- name: BookUsers
+  description: Book users
