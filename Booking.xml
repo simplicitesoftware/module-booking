@@ -910,7 +910,7 @@
 		<fld_name>bookBookbookingsDate</fld_name>
 		<fld_dbname>book_bookbookings_date</fld_dbname>
 		<fld_visible>3</fld_visible>
-		<fld_updatable>1</fld_updatable>
+		<fld_updatable>0</fld_updatable>
 		<fld_required>1</fld_required>
 		<fld_fonctid>1</fld_fonctid>
 		<fld_research>1</fld_research>
@@ -948,7 +948,7 @@
 		<fld_dbname>book_bookbookings_enddate</fld_dbname>
 		<fld_visible>3</fld_visible>
 		<fld_updatable>1</fld_updatable>
-		<fld_required>0</fld_required>
+		<fld_required>1</fld_required>
 		<fld_fonctid>0</fld_fonctid>
 		<fld_research>1</fld_research>
 		<fld_researchreq>0</fld_researchreq>
@@ -1021,7 +1021,7 @@
 		<fld_name>bookBookbookingsHour</fld_name>
 		<fld_dbname>book_bookbookings_hour</fld_dbname>
 		<fld_visible>3</fld_visible>
-		<fld_updatable>1</fld_updatable>
+		<fld_updatable>0</fld_updatable>
 		<fld_required>1</fld_required>
 		<fld_fonctid>1</fld_fonctid>
 		<fld_research>1</fld_research>
@@ -2618,7 +2618,7 @@
 		<obo_name>BookBookings</obo_name>
 		<obo_dbtable>book_bookings</obo_dbtable>
 		<obo_class/>
-		<obo_script_id/>
+		<obo_script_id>src/com/simplicite/objects/Booking/BookBookings.java</obo_script_id>
 		<obo_usets>1</obo_usets>
 		<obo_nosearch>1</obo_nosearch>
 		<obo_comment><![CDATA[Bookings of a customer]]></obo_comment>
