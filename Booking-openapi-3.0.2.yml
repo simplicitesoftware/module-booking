@@ -91,6 +91,10 @@ components:
         bookBookusersEmail:
           description: book bookusers email
           type: string
+        bookUserGeoCoord:
+          description: book user geo coord
+          type: string
+          example: latitude;longitude
         row_id:
           description: Unique technical row ID
           type: string
@@ -132,7 +136,7 @@ components:
         bookBookingsfk__bookBookbookingsEndDate:
           description: app book bookings fk book bookbookings end date
           type: string
-          example: yyyy-MM-dd
+          example: yyyy-MM-dd HH:mm:ss
         bookBookingsBookGuestsBookRoomId__bookRoomLabel:
           description: Room|Rooms book room label
           type: string
@@ -160,6 +164,9 @@ components:
           - '4'
           - '5'
           - '6'
+        bookBookingsBookGuestsBookRoomId__bookRoomPriceht:
+          description: Room|Rooms book room priceht
+          type: number
         bookGuestsId:
           description: app book guests fk
           type: string
@@ -182,7 +189,7 @@ components:
         bookBookingsfk__bookBookbookingsStartDate:
           description: app book bookings fk book bookbookings start date
           type: string
-          example: yyyy-MM-dd
+          example: yyyy-MM-dd HH:mm:ss
         bookGuestsId__bookBookusersEmail:
           description: app book guests fk book bookusers email
           type: string
@@ -431,7 +438,7 @@ components:
         bookBookbookingsStartDate:
           description: book bookbookings start date
           type: string
-          example: yyyy-MM-dd
+          example: yyyy-MM-dd HH:mm:ss
         bookBookbookingsRoomNumber:
           description: book bookbookings room number
           type: string
@@ -462,9 +469,112 @@ components:
         bookBookbookingsEndDate:
           description: book bookbookings end date
           type: string
-          example: yyyy-MM-dd
+          example: yyyy-MM-dd HH:mm:ss
         row_id:
           description: Unique technical row ID
+          type: string
+    BookBookingsHistoric:
+      type: object
+      properties:
+        bookBookbookingsGuestNumber:
+          description: book bookbookings guest number
+          type: string
+          enum:
+          - '1'
+          - '2'
+          - '3'
+          - '4'
+          - '5'
+          - '6'
+          - '7'
+          - '8'
+          - '9'
+          - '10'
+        bookBookbookingsDate:
+          description: book bookbookings date
+          type: string
+          example: yyyy-MM-dd
+        bookBookbookingsPaymentTDate:
+          description: book bookbookings payment Tdate
+          type: string
+          example: yyyy-MM-dd
+        bookBookbookingsComments:
+          description: book bookbookings comments
+          type: string
+        BookBookings_BookUsers_id__usr_last_name:
+          description: Last name
+          type: string
+        created_dt_hist:
+          description: Created date
+          type: string
+          example: yyyy-MM-dd HH:mm:ss
+        bookBookbookingsStatut:
+          description: book bookbookings statut
+          type: string
+          enum:
+          - EA
+          - TR
+          - Cl
+        row_ref_id:
+          description: Record row ID
+          type: string
+        BookBookings_BookUsers_id__usr_title:
+          description: Title
+          type: string
+          enum:
+          - MR
+          - MRS
+          - MS
+        bookBookbookingsPaymentDone:
+          description: book bookbookings payment done
+          type: boolean
+        bookBookbookingsHour:
+          description: book bookbookings hour
+          type: string
+          example: HH:mm:ss
+        row_idx:
+          description: History record index
+          type: integer
+        bookBookbookingsStartDate:
+          description: book bookbookings start date
+          type: string
+          example: yyyy-MM-dd HH:mm:ss
+        bookBookbookingsRoomNumber:
+          description: book bookbookings room number
+          type: string
+          enum:
+          - '1'
+          - '2'
+          - '3'
+          - '4'
+          - '5'
+          - '6'
+          - '7'
+          - '8'
+          - '9'
+          - '10'
+        BookBookings_BookUsers_id__usr_first_name:
+          description: First name
+          type: string
+        BookBookings_BookUsers_id__bookBookusersEmail:
+          description: Book users book bookusers email
+          type: string
+        bookBookbookingsAmountDate:
+          description: book bookbookings amount date
+          type: string
+          example: yyyy-MM-dd
+        BookBookings_BookUsers_id:
+          description: Book users
+          type: string
+        bookBookbookingsEndDate:
+          description: book bookbookings end date
+          type: string
+          example: yyyy-MM-dd HH:mm:ss
+        row_id:
+          description: Unique technical row ID
+          type: string
+        created_by_hist:
+          description: Created by
           type: string
     BookUsers:
       type: object
@@ -513,6 +623,10 @@ components:
         bookBookusersEmail:
           description: book bookusers email
           type: string
+        bookUserGeoCoord:
+          description: book user geo coord
+          type: string
+          example: latitude;longitude
         row_id:
           description: Unique technical row ID
           type: string
@@ -553,6 +667,10 @@ components:
         result:
           description: Action result
           type: string
+    ArrayOfBookBookingsHistoric:
+      type: array
+      items:
+        $ref: '#/components/schemas/BookBookingsHistoric'
     TreeviewData:
       type: object
       properties:
@@ -578,14 +696,14 @@ components:
         BookPayments_BookBookings_id__bookBookbookingsEndDate:
           description: Booking|Bookings book bookbookings end date
           type: string
-          example: yyyy-MM-dd
+          example: yyyy-MM-dd HH:mm:ss
         bookPayPaymId__bookPaymCode:
           description: Payment method book paym code
           type: string
         BookPayments_BookBookings_id__bookBookbookingsStartDate:
           description: Booking|Bookings book bookbookings start date
           type: string
-          example: yyyy-MM-dd
+          example: yyyy-MM-dd HH:mm:ss
         BookPayments_BookBookings_id__BookBookings_BookUsers_id__usr_title:
           description: Title
           type: string
@@ -1330,6 +1448,12 @@ paths:
         in: query
         name: bookBookusersType
         description: Search filter for book bookusers type
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: bookUserGeoCoord
+        description: Search filter for book user geo coord
         required: false
       tags:
       - BookGuests
@@ -2439,6 +2563,12 @@ paths:
         in: query
         name: bookBookusersType
         description: Search filter for book bookusers type
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: bookUserGeoCoord
+        description: Search filter for book user geo coord
         required: false
       tags:
       - BookUsers
@@ -3893,6 +4023,204 @@ paths:
         required: false
       tags:
       - BookPayments
+  /rest/BookBookingsHistoric:
+    get:
+      summary: Search BookBookingsHistoric business object records or get contextualized
+        metadata
+      security:
+      - bearerAuth: []
+      operationId: obj-bookbookingshistoric-search
+      responses:
+        '200':
+          description: Success in searching business object records (or in getting
+            contextualized business object metadata, documentation, ...)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ArrayOfBookBookingsHistoric'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+      parameters:
+      - schema:
+          type: boolean
+        in: query
+        name: _metadata
+        description: Metadata?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _count
+        description: Count?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _doc
+        description: Documentation?
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: row_ref_id
+        description: Search filter for Record row ID
+        required: false
+      - schema:
+          type: integer
+        in: query
+        name: row_idx
+        description: Search filter for History record index
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: created_by_hist
+        description: Search filter for Created by
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: created_dt_hist
+        description: Search filter for Created date
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: BookBookings_BookUsers_id
+        description: Search filter for Book users
+        required: false
+      - schema:
+          type: string
+          enum:
+          - MR
+          - MRS
+          - MS
+        in: query
+        name: BookBookings_BookUsers_id__usr_title
+        description: Search filter for Title
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: BookBookings_BookUsers_id__usr_last_name
+        description: Search filter for Last name
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: BookBookings_BookUsers_id__usr_first_name
+        description: Search filter for First name
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: BookBookings_BookUsers_id__bookBookusersEmail
+        description: Search filter for Book users book bookusers email
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: bookBookbookingsDate
+        description: Search filter for book bookbookings date
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: bookBookbookingsHour
+        description: Search filter for book bookbookings hour
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: bookBookbookingsStartDate
+        description: Search filter for book bookbookings start date
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: bookBookbookingsEndDate
+        description: Search filter for book bookbookings end date
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: bookBookbookingsPaymentTDate
+        description: Search filter for book bookbookings payment Tdate
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: bookBookbookingsAmountDate
+        description: Search filter for book bookbookings amount date
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: bookBookbookingsPaymentDone
+        description: Search filter for book bookbookings payment done
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: bookBookbookingsComments
+        description: Search filter for book bookbookings comments
+        required: false
+      - schema:
+          type: string
+          enum:
+          - EA
+          - TR
+          - Cl
+        in: query
+        name: bookBookbookingsStatut
+        description: Search filter for book bookbookings statut
+        required: false
+      - schema:
+          type: string
+          enum:
+          - '1'
+          - '2'
+          - '3'
+          - '4'
+          - '5'
+          - '6'
+          - '7'
+          - '8'
+          - '9'
+          - '10'
+        in: query
+        name: bookBookbookingsRoomNumber
+        description: Search filter for book bookbookings room number
+        required: false
+      - schema:
+          type: string
+          enum:
+          - '1'
+          - '2'
+          - '3'
+          - '4'
+          - '5'
+          - '6'
+          - '7'
+          - '8'
+          - '9'
+          - '10'
+        in: query
+        name: bookBookbookingsGuestNumber
+        description: Search filter for book bookbookings guest number
+        required: false
+      tags:
+      - BookBookingsHistoric
   /rest/BookRoomType:
     get:
       summary: Search BookRoomType business object records or get contextualized metadata
@@ -4023,6 +4351,20 @@ paths:
         in: query
         name: _doc
         description: Documentation?
+        required: false
+      - schema:
+          type: string
+          enum:
+          - BookBookings-TC
+        in: query
+        name: _crosstab
+        description: Apply pivot table
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _crosstabcubes
+        description: Pivot table data as cubes?
         required: false
       - schema:
           type: string
@@ -4175,6 +4517,12 @@ paths:
         in: query
         name: bookBookingsBookGuestsBookRoomId__bookRoomPhoto
         description: Search filter for Room|Rooms book room photo
+        required: false
+      - schema:
+          type: number
+        in: query
+        name: bookBookingsBookGuestsBookRoomId__bookRoomPriceht
+        description: Search filter for Room|Rooms book room priceht
         required: false
       tags:
       - BookBookingsBookGuests
@@ -4373,6 +4721,201 @@ paths:
         required: true
       tags:
       - BookPayments
+  /rest/BookBookingsHistoric/{row_id}:
+    post:
+      summary: Create a new BookBookingsHistoricbusiness object record
+      security:
+      - bearerAuth: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BookBookingsHistoric'
+      operationId: obj-bookbookingshistoric-create
+      responses:
+        '200':
+          description: Success in creating a new business object record
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BookBookingsHistoric'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error400'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        required: true
+      tags:
+      - BookBookingsHistoric
+    get:
+      summary: Get a BookBookingsHistoric business object record
+      security:
+      - bearerAuth: []
+      operationId: obj-bookbookingshistoric-get
+      responses:
+        '200':
+          description: Success in getting a single business object record
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BookBookingsHistoric'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error404'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        required: true
+      - schema:
+          type: boolean
+        in: query
+        name: _inline_documents
+        description: Inline documents?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _inline_thumbnails
+        description: Inline documents' thumbnails?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _inline_objects
+        description: Inline objects?
+        required: false
+      tags:
+      - BookBookingsHistoric
+    delete:
+      summary: Delete a BookBookingsHistoric business object record
+      security:
+      - bearerAuth: []
+      operationId: obj-bookbookingshistoric-delete
+      responses:
+        '200':
+          description: Success in deleting a business object record
+          content:
+            application/json: {}
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error400'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error404'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        required: true
+      tags:
+      - BookBookingsHistoric
+    put:
+      summary: Update a BookBookingsHistoricbusiness object record
+      security:
+      - bearerAuth: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BookBookingsHistoric'
+      operationId: obj-bookbookingshistoric-update
+      responses:
+        '200':
+          description: Success in updating a business object record
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BookBookingsHistoric'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error400'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error404'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        required: true
+      tags:
+      - BookBookingsHistoric
 info:
   license:
     name: Simplicite license
@@ -4389,6 +4932,8 @@ tags:
   description: Booking
 - name: BookBookingsBookGuests
   description: App book bookings book guests
+- name: BookBookingsHistoric
+  description: History
 - name: BookEquRoom
   description: Book equ room
 - name: BookGuests

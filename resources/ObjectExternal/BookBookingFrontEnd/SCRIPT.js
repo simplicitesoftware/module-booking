@@ -18,7 +18,7 @@ var BookBookingFrontEnd = BookBookingFrontEnd || (function($) {
 	
 			room = room || app.getBusinessObject('BookRoom');
 			room.bannerURL = room.bannerURL || params.bannerURL; // Image banner URL
-			room.toFixed = room.toFixed || function() { return function(n, r) { return parseFloat(r(n)).toFixed(2); } }; // Rendering function for decimal
+			room.toFixed = room.toFixed || function() { return function(n, r) { return parseFloat(r(n)).toFixed(2); } }; 
 
 			room.search(function() {
 				div.html(Mustache.render($('#booking-template').html(), room));

@@ -7,22 +7,21 @@ import com.simplicite.util.tools.*;
 /**
  * Business object BookGuests
  */
-public class BookGuests extends ObjectDB {
+public class BookGuests extends BookUsers {
 	private static final long serialVersionUID = 1L;
 	
 	@Override
-	public String preCreate() {
-		
+	public String postCreate() {
 		if (isProcessInstance()){
 			String demandId = getGrant().getParameter("DEMANDID");
 			if (!Tool.isEmpty(demandId)){
-				createGuest(getGrant(), demandId, getRowId());
+				createBookingGuest(getGrant(), demandId, getRowId());
 			}	
 		} 
 		return null;
 	}
 	
-	public void createGuest(Grant g, String demandId, String rowid){
+	public void createBookingGuest(Grant g, String demandId, String rowid){
 		try {
 			ObjectDB o = getGrant().getTmpObject("BookBookingsBookGuests");
 			BusinessObjectTool ot = o.getTool();
@@ -30,6 +29,7 @@ public class BookGuests extends ObjectDB {
 			o.setFieldValue("bookBookingsfk", demandId); 
 			o.setFieldValue("bookGuestsId", rowid); 
 			ot.validateAndSave();
+			getGrant().removeParameter("DEMANDID");
 			
 		} catch (Exception e) {
 			AppLog.error(e, getGrant());

@@ -30,7 +30,7 @@ public class BookBookingFrontEnd extends ExternalObject {
 				wp.append(HTMLTool.getResourceHTMLContent(this, "HTML"));
 				wp.setReady(render);
 				return wp.toString();
-			} else { // Private page version
+			} else { 
 				addMustache();
 				return javascript(render);
 			}
