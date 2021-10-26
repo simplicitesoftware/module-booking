@@ -13,7 +13,7 @@ public class BookPaymentMethod extends ObjectDB {
 		@Override
 	public List<String> postValidate() {
 		List<String> msgs = new ArrayList<>();
-		//if (isNew()|| isCopied())
+		if (isNew()|| isCopied())
 		   setFieldValue("bookPaymCode", BookCommon.getNumber(getGrant(),"PAYM","book_payment_method", "book_paym_code"));
 		
 		return msgs;

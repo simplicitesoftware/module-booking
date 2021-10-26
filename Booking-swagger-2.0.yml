@@ -569,8 +569,8 @@ paths:
         - BE
         - CH
         - IE
-        - US
         - CA
+        - US
       - in: query
         name: bookBookusersEmail
         description: Search filter for book bookusers email
@@ -1509,8 +1509,8 @@ paths:
         - BE
         - CH
         - IE
-        - US
         - CA
+        - US
       - in: query
         name: bookBookusersEmail
         description: Search filter for book bookusers email
@@ -3562,8 +3562,8 @@ definitions:
         - BE
         - CH
         - IE
-        - US
         - CA
+        - US
       usr_title:
         description: Title
         type: string
@@ -4094,8 +4094,8 @@ definitions:
         - BE
         - CH
         - IE
-        - US
         - CA
+        - US
       usr_title:
         description: Title
         type: string
