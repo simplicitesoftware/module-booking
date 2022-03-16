@@ -15255,6 +15255,31 @@
    }]
   },
   {
+   "object": "Dataset",
+   "label": "Datasets",
+   "icon": "img/color/file",
+   "field": "row_module_id",
+   "list": [{
+    "object": "Dataset",
+    "userkey": "Booking~Booking-data-20220316091853",
+    "item": {
+     "row_module_id__mdl_name": "Booking",
+     "dt_name": "Booking-data-20220316091853",
+     "dt_file": {
+      "path": "data/Booking-data-20220316091853.zip",
+      "size": 811801,
+      "field": "dt_file",
+      "mime": "application/zip",
+      "name": "Booking-data-20220316091853.zip",
+      "id": "5714",
+      "object": "Dataset",
+      "rowid": "1"
+     },
+     "dt_desc": "Created by module's data export on 2022-03-16 09:18:53"
+    }
+   }]
+  },
+  {
    "object": "BPMGrantProcess",
    "label": "Process permission",
    "icon": "img/system/process_permission",
