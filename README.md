@@ -13,107 +13,6 @@
 
 
 
-`BookBookings` business object definition
------------------------------------------
-
-Bookings of a customer
-
-### Fields
-
-| Name                                                         | Type                                     | Required | Updatable | Personal | Description                                                                      |
-|--------------------------------------------------------------|------------------------------------------|----------|-----------|----------|----------------------------------------------------------------------------------|
-| `BookBookings_BookUsers_id` link to **`BookUsers`**          | id                                       | yes*     | yes       |          | -                                                                                |
-| _Ref. `BookBookings_BookUsers_id.usr_title`_                 | _enum(5) using `USER_TITLE` list_        |          |           | yes      | _Title_                                                                          |
-| _Ref. `BookBookings_BookUsers_id.usr_last_name`_             | _char(50)_                               |          |           | yes      | _Last name_                                                                      |
-| _Ref. `BookBookings_BookUsers_id.usr_first_name`_            | _char(50)_                               |          |           | yes      | _First name_                                                                     |
-| _Ref. `BookBookings_BookUsers_id.bookBookusersEmail`_        | _email(100)_                             |          |           |          | -                                                                                |
-| `bookBookbookingsDate`                                       | date                                     | yes*     |           |          | -                                                                                |
-| `bookBookbookingsHour`                                       | time                                     | yes*     |           |          | -                                                                                |
-| `bookBookbookingsStartDate`                                  | datetime                                 | yes      | yes       |          | -                                                                                |
-| `bookBookbookingsEndDate`                                    | datetime                                 | yes      | yes       |          | -                                                                                |
-| `bookBookbookingsPaymentTDate`                               | date                                     |          |           |          | -                                                                                |
-| `bookBookbookingsAmountDate`                                 | date                                     |          |           |          | -                                                                                |
-| `bookBookbookingsPaymentDone`                                | boolean                                  |          | yes       |          | -                                                                                |
-| `bookBookbookingsComments`                                   | html(2000)                               |          | yes       |          | -                                                                                |
-| `bookBookbookingsStatut`                                     | enum(2) using `BOOKBOOKBOOKINGSSTATUT` list |          | yes       |          | -                                                                                |
-| `bookBookbookingsRoomNumber`                                 | enum(100) using `BOOKBOOKBOOKINGSROOMNUMBER` list | yes      | yes       |          | -                                                                                |
-| `bookBookbookingsGuestNumber`                                | enum(2) using `BOOKBOOKBOOKINGSROOMNUMBER` list |          | yes       |          | -                                                                                |
-
-### Lists
-
-* `USER_TITLE`
-    - `MR` 
-    - `MRS` 
-    - `MS` 
-* `BOOKBOOKBOOKINGSSTATUT`
-    - `EA` En attente
-    - `TR` Traitée
-    - `Cl` Clôturée
-* `BOOKBOOKBOOKINGSROOMNUMBER`
-    - `1` 1
-    - `2` 2
-    - `3` 3
-    - `4` 4
-    - `5` 5
-    - `6` 6
-    - `7` 7
-    - `8` 8
-    - `9` 9
-    - `10` 10
-
-`BookBookingsBookGuests` business object definition
----------------------------------------------------
-
-
-
-### Fields
-
-| Name                                                         | Type                                     | Required | Updatable | Personal | Description                                                                      |
-|--------------------------------------------------------------|------------------------------------------|----------|-----------|----------|----------------------------------------------------------------------------------|
-| `bookBookingsfk` link to **`BookBookings`**                  | id                                       | yes*     | yes       |          | -                                                                                |
-| _Ref. `bookBookingsfk.BookBookings_BookUsers_id`_            | _id_                                     |          |           |          | -                                                                                |
-| _Ref. `BookBookings_BookUsers_id.usr_last_name`_             | _char(50)_                               |          |           | yes      | _Last name_                                                                      |
-| _Ref. `BookBookings_BookUsers_id.usr_first_name`_            | _char(50)_                               |          |           | yes      | _First name_                                                                     |
-| _Ref. `BookBookings_BookUsers_id.bookBookusersEmail`_        | _email(100)_                             |          |           |          | -                                                                                |
-| _Ref. `bookBookingsfk.bookBookbookingsDate`_                 | _date_                                   |          |           |          | -                                                                                |
-| _Ref. `bookBookingsfk.bookBookbookingsHour`_                 | _time_                                   |          |           |          | -                                                                                |
-| _Ref. `bookBookingsfk.bookBookbookingsStartDate`_            | _datetime_                               |          |           |          | -                                                                                |
-| _Ref. `bookBookingsfk.bookBookbookingsEndDate`_              | _datetime_                               |          |           |          | -                                                                                |
-| _Ref. `bookBookingsfk.bookBookbookingsStatut`_               | _enum(2) using `BOOKBOOKBOOKINGSSTATUT` list_ |          |           |          | -                                                                                |
-| `bookGuestsId` link to **`BookGuests`**                      | id                                       | *        | yes       |          | -                                                                                |
-| _Ref. `bookGuestsId.usr_last_name`_                          | _char(50)_                               |          |           | yes      | _Last name_                                                                      |
-| _Ref. `bookGuestsId.usr_first_name`_                         | _char(50)_                               |          |           | yes      | _First name_                                                                     |
-| _Ref. `bookGuestsId.bookBookusersEmail`_                     | _email(100)_                             |          |           |          | -                                                                                |
-| `bookBookingsBookGuestsBookRoomId` link to **`BookRoom`**    | id                                       |          | yes       |          | -                                                                                |
-| _Ref. `bookBookingsBookGuestsBookRoomId.bookRoomCode`_       | _char(20)_                               |          |           |          | -                                                                                |
-| _Ref. `bookBookingsBookGuestsBookRoomId.bookRoomLabel`_      | _char(255)_                              |          |           |          | -                                                                                |
-| _Ref. `BookRoom_BookRoomType_id.bookRoomtypType`_            | _text(100)_                              |          |           |          | -                                                                                |
-| _Ref. `bookBookingsBookGuestsBookRoomId.BookRoom_BookRoomType_id`_ | _id_                                     |          |           |          | -                                                                                |
-| _Ref. `bookBookingsBookGuestsBookRoomId.bookRoomSuperficie`_ | _enum(10) using `BOOKROOMSUPERFICIE` list_ |          |           |          | -                                                                                |
-| _Ref. `bookBookingsBookGuestsBookRoomId.bookRoomFloor`_      | _enum(2) using `BOOKROOMFLOOR` list_     |          |           |          | -                                                                                |
-| _Ref. `bookBookingsBookGuestsBookRoomId.bookRoomPhoto`_      | _image_                                  |          |           |          | -                                                                                |
-| _Ref. `bookBookingsBookGuestsBookRoomId.bookRoomPriceht`_    | _float(11, 2)_                           |          |           |          | -                                                                                |
-
-### Lists
-
-* `BOOKBOOKBOOKINGSSTATUT`
-    - `EA` En attente
-    - `TR` Traitée
-    - `Cl` Clôturée
-* `BOOKROOMSUPERFICIE`
-    - `12` 12 m2
-    - `15` 15 m2
-    - `17` 17 m2
-    - `22` 22m2
-* `BOOKROOMFLOOR`
-    - `0` RDC
-    - `1` 1er
-    - `2` 2ème
-    - `3` 3ème
-    - `4` 4ème
-    - `5` 5ème
-    - `6` 6ème
-
 `BookBookingsHistoric` business object definition
 -------------------------------------------------
 
@@ -180,8 +79,8 @@ Bookings of a customer
 | `bookEquroomRoomId` link to **`BookRoom`**                   | id                                       | yes*     | yes       |          | -                                                                                |
 | _Ref. `bookEquroomRoomId.bookRoomCode`_                      | _char(20)_                               |          |           |          | -                                                                                |
 
-`BookGuests` business object definition
----------------------------------------
+`BookRoomBookRoomService` business object definition
+----------------------------------------------------
 
 
 
@@ -189,13 +88,22 @@ Bookings of a customer
 
 | Name                                                         | Type                                     | Required | Updatable | Personal | Description                                                                      |
 |--------------------------------------------------------------|------------------------------------------|----------|-----------|----------|----------------------------------------------------------------------------------|
-| `bookBookusersType`                                          | enum(3) using `BOOKBOOKUSERSTYPE` list   | yes      | yes       |          | -                                                                                |
+| `app_BookRoom_fk` link to **`BookRoom`**                     | id                                       | yes*     | yes       |          | -                                                                                |
+| _Ref. `app_BookRoom_fk.bookRoomCode`_                        | _char(20)_                               |          |           |          | -                                                                                |
+| `app_BookRoomService_fk` link to **`BookRoomService`**       | id                                       | yes*     | yes       |          | -                                                                                |
+| _Ref. `app_BookRoomService_fk.bookRservCode`_                | _char(20)_                               |          |           |          | -                                                                                |
 
-### Lists
+`BookRoomEquipment` business object definition
+----------------------------------------------
 
-* `BOOKBOOKUSERSTYPE`
-    - `CUS` Client
-    - `ACC` Accompagnateur
+Room Equipements
+
+### Fields
+
+| Name                                                         | Type                                     | Required | Updatable | Personal | Description                                                                      |
+|--------------------------------------------------------------|------------------------------------------|----------|-----------|----------|----------------------------------------------------------------------------------|
+| `bookEquLibell`                                              | text(255)                                | yes      | yes       |          | -                                                                                |
+| `bookEquCode`                                                | char(20)                                 | yes*     | yes       |          | -                                                                                |
 
 `BookPaymentMethod` business object definition
 ----------------------------------------------
@@ -209,37 +117,29 @@ Bookings of a customer
 | `bookPaymCode`                                               | char(20)                                 | yes*     |           |          | -                                                                                |
 | `bookPaymLibell`                                             | char(100)                                | yes      | yes       |          | -                                                                                |
 
-`BookPayments` business object definition
------------------------------------------
+`BookRoomService` business object definition
+--------------------------------------------
 
-Bookings payments
+Services in room
 
 ### Fields
 
 | Name                                                         | Type                                     | Required | Updatable | Personal | Description                                                                      |
 |--------------------------------------------------------------|------------------------------------------|----------|-----------|----------|----------------------------------------------------------------------------------|
-| `BookPayments_BookBookings_id` link to **`BookBookings`**    | id                                       |          | yes       |          | -                                                                                |
-| _Ref. `BookPayments_BookBookings_id.BookBookings_BookUsers_id`_ | _id_                                     |          |           |          | -                                                                                |
-| _Ref. `BookPayments_BookBookings_id.bookBookbookingsDate`_   | _date_                                   |          |           |          | -                                                                                |
-| _Ref. `BookPayments_BookBookings_id.bookBookbookingsHour`_   | _time_                                   |          |           |          | -                                                                                |
-| _Ref. `BookBookings_BookUsers_id.usr_title`_                 | _enum(5) using `USER_TITLE` list_        |          |           | yes      | _Title_                                                                          |
-| _Ref. `BookBookings_BookUsers_id.usr_last_name`_             | _char(50)_                               |          |           | yes      | _Last name_                                                                      |
-| _Ref. `BookBookings_BookUsers_id.usr_first_name`_            | _char(50)_                               |          |           | yes      | _First name_                                                                     |
-| _Ref. `BookBookings_BookUsers_id.bookBookusersEmail`_        | _email(100)_                             |          |           |          | -                                                                                |
-| _Ref. `BookPayments_BookBookings_id.bookBookbookingsStartDate`_ | _datetime_                               |          |           |          | -                                                                                |
-| _Ref. `BookPayments_BookBookings_id.bookBookbookingsEndDate`_ | _datetime_                               |          |           |          | -                                                                                |
-| `bookPayPaymId` link to **`BookPaymentMethod`**              | id                                       |          | yes       |          | -                                                                                |
-| _Ref. `bookPayPaymId.bookPaymCode`_                          | _char(20)_                               |          |           |          | -                                                                                |
-| _Ref. `bookPayPaymId.bookPaymLibell`_                        | _char(100)_                              |          |           |          | -                                                                                |
-| `bookPayAmount`                                              | float(10, 2)                             | yes      | yes       |          | -                                                                                |
-| `bookPayComments`                                            | html(1000)                               |          | yes       |          | -                                                                                |
+| `bookRservCode`                                              | char(20)                                 | yes*     | yes       |          | -                                                                                |
+| `bookRservLibell`                                            | char(255)                                | yes      | yes       |          | -                                                                                |
 
-### Lists
+`BookRoomType` business object definition
+-----------------------------------------
 
-* `USER_TITLE`
-    - `MR` 
-    - `MRS` 
-    - `MS` 
+
+
+### Fields
+
+| Name                                                         | Type                                     | Required | Updatable | Personal | Description                                                                      |
+|--------------------------------------------------------------|------------------------------------------|----------|-----------|----------|----------------------------------------------------------------------------------|
+| `bookRoomtypCode`                                            | char(20)                                 | yes*     | yes       |          | -                                                                                |
+| `bookRoomtypType`                                            | text(100)                                | yes      | yes       |          | -                                                                                |
 
 `BookRoom` business object definition
 -------------------------------------
@@ -276,56 +176,6 @@ Booking rooms
     - `4` 4ème
     - `5` 5ème
     - `6` 6ème
-
-`BookRoomBookRoomService` business object definition
-----------------------------------------------------
-
-
-
-### Fields
-
-| Name                                                         | Type                                     | Required | Updatable | Personal | Description                                                                      |
-|--------------------------------------------------------------|------------------------------------------|----------|-----------|----------|----------------------------------------------------------------------------------|
-| `app_BookRoom_fk` link to **`BookRoom`**                     | id                                       | yes*     | yes       |          | -                                                                                |
-| _Ref. `app_BookRoom_fk.bookRoomCode`_                        | _char(20)_                               |          |           |          | -                                                                                |
-| `app_BookRoomService_fk` link to **`BookRoomService`**       | id                                       | yes*     | yes       |          | -                                                                                |
-| _Ref. `app_BookRoomService_fk.bookRservCode`_                | _char(20)_                               |          |           |          | -                                                                                |
-
-`BookRoomEquipment` business object definition
-----------------------------------------------
-
-Room Equipements
-
-### Fields
-
-| Name                                                         | Type                                     | Required | Updatable | Personal | Description                                                                      |
-|--------------------------------------------------------------|------------------------------------------|----------|-----------|----------|----------------------------------------------------------------------------------|
-| `bookEquLibell`                                              | text(255)                                | yes      | yes       |          | -                                                                                |
-| `bookEquCode`                                                | char(20)                                 | yes*     | yes       |          | -                                                                                |
-
-`BookRoomService` business object definition
---------------------------------------------
-
-Services in room
-
-### Fields
-
-| Name                                                         | Type                                     | Required | Updatable | Personal | Description                                                                      |
-|--------------------------------------------------------------|------------------------------------------|----------|-----------|----------|----------------------------------------------------------------------------------|
-| `bookRservCode`                                              | char(20)                                 | yes*     | yes       |          | -                                                                                |
-| `bookRservLibell`                                            | char(255)                                | yes      | yes       |          | -                                                                                |
-
-`BookRoomType` business object definition
------------------------------------------
-
-
-
-### Fields
-
-| Name                                                         | Type                                     | Required | Updatable | Personal | Description                                                                      |
-|--------------------------------------------------------------|------------------------------------------|----------|-----------|----------|----------------------------------------------------------------------------------|
-| `bookRoomtypCode`                                            | char(20)                                 | yes*     | yes       |          | -                                                                                |
-| `bookRoomtypType`                                            | text(100)                                | yes      | yes       |          | -                                                                                |
 
 `BookUsers` business object definition
 --------------------------------------
@@ -371,6 +221,156 @@ Customers
 * `BOOKBOOKUSERSTYPE`
     - `CUS` Client
     - `ACC` Accompagnateur
+
+`BookGuests` business object definition
+---------------------------------------
+
+
+
+### Fields
+
+| Name                                                         | Type                                     | Required | Updatable | Personal | Description                                                                      |
+|--------------------------------------------------------------|------------------------------------------|----------|-----------|----------|----------------------------------------------------------------------------------|
+| `bookBookusersType`                                          | enum(3) using `BOOKBOOKUSERSTYPE` list   | yes      | yes       |          | -                                                                                |
+
+### Lists
+
+* `BOOKBOOKUSERSTYPE`
+    - `CUS` Client
+    - `ACC` Accompagnateur
+
+`BookBookings` business object definition
+-----------------------------------------
+
+Bookings of a customer
+
+### Fields
+
+| Name                                                         | Type                                     | Required | Updatable | Personal | Description                                                                      |
+|--------------------------------------------------------------|------------------------------------------|----------|-----------|----------|----------------------------------------------------------------------------------|
+| `BookBookings_BookUsers_id` link to **`BookUsers`**          | id                                       | yes*     | yes       |          | -                                                                                |
+| _Ref. `BookBookings_BookUsers_id.usr_title`_                 | _enum(5) using `USER_TITLE` list_        |          |           | yes      | _Title_                                                                          |
+| _Ref. `BookBookings_BookUsers_id.usr_last_name`_             | _char(50)_                               |          |           | yes      | _Last name_                                                                      |
+| _Ref. `BookBookings_BookUsers_id.usr_first_name`_            | _char(50)_                               |          |           | yes      | _First name_                                                                     |
+| _Ref. `BookBookings_BookUsers_id.bookBookusersEmail`_        | _email(100)_                             |          |           |          | -                                                                                |
+| `bookBookbookingsDate`                                       | date                                     | yes*     |           |          | -                                                                                |
+| `bookBookbookingsHour`                                       | time                                     | yes*     |           |          | -                                                                                |
+| `bookBookbookingsStartDate`                                  | datetime                                 | yes      | yes       |          | -                                                                                |
+| `bookBookbookingsEndDate`                                    | datetime                                 | yes      | yes       |          | -                                                                                |
+| `bookBookbookingsPaymentTDate`                               | date                                     |          |           |          | -                                                                                |
+| `bookBookbookingsAmountDate`                                 | date                                     |          |           |          | -                                                                                |
+| `bookBookbookingsPaymentDone`                                | boolean                                  |          | yes       |          | -                                                                                |
+| `bookBookbookingsComments`                                   | html(2000)                               |          | yes       |          | -                                                                                |
+| `bookBookbookingsStatut`                                     | enum(2) using `BOOKBOOKBOOKINGSSTATUT` list |          | yes       |          | -                                                                                |
+| `bookBookbookingsRoomNumber`                                 | enum(100) using `BOOKBOOKBOOKINGSROOMNUMBER` list | yes      | yes       |          | -                                                                                |
+| `bookBookbookingsGuestNumber`                                | enum(2) using `BOOKBOOKBOOKINGSROOMNUMBER` list |          | yes       |          | -                                                                                |
+
+### Lists
+
+* `USER_TITLE`
+    - `MR` 
+    - `MRS` 
+    - `MS` 
+* `BOOKBOOKBOOKINGSSTATUT`
+    - `EA` En attente
+    - `TR` Traitée
+    - `Cl` Clôturée
+* `BOOKBOOKBOOKINGSROOMNUMBER`
+    - `1` 1
+    - `2` 2
+    - `3` 3
+    - `4` 4
+    - `5` 5
+    - `6` 6
+    - `7` 7
+    - `8` 8
+    - `9` 9
+    - `10` 10
+
+`BookPayments` business object definition
+-----------------------------------------
+
+Bookings payments
+
+### Fields
+
+| Name                                                         | Type                                     | Required | Updatable | Personal | Description                                                                      |
+|--------------------------------------------------------------|------------------------------------------|----------|-----------|----------|----------------------------------------------------------------------------------|
+| `BookPayments_BookBookings_id` link to **`BookBookings`**    | id                                       | yes*     | yes       |          | -                                                                                |
+| _Ref. `BookPayments_BookBookings_id.BookBookings_BookUsers_id`_ | _id_                                     |          |           |          | -                                                                                |
+| _Ref. `BookPayments_BookBookings_id.bookBookbookingsDate`_   | _date_                                   |          |           |          | -                                                                                |
+| _Ref. `BookPayments_BookBookings_id.bookBookbookingsHour`_   | _time_                                   |          |           |          | -                                                                                |
+| _Ref. `BookBookings_BookUsers_id.usr_title`_                 | _enum(5) using `USER_TITLE` list_        |          |           | yes      | _Title_                                                                          |
+| _Ref. `BookBookings_BookUsers_id.usr_last_name`_             | _char(50)_                               |          |           | yes      | _Last name_                                                                      |
+| _Ref. `BookBookings_BookUsers_id.usr_first_name`_            | _char(50)_                               |          |           | yes      | _First name_                                                                     |
+| _Ref. `BookBookings_BookUsers_id.bookBookusersEmail`_        | _email(100)_                             |          |           |          | -                                                                                |
+| _Ref. `BookPayments_BookBookings_id.bookBookbookingsStartDate`_ | _datetime_                               |          |           |          | -                                                                                |
+| _Ref. `BookPayments_BookBookings_id.bookBookbookingsEndDate`_ | _datetime_                               |          |           |          | -                                                                                |
+| `bookPayPaymId` link to **`BookPaymentMethod`**              | id                                       | yes*     | yes       |          | -                                                                                |
+| _Ref. `bookPayPaymId.bookPaymCode`_                          | _char(20)_                               |          |           |          | -                                                                                |
+| _Ref. `bookPayPaymId.bookPaymLibell`_                        | _char(100)_                              |          |           |          | -                                                                                |
+| `bookPayAmount`                                              | float(10, 2)                             | yes      | yes       |          | -                                                                                |
+| `bookPayComments`                                            | html(1000)                               |          | yes       |          | -                                                                                |
+
+### Lists
+
+* `USER_TITLE`
+    - `MR` 
+    - `MRS` 
+    - `MS` 
+
+`BookBookingsBookGuests` business object definition
+---------------------------------------------------
+
+
+
+### Fields
+
+| Name                                                         | Type                                     | Required | Updatable | Personal | Description                                                                      |
+|--------------------------------------------------------------|------------------------------------------|----------|-----------|----------|----------------------------------------------------------------------------------|
+| `bookBookingsfk` link to **`BookBookings`**                  | id                                       | yes*     | yes       |          | -                                                                                |
+| _Ref. `bookBookingsfk.BookBookings_BookUsers_id`_            | _id_                                     |          |           |          | -                                                                                |
+| _Ref. `BookBookings_BookUsers_id.usr_last_name`_             | _char(50)_                               |          |           | yes      | _Last name_                                                                      |
+| _Ref. `BookBookings_BookUsers_id.usr_first_name`_            | _char(50)_                               |          |           | yes      | _First name_                                                                     |
+| _Ref. `BookBookings_BookUsers_id.bookBookusersEmail`_        | _email(100)_                             |          |           |          | -                                                                                |
+| _Ref. `bookBookingsfk.bookBookbookingsDate`_                 | _date_                                   |          |           |          | -                                                                                |
+| _Ref. `bookBookingsfk.bookBookbookingsHour`_                 | _time_                                   |          |           |          | -                                                                                |
+| _Ref. `bookBookingsfk.bookBookbookingsStartDate`_            | _datetime_                               |          |           |          | -                                                                                |
+| _Ref. `bookBookingsfk.bookBookbookingsEndDate`_              | _datetime_                               |          |           |          | -                                                                                |
+| _Ref. `bookBookingsfk.bookBookbookingsStatut`_               | _enum(2) using `BOOKBOOKBOOKINGSSTATUT` list_ |          |           |          | -                                                                                |
+| `bookGuestsId` link to **`BookGuests`**                      | id                                       | *        | yes       |          | -                                                                                |
+| _Ref. `bookGuestsId.usr_last_name`_                          | _char(50)_                               |          |           | yes      | _Last name_                                                                      |
+| _Ref. `bookGuestsId.usr_first_name`_                         | _char(50)_                               |          |           | yes      | _First name_                                                                     |
+| _Ref. `bookGuestsId.bookBookusersEmail`_                     | _email(100)_                             |          |           |          | -                                                                                |
+| `bookBookingsGuestsBookRoomId` link to **`BookRoom`**        | id                                       |          | yes       |          | -                                                                                |
+| _Ref. `bookBookingsGuestsBookRoomId.bookRoomCode`_           | _char(20)_                               |          |           |          | -                                                                                |
+| _Ref. `bookBookingsGuestsBookRoomId.bookRoomLabel`_          | _char(255)_                              |          |           |          | -                                                                                |
+| _Ref. `bookBookingsGuestsBookRoomId.BookRoom_BookRoomType_id`_ | _id_                                     |          |           |          | -                                                                                |
+| _Ref. `BookRoom_BookRoomType_id.bookRoomtypType`_            | _text(100)_                              |          |           |          | -                                                                                |
+| _Ref. `bookBookingsGuestsBookRoomId.bookRoomSuperficie`_     | _enum(10) using `BOOKROOMSUPERFICIE` list_ |          |           |          | -                                                                                |
+| _Ref. `bookBookingsGuestsBookRoomId.bookRoomFloor`_          | _enum(2) using `BOOKROOMFLOOR` list_     |          |           |          | -                                                                                |
+| _Ref. `bookBookingsGuestsBookRoomId.bookRoomPhoto`_          | _image_                                  |          |           |          | -                                                                                |
+| _Ref. `bookBookingsGuestsBookRoomId.bookRoomPriceht`_        | _float(11, 2)_                           |          |           |          | -                                                                                |
+
+### Lists
+
+* `BOOKBOOKBOOKINGSSTATUT`
+    - `EA` En attente
+    - `TR` Traitée
+    - `Cl` Clôturée
+* `BOOKROOMSUPERFICIE`
+    - `12` 12 m2
+    - `15` 15 m2
+    - `17` 17 m2
+    - `22` 22m2
+* `BOOKROOMFLOOR`
+    - `0` RDC
+    - `1` 1er
+    - `2` 2ème
+    - `3` 3ème
+    - `4` 4ème
+    - `5` 5ème
+    - `6` 6ème
 
 `BookingCreation` business process definition
 ---------------------------------------------

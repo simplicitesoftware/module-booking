@@ -1582,6 +1582,39 @@ paths:
         required: false
       tags:
       - BookRoomService
+  /rest/BookUsers/{row_id}/placemap:BookUsersMaps:
+    get:
+      summary: Call a place map for BookUsers business object
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-bookusers-placemap-bookusersmaps
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/PlaceMapData'
+          description: Success in calling the place map adat
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+        '404':
+          schema:
+            $ref: '#/definitions/Error404'
+          description: Not found
+      parameters:
+      - in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        type: string
+        required: true
+      tags:
+      - BookUsers
   /rest/BookEquRoom/{row_id}:
     post:
       summary: Create a new BookEquRoombusiness object record
@@ -3115,32 +3148,32 @@ paths:
         type: string
         required: false
       - in: query
-        name: bookBookingsBookGuestsBookRoomId
+        name: bookBookingsGuestsBookRoomId
         description: Search filter for Room|Rooms
         type: string
         required: false
       - in: query
-        name: bookBookingsBookGuestsBookRoomId__bookRoomCode
+        name: bookBookingsGuestsBookRoomId__bookRoomCode
         description: Search filter for Room|Rooms book room code
         type: string
         required: false
       - in: query
-        name: bookBookingsBookGuestsBookRoomId__bookRoomLabel
+        name: bookBookingsGuestsBookRoomId__bookRoomLabel
         description: Search filter for Room|Rooms book room label
         type: string
         required: false
       - in: query
-        name: bookBookingsBookGuestsBookRoomId__BookRoom_BookRoomType_id__bookRoomtypType
-        description: Search filter for Room|Rooms Room Type book roomtyp type
-        type: string
-        required: false
-      - in: query
-        name: bookBookingsBookGuestsBookRoomId__BookRoom_BookRoomType_id
+        name: bookBookingsGuestsBookRoomId__BookRoom_BookRoomType_id
         description: Search filter for Room|Rooms Room Type
         type: string
         required: false
       - in: query
-        name: bookBookingsBookGuestsBookRoomId__bookRoomSuperficie
+        name: bookBookingsGuestsBookRoomId__BookRoom_BookRoomType_id__bookRoomtypType
+        description: Search filter for Room|Rooms Room Type book roomtyp type
+        type: string
+        required: false
+      - in: query
+        name: bookBookingsGuestsBookRoomId__bookRoomSuperficie
         description: Search filter for Room|Rooms book room superficie
         type: string
         required: false
@@ -3150,7 +3183,7 @@ paths:
         - '17'
         - '22'
       - in: query
-        name: bookBookingsBookGuestsBookRoomId__bookRoomFloor
+        name: bookBookingsGuestsBookRoomId__bookRoomFloor
         description: Search filter for Room|Rooms book room floor
         type: string
         required: false
@@ -3163,17 +3196,50 @@ paths:
         - '5'
         - '6'
       - in: query
-        name: bookBookingsBookGuestsBookRoomId__bookRoomPhoto
+        name: bookBookingsGuestsBookRoomId__bookRoomPhoto
         description: Search filter for Room|Rooms book room photo
         type: string
         required: false
       - in: query
-        name: bookBookingsBookGuestsBookRoomId__bookRoomPriceht
+        name: bookBookingsGuestsBookRoomId__bookRoomPriceht
         description: Search filter for Room|Rooms book room priceht
         type: number
         required: false
       tags:
       - BookBookingsBookGuests
+  /rest/BookGuests/{row_id}/placemap:BookUsersMaps:
+    get:
+      summary: Call a place map for BookGuests business object
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-bookguests-placemap-bookusersmaps
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/PlaceMapData'
+          description: Success in calling the place map adat
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+        '404':
+          schema:
+            $ref: '#/definitions/Error404'
+          description: Not found
+      parameters:
+      - in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        type: string
+        required: true
+      tags:
+      - BookGuests
   /rest/BookPayments/{row_id}:
     post:
       summary: Create a new BookPaymentsbusiness object record
@@ -3623,10 +3689,23 @@ definitions:
       bookBookingsfk__BookBookings_BookUsers_id__bookBookusersEmail:
         description: app book bookings fk Book users book bookusers email
         type: string
+      bookBookingsGuestsBookRoomId__BookRoom_BookRoomType_id__bookRoomtypType:
+        description: Room|Rooms Room Type book roomtyp type
+        type: string
       bookGuestsId__usr_last_name:
         description: Last name
         type: string
-      bookBookingsBookGuestsBookRoomId__bookRoomSuperficie:
+      bookBookingsGuestsBookRoomId__BookRoom_BookRoomType_id:
+        description: Room|Rooms Room Type
+        type: string
+      bookBookingsGuestsBookRoomId__bookRoomCode:
+        description: Room|Rooms book room code
+        type: string
+      bookBookingsfk__bookBookbookingsEndDate:
+        description: app book bookings fk book bookbookings end date
+        type: string
+        example: yyyy-MM-dd HH:mm:ss
+      bookBookingsGuestsBookRoomId__bookRoomSuperficie:
         description: Room|Rooms book room superficie
         type: string
         enum:
@@ -3634,13 +3713,6 @@ definitions:
         - '15'
         - '17'
         - '22'
-      bookBookingsfk__bookBookbookingsEndDate:
-        description: app book bookings fk book bookbookings end date
-        type: string
-        example: yyyy-MM-dd HH:mm:ss
-      bookBookingsBookGuestsBookRoomId__bookRoomLabel:
-        description: Room|Rooms book room label
-        type: string
       bookBookingsfk__bookBookbookingsHour:
         description: app book bookings fk book bookbookings hour
         type: string
@@ -3651,10 +3723,16 @@ definitions:
       bookBookingsfk:
         description: app book bookings fk
         type: string
-      bookBookingsBookGuestsBookRoomId__BookRoom_BookRoomType_id:
-        description: Room|Rooms Room Type
+      bookGuestsId:
+        description: app book guests fk
         type: string
-      bookBookingsBookGuestsBookRoomId__bookRoomFloor:
+      bookBookingsfk__BookBookings_BookUsers_id__usr_first_name:
+        description: First name
+        type: string
+      bookBookingsfk__BookBookings_BookUsers_id:
+        description: app book bookings fk Book users
+        type: string
+      bookBookingsGuestsBookRoomId__bookRoomFloor:
         description: Room|Rooms book room floor
         type: string
         enum:
@@ -3665,28 +3743,16 @@ definitions:
         - '4'
         - '5'
         - '6'
-      bookBookingsBookGuestsBookRoomId__bookRoomPriceht:
-        description: Room|Rooms book room priceht
-        type: number
-      bookGuestsId:
-        description: app book guests fk
-        type: string
-      bookBookingsfk__BookBookings_BookUsers_id__usr_first_name:
-        description: First name
-        type: string
-      bookBookingsfk__BookBookings_BookUsers_id:
-        description: app book bookings fk Book users
-        type: string
-      bookBookingsBookGuestsBookRoomId__bookRoomPhoto:
-        description: Room|Rooms book room photo
-        type: object
       bookBookingsfk__bookBookbookingsDate:
         description: app book bookings fk book bookbookings date
         type: string
         example: yyyy-MM-dd
-      bookBookingsBookGuestsBookRoomId__BookRoom_BookRoomType_id__bookRoomtypType:
-        description: Room|Rooms Room Type book roomtyp type
+      bookBookingsGuestsBookRoomId:
+        description: Room|Rooms
         type: string
+      bookBookingsGuestsBookRoomId__bookRoomPhoto:
+        description: Room|Rooms book room photo
+        type: object
       bookBookingsfk__bookBookbookingsStartDate:
         description: app book bookings fk book bookbookings start date
         type: string
@@ -3694,14 +3760,11 @@ definitions:
       bookGuestsId__bookBookusersEmail:
         description: app book guests fk book bookusers email
         type: string
+      bookBookingsGuestsBookRoomId__bookRoomPriceht:
+        description: Room|Rooms book room priceht
+        type: number
       row_id:
         description: Unique technical row ID
-        type: string
-      bookBookingsBookGuestsBookRoomId:
-        description: Room|Rooms
-        type: string
-      bookBookingsBookGuestsBookRoomId__bookRoomCode:
-        description: Room|Rooms book room code
         type: string
       bookBookingsfk__bookBookbookingsStatut:
         description: app book bookings fk book bookbookings statut
@@ -3710,6 +3773,9 @@ definitions:
         - EA
         - TR
         - Cl
+      bookBookingsGuestsBookRoomId__bookRoomLabel:
+        description: Room|Rooms book room label
+        type: string
   ArrayOfBookUsers:
     type: array
     items:
@@ -3727,6 +3793,27 @@ definitions:
     type: array
     items:
       $ref: '#/definitions/BookRoom'
+  PlaceData:
+    type: object
+    properties:
+      coord:
+        description: Geographical coordinates
+        type: string
+      address:
+        description: Address
+        type: string
+      row_id:
+        description: Row ID
+        type: string
+      label1:
+        description: 'Label #1'
+        type: string
+      label2:
+        description: 'Label #2'
+        type: string
+      label3:
+        description: 'Label #3'
+        type: string
   BookRoomBookRoomService:
     type: object
     properties:
@@ -3744,6 +3831,17 @@ definitions:
         type: string
       app_BookRoomService_fk:
         description: app book room service fk
+        type: string
+  PlaceMapData:
+    type: object
+    properties:
+      places:
+        description: Places
+        type: array
+        items:
+          $ref: '#/definitions/PlaceData'
+      name:
+        description: Name
         type: string
   BookRoom:
     type: object
