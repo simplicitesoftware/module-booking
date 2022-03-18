@@ -1,9 +1,7 @@
 package com.simplicite.workflows.Booking;
 
-import java.util.*;
 import com.simplicite.bpm.*;
 import com.simplicite.util.*;
-import com.simplicite.util.tools.*;
 
 /**
  * Process BookingCreation

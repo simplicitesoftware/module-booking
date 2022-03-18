@@ -1,8 +1,6 @@
 package com.simplicite.commons.Booking;
 
-import java.util.*;
 import com.simplicite.util.*;
-import com.simplicite.util.tools.*;
 
 /**
  * Shared code BookCommon

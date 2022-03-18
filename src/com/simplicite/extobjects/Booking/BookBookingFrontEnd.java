@@ -1,6 +1,5 @@
 package com.simplicite.extobjects.Booking;
 
-import java.util.*;
 import com.simplicite.util.*;
 import com.simplicite.util.tools.*;
 import com.simplicite.webapp.web.BootstrapWebPage;

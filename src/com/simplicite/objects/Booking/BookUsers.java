@@ -1,8 +1,6 @@
 package com.simplicite.objects.Booking;
 
-import java.util.*;
 import com.simplicite.util.*;
-import com.simplicite.util.tools.*;
 import com.simplicite.util.tools.GMapTool;
 import com.simplicite.util.tools.GMapTool.Location;
 /**
