@@ -29,7 +29,7 @@ public class BookBookings extends ObjectDB {
 	/** Hook override: send notification to customer after booking creation */
 	@Override
 	public String postCreate() {
-		if(!isBatchInstance())
+		if(!isBatchInstance()){
 			try {
 					MailTool mail = new MailTool(getGrant());
 					mail.addRcpt(getFieldValue("bookBookusersEmail"));
@@ -45,30 +45,12 @@ public class BookBookings extends ObjectDB {
 			} catch (Exception e) {
 					AppLog.warning("Error sending notification to customer", e, getGrant());
 			}
-		return super.postCreate();
 		}
+		return super.postCreate();
 	}
 	
-	/** JUnit test class */
-	public static class BookBookingsTest {
-		/** Date test */
-		@Test
-		public void testDiffDate() {
-			try {
-				assertTrue(Tool.compareDate("2021-06-11", "2021-06-01")>0);
-				assertFalse(Tool.compareDate("2021-06-01", "2021-06-11")>0);
-			} catch (Exception e) {
-				fail(e.getMessage());
-			}	
-		}
-	}
-
-	/**
-	 * Unit tests method
-	 */
 	@Override
 	public String unitTests() {
-		JUnitTool t = new JUnitTool(getGrant());
-		return t.run(BookBookingsTest.class);
+    	return new JUnitTool(getGrant()).run("com.simplicite.tests.Booking.BookingTest");
 	}
 }

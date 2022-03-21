@@ -61,8 +61,8 @@ components:
           - BE
           - CH
           - IE
-          - US
           - CA
+          - US
         usr_title:
           description: Title
           type: string
@@ -137,23 +137,23 @@ components:
           description: Last name
           type: string
         bookBookingsId:
-          description: app book bookings fk
+          description: Room
           type: string
         bookBookingsId__bookBookbookingsStartDate:
           description: Start date
           type: string
           example: yyyy-MM-dd HH:mm:ss
         bookBookingsId__bookBookingsBookUsersId:
-          description: app book bookings fk Book users
+          description: Room Book users
           type: string
         bookBookingsGuestsBookRoomId__bookRoomCode:
-          description: Room|Rooms Code
+          description: Room Code
           type: string
         bookBookingsGuestsBookRoomId__bookRoomBookRoomTypeId__bookRoomtypType:
           description: Room Type
           type: string
         bookBookingsGuestsBookRoomId__bookRoomSuperficie:
-          description: Room|Rooms Surface area
+          description: Room Surface area
           type: string
           enum:
           - '12'
@@ -161,10 +161,10 @@ components:
           - '17'
           - '22'
         bookGuestsId:
-          description: app book guests fk
+          description: Guest
           type: string
         bookBookingsGuestsBookRoomId__bookRoomBookRoomTypeId:
-          description: Room|Rooms Room Type
+          description: Room Room Type
           type: string
         bookBookingsId__bookBookbookingsDate:
           description: Booking date
@@ -189,7 +189,7 @@ components:
           - '5'
           - '6'
         bookBookingsGuestsBookRoomId:
-          description: Room|Rooms
+          description: Room
           type: string
         bookBookingsGuestsBookRoomId__bookRoomPhoto:
           description: Room Photo
@@ -637,8 +637,8 @@ components:
           - BE
           - CH
           - IE
-          - US
           - CA
+          - US
         usr_title:
           description: Title
           type: string
@@ -1472,8 +1472,8 @@ paths:
           - BE
           - CH
           - IE
-          - US
           - CA
+          - US
         in: query
         name: usr_country
         description: Search filter for Country
@@ -2611,8 +2611,8 @@ paths:
           - BE
           - CH
           - IE
-          - US
           - CA
+          - US
         in: query
         name: usr_country
         description: Search filter for Country
@@ -4477,13 +4477,13 @@ paths:
           type: string
         in: query
         name: bookBookingsId
-        description: Search filter for app book bookings fk
+        description: Search filter for Room
         required: false
       - schema:
           type: string
         in: query
         name: bookBookingsId__bookBookingsBookUsersId
-        description: Search filter for app book bookings fk Book users
+        description: Search filter for Room Book users
         required: false
       - schema:
           type: string
@@ -4541,7 +4541,7 @@ paths:
           type: string
         in: query
         name: bookGuestsId
-        description: Search filter for app book guests fk
+        description: Search filter for Guest
         required: false
       - schema:
           type: string
@@ -4565,13 +4565,13 @@ paths:
           type: string
         in: query
         name: bookBookingsGuestsBookRoomId
-        description: Search filter for Room|Rooms
+        description: Search filter for Room
         required: false
       - schema:
           type: string
         in: query
         name: bookBookingsGuestsBookRoomId__bookRoomCode
-        description: Search filter for Room|Rooms Code
+        description: Search filter for Room Code
         required: false
       - schema:
           type: string
@@ -4583,7 +4583,7 @@ paths:
           type: string
         in: query
         name: bookBookingsGuestsBookRoomId__bookRoomBookRoomTypeId
-        description: Search filter for Room|Rooms Room Type
+        description: Search filter for Room Room Type
         required: false
       - schema:
           type: string
@@ -4600,7 +4600,7 @@ paths:
           - '22'
         in: query
         name: bookBookingsGuestsBookRoomId__bookRoomSuperficie
-        description: Search filter for Room|Rooms Surface area
+        description: Search filter for Room Surface area
         required: false
       - schema:
           type: string

@@ -3088,7 +3088,7 @@
 		<obo_type>O</obo_type>
 		<obo_searchspec/>
 		<obo_delspec/>
-		<obo_exportorder>8</obo_exportorder>
+		<obo_exportorder/>
 		<obo_distinct>0</obo_distinct>
 		<obo_indexable>0</obo_indexable>
 		<obo_groupby>0</obo_groupby>
@@ -3155,7 +3155,7 @@
 		<obo_type>O</obo_type>
 		<obo_searchspec/>
 		<obo_delspec/>
-		<obo_exportorder>10</obo_exportorder>
+		<obo_exportorder/>
 		<obo_distinct>0</obo_distinct>
 		<obo_indexable>0</obo_indexable>
 		<obo_groupby>0</obo_groupby>
@@ -3289,7 +3289,7 @@
 		<obo_type>O</obo_type>
 		<obo_searchspec/>
 		<obo_delspec/>
-		<obo_exportorder/>
+		<obo_exportorder>6</obo_exportorder>
 		<obo_distinct>0</obo_distinct>
 		<obo_indexable>0</obo_indexable>
 		<obo_groupby>0</obo_groupby>
@@ -3356,7 +3356,7 @@
 		<obo_type>O</obo_type>
 		<obo_searchspec><![CDATA[t.book_bookusers_type='CUS']]></obo_searchspec>
 		<obo_delspec/>
-		<obo_exportorder>6</obo_exportorder>
+		<obo_exportorder/>
 		<obo_distinct>0</obo_distinct>
 		<obo_indexable>0</obo_indexable>
 		<obo_groupby>0</obo_groupby>
@@ -3423,7 +3423,7 @@
 		<obo_type>O</obo_type>
 		<obo_searchspec><![CDATA[t.book_bookusers_type='ACC']]></obo_searchspec>
 		<obo_delspec/>
-		<obo_exportorder>7</obo_exportorder>
+		<obo_exportorder/>
 		<obo_distinct>0</obo_distinct>
 		<obo_indexable>0</obo_indexable>
 		<obo_groupby>0</obo_groupby>
@@ -3557,7 +3557,7 @@
 		<obo_type>O</obo_type>
 		<obo_searchspec/>
 		<obo_delspec/>
-		<obo_exportorder>9</obo_exportorder>
+		<obo_exportorder/>
 		<obo_distinct>0</obo_distinct>
 		<obo_indexable>0</obo_indexable>
 		<obo_groupby>0</obo_groupby>
@@ -3691,7 +3691,7 @@
 		<obo_type>O</obo_type>
 		<obo_searchspec/>
 		<obo_delspec/>
-		<obo_exportorder/>
+		<obo_exportorder>7</obo_exportorder>
 		<obo_distinct>0</obo_distinct>
 		<obo_indexable>0</obo_indexable>
 		<obo_groupby>0</obo_groupby>
@@ -9938,6 +9938,12 @@
 		<scr_type>JSR</scr_type>
 		<row_module_id.mdl_name>Booking</row_module_id.mdl_name>
 	</data>
+	<data>
+		<scr_code>BookingTest</scr_code>
+		<scr_file>test/src/com/simplicite/tests/Booking/BookingTest.java</scr_file>
+		<scr_type>TST</scr_type>
+		<row_module_id.mdl_name>Booking</row_module_id.mdl_name>
+	</data>
 </object>
 <object>
 	<name>TranslateAction</name>
@@ -10176,7 +10182,7 @@
 		<tsl_typeField>F</tsl_typeField>
 		<tsl_id.fld_name>bookBookingsGuestsBookRoomId</tsl_id.fld_name>
 		<tsl_lang>ENU</tsl_lang>
-		<tsl_value>Room|Rooms</tsl_value>
+		<tsl_value>Room</tsl_value>
 		<tsl_simplehelp/>
 		<tsl_short_value/>
 		<tsl_placeholder/>
@@ -10188,7 +10194,7 @@
 		<tsl_typeField>F</tsl_typeField>
 		<tsl_id.fld_name>bookBookingsId</tsl_id.fld_name>
 		<tsl_lang>ENU</tsl_lang>
-		<tsl_value>app book bookings fk</tsl_value>
+		<tsl_value>Room</tsl_value>
 		<tsl_simplehelp/>
 		<tsl_short_value/>
 		<tsl_placeholder/>
@@ -10272,7 +10278,7 @@
 		<tsl_typeField>F</tsl_typeField>
 		<tsl_id.fld_name>bookGuestsId</tsl_id.fld_name>
 		<tsl_lang>ENU</tsl_lang>
-		<tsl_value>app book guests fk</tsl_value>
+		<tsl_value>Guest</tsl_value>
 		<tsl_simplehelp/>
 		<tsl_short_value/>
 		<tsl_placeholder/>
@@ -10525,6 +10531,18 @@
 		<tsl_id.fld_name>bookUserGeoCoord</tsl_id.fld_name>
 		<tsl_lang>ENU</tsl_lang>
 		<tsl_value>Geo coordinates</tsl_value>
+		<tsl_simplehelp/>
+		<tsl_short_value/>
+		<tsl_placeholder/>
+		<tsl_listhelp/>
+		<row_module_id.mdl_name>Booking</row_module_id.mdl_name>
+		<tsl_tooltip/>
+	</data>
+	<data>
+		<tsl_typeField>F</tsl_typeField>
+		<tsl_id.fld_name>obf_fld_exportable</tsl_id.fld_name>
+		<tsl_lang>ENU</tsl_lang>
+		<tsl_value>Exportable?</tsl_value>
 		<tsl_simplehelp/>
 		<tsl_short_value/>
 		<tsl_placeholder/>
