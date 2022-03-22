@@ -9502,6 +9502,20 @@
 		<stm_action_id.act_name>BOOKBOOKBOOKINGSSTATUT-TR-Cl</stm_action_id.act_name>
 		<row_module_id.mdl_name>Booking</row_module_id.mdl_name>
 	</data>
+	<data>
+		<stm_name>BOOKBOOKBOOKINGSSTATUT-TR-EA</stm_name>
+		<stm_from_id.sta_state_id.lov_list_id.lov_name>BOOKBOOKBOOKINGSSTATUT</stm_from_id.sta_state_id.lov_list_id.lov_name>
+		<stm_from_id.sta_state_id.lov_code>TR</stm_from_id.sta_state_id.lov_code>
+		<stm_to_id.sta_state_id.lov_list_id.lov_name>BOOKBOOKBOOKINGSSTATUT</stm_to_id.sta_state_id.lov_list_id.lov_name>
+		<stm_to_id.sta_state_id.lov_code>EA</stm_to_id.sta_state_id.lov_code>
+		<stm_callbackscript/>
+		<stm_callback/>
+		<stm_condition/>
+		<stm_activ>1</stm_activ>
+		<stm_notif_id.alt_name/>
+		<stm_action_id.act_name/>
+		<row_module_id.mdl_name>Booking</row_module_id.mdl_name>
+	</data>
 </object>
 <object>
 	<name>BPMStateTranGroup</name>
