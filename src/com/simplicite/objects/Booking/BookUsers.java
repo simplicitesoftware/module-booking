@@ -18,7 +18,7 @@ public class BookUsers extends ObjectDB {
 			ObjectField coords = getField("bookUserGeoCoord");
 			ObjectField a1 = getField("usr_address1");
 			ObjectField a2 = getField("usr_address2");
-			ObjectField zc = getField("usr_address2");
+			ObjectField zc = getField("usr_zipcode");
 			ObjectField ci = getField("usr_city");
 			ObjectField co = getField("usr_country");
 

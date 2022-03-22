@@ -59,7 +59,7 @@
 		<viw_disp_id.dis_code/>
 		<viw_scope>Booking</viw_scope>
 		<row_module_id.mdl_name>Booking</row_module_id.mdl_name>
-		<viw_theme_id.thm_name>ThemeDesign</viw_theme_id.thm_name>
+		<viw_theme_id.thm_name>ThemeV5</viw_theme_id.thm_name>
 		<viw_lang>ENU;FRA</viw_lang>
 	</data>
 </object>
@@ -1416,7 +1416,7 @@
 		<row_module_id.mdl_name>Booking</row_module_id.mdl_name>
 	</data>
 	<data>
-		<fld_name oldvalue="bookBookingsfk">bookBookingsId</fld_name>
+		<fld_name>bookBookingsId</fld_name>
 		<fld_dbname>book_bookings_id</fld_dbname>
 		<fld_visible>3</fld_visible>
 		<fld_updatable>1</fld_updatable>
@@ -2252,7 +2252,7 @@
 		<row_module_id.mdl_name>Booking</row_module_id.mdl_name>
 	</data>
 	<data>
-		<fld_name oldvalue="app_BookRoomService_fk" oldvalue1="app_BookRoomService_fk">bookroomservBookServiceId</fld_name>
+		<fld_name>bookroomservBookServiceId</fld_name>
 		<fld_dbname>bookroomserv_bookservice_id</fld_dbname>
 		<fld_visible>3</fld_visible>
 		<fld_updatable>1</fld_updatable>
@@ -3507,7 +3507,7 @@
 		<obo_list_edit>N;L;E</obo_list_edit>
 		<obo_useform>1</obo_useform>
 		<obo_title><![CDATA[[VALUE:bookPaymLibell]]]></obo_title>
-		<obo_icon/>
+		<obo_icon>img/color/banknotes</obo_icon>
 		<obo_refcount>0</obo_refcount>
 		<obo_tree>0</obo_tree>
 		<obo_viewmode>T</obo_viewmode>
@@ -9197,7 +9197,7 @@
 		<dta_activity_id.acy_step>BC-BOOKING</dta_activity_id.acy_step>
 		<dta_activity_id.acy_name>CreateBooking</dta_activity_id.acy_name>
 		<dta_group>Field</dta_group>
-		<dta_name>BookBookings_BookUsers_id</dta_name>
+		<dta_name>bookBookingsBookUsersId</dta_name>
 		<dta_order>1</dta_order>
 		<dta_value><![CDATA[[BC-IDENT.Field.row_id]]]></dta_value>
 		<dta_field_id.fld_name/>
@@ -10531,18 +10531,6 @@
 		<tsl_id.fld_name>bookUserGeoCoord</tsl_id.fld_name>
 		<tsl_lang>ENU</tsl_lang>
 		<tsl_value>Geo coordinates</tsl_value>
-		<tsl_simplehelp/>
-		<tsl_short_value/>
-		<tsl_placeholder/>
-		<tsl_listhelp/>
-		<row_module_id.mdl_name>Booking</row_module_id.mdl_name>
-		<tsl_tooltip/>
-	</data>
-	<data>
-		<tsl_typeField>F</tsl_typeField>
-		<tsl_id.fld_name>obf_fld_exportable</tsl_id.fld_name>
-		<tsl_lang>ENU</tsl_lang>
-		<tsl_value>Exportable?</tsl_value>
 		<tsl_simplehelp/>
 		<tsl_short_value/>
 		<tsl_placeholder/>
@@ -12656,9 +12644,9 @@
 	<action>upsert</action>
 	<data>
 		<row_module_id.mdl_name>Booking</row_module_id.mdl_name>
-		<dt_name>Booking-data-20220316091853</dt_name>
-		<dt_file>data/Booking-data-20220316091853.zip</dt_file>
-		<dt_desc><![CDATA[Created by module's data export on 2022-03-16 09:18:53]]></dt_desc>
+		<dt_name>Booking-data-20220321142042</dt_name>
+		<dt_file>data/Booking-data-20220321142042.zip</dt_file>
+		<dt_desc><![CDATA[Created by module's data export on 2022-03-21 14:20:42]]></dt_desc>
 	</data>
 </object>
 </simplicite>

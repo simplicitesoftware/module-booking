@@ -13,12 +13,12 @@ public class BookBookingsBookGuests extends ObjectDB {
 	@Override
 	public String postUpdate() {
 		
-		if(!Tool.isEmpty(getFieldValue("bookBookingsBookGuestsBookRoomId")) ){
+		if(!Tool.isEmpty(getFieldValue("bookBookingsGuestsBookRoomId")) ){
 		try {
 				ObjectDB o = getGrant().getTmpObject("BookBookings");
 				BusinessObjectTool ot = o.getTool();
 				if (ot.getForCreateOrUpdate(new JSONObject() 
-					.put("row_id", getFieldValue("bookBookingsfk"))))
+					.put("row_id", getFieldValue("bookBookingsId"))))
 				{
 					o.setStatus("TR");
 					ot.validateAndSave();	

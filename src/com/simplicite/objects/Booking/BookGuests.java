@@ -11,11 +11,9 @@ public class BookGuests extends BookUsers {
 	
 	@Override
 	public String postCreate() {
-		if (isProcessInstance()){
-			String demandId = getGrant().getParameter("DEMANDID");
-			if (!Tool.isEmpty(demandId)){
-				createBookingGuest(getGrant(), demandId, getRowId());
-			}	
+		String demandId = getGrant().getParameter("DEMANDID");
+		if (isProcessInstance() && !Tool.isEmpty(demandId)){
+			createBookingGuest(getGrant(), demandId, getRowId());
 		} 
 		return null;
 	}
@@ -25,7 +23,7 @@ public class BookGuests extends BookUsers {
 			ObjectDB o = g.getTmpObject("BookBookingsBookGuests");
 			BusinessObjectTool ot = o.getTool();
 			ot.getForCreate();
-			o.setFieldValue("bookBookingsfk", demandId); 
+			o.setFieldValue("bookBookingsId", demandId); 
 			o.setFieldValue("bookGuestsId", rowid); 
 			ot.validateAndSave();
 			g.removeParameter("DEMANDID");

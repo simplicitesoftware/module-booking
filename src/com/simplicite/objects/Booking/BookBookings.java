@@ -36,10 +36,10 @@ public class BookBookings extends ObjectDB {
 					mail.setSubject("Demande de réservation reçue/ Booking creation");
 					String body = HTMLTool.getResourceHTMLContent(this, "TEMPLATE_MAIL");
 					body =  body.replace("[TITLE]", getFieldValue("usr_title"));
-					body =  body.replace("[NAME]", getFieldValue("usr_last_name"));
-					body =  body.replace("[FIRTSNAME]", getFieldValue("usr_first_name"));
+					body =  body.replace("[LASTNAME]", getFieldValue("usr_last_name"));
+					body =  body.replace("[FIRSTNAME]", getFieldValue("usr_first_name"));
 					body =  body.replace("[DATE]", getFieldValue("bookBookbookingsDate"));
-					body =  body.replace("[HOUR]", getFieldValue("bookBookbookingsHour"));
+					body =  body.replace("[HOUR]", getFieldValue("bookBookbookingsHour").substring(5));
 					mail.setBody(body); 
 					mail.send();
 			} catch (Exception e) {
