@@ -3,12 +3,6 @@ package com.simplicite.objects.Booking;
 import java.util.*;
 import com.simplicite.util.*;
 import com.simplicite.util.tools.*;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.fail;
-import static org.junit.Assert.assertTrue;
-import java.util.Map;
-
-import org.junit.Test;
 import com.simplicite.util.tools.JUnitTool;
 
 /**
