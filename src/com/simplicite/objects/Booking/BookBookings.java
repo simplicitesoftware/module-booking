@@ -39,7 +39,7 @@ public class BookBookings extends ObjectDB {
 					body =  body.replace("[LASTNAME]", getFieldValue("usr_last_name"));
 					body =  body.replace("[FIRSTNAME]", getFieldValue("usr_first_name"));
 					body =  body.replace("[DATE]", getFieldValue("bookBookbookingsDate"));
-					body =  body.replace("[HOUR]", getFieldValue("bookBookbookingsHour").substring(5));
+					body =  body.replace("[HOUR]", getFieldValue("bookBookbookingsHour"));
 					mail.setBody(body); 
 					mail.send();
 			} catch (Exception e) {
