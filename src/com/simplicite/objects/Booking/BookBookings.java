@@ -15,8 +15,8 @@ public class BookBookings extends ObjectDB {
 	@Override
 	public List<String> postValidate() {
 		List<String> msgs = new ArrayList<>();
-		if (Tool.diffDate(getFieldValue("bookBookbookingsStartDate"), getFieldValue("bookBookbookingsEndDate")) <=0)
-			msgs.add(Message.formatError("BOOK_ERROR_DATE", null, "bookBookbookingsEndDate"));
+		if (Tool.diffDate(getFieldValue("bookBookingsStartDate"), getFieldValue("bookBookingsEndDate")) <=0)
+			msgs.add(Message.formatError("BOOK_ERROR_DATE", null, "bookBookingsEndDate"));
 		return msgs;
 	}
 	
@@ -26,14 +26,14 @@ public class BookBookings extends ObjectDB {
 		if(!isBatchInstance()){
 			try {
 					MailTool mail = new MailTool(getGrant());
-					mail.addRcpt(getFieldValue("bookBookusersEmail"));
+					mail.addRcpt(getFieldValue("bookUserEmail"));
 					mail.setSubject("Demande de réservation reçue/ Booking creation");
 					String body = HTMLTool.getResourceHTMLContent(this, "TEMPLATE_MAIL");
 					body =  body.replace("[TITLE]", getFieldValue("usr_title"));
 					body =  body.replace("[LASTNAME]", getFieldValue("usr_last_name"));
 					body =  body.replace("[FIRSTNAME]", getFieldValue("usr_first_name"));
-					body =  body.replace("[DATE]", getFieldValue("bookBookbookingsDate"));
-					body =  body.replace("[HOUR]", getFieldValue("bookBookbookingsHour"));
+					body =  body.replace("[DATE]", getFieldValue("bookBookingsDate"));
+					body =  body.replace("[HOUR]", getFieldValue("bookBookingsHour"));
 					mail.setBody(body); 
 					mail.send();
 			} catch (Exception e) {

@@ -47,97 +47,23 @@ components:
     BookGuests:
       type: object
       properties:
-        usr_home_num:
-          description: Home phone
-          type: string
-        usr_country:
-          description: Country
-          type: string
-          enum:
-          - FR
-          - UK
-          - ES
-          - DE
-          - BE
-          - CH
-          - IE
-          - IT
-          - PT
-          - NL
-          - CZ
-          - AT
-          - CA
-          - US
-          - AU
-        usr_title:
-          description: Title
-          type: string
-          enum:
-          - MR
-          - MRS
-          - MS
-        usr_zipcode:
-          description: Postal/ZIP code
-          type: string
-        usr_address1:
-          description: Address line 1
-          type: string
-        usr_address2:
-          description: Address line 2
-          type: string
-        usr_last_name:
-          description: Last name
-          type: string
-        usr_cell_num:
-          description: Mobile/cellular phone number
-          type: string
-        usr_city:
-          description: City
-          type: string
-        bookBookusersEmail:
-          description: Email
-          type: string
-        bookUserGeoCoord:
-          description: Geo coordinates
-          type: string
-          example: latitude;longitude
-        row_id:
-          description: Unique technical row ID
-          type: string
-        usr_work_num:
-          description: Work phone number
-          type: string
-        usr_state:
-          description: State
-          type: string
-        usr_first_name:
-          description: First name
-          type: string
-        bookBookusersType:
+        bookUserType:
           description: Type
           type: string
           enum:
           - CUS
           - ACC
+        row_id:
+          description: Unique technical row ID
+          type: string
     BookBookingsBookGuests:
       type: object
       properties:
         bookGuestsId__usr_first_name:
           description: First name
           type: string
-        bookBookingsId__bookBookbookingsEndDate:
-          description: End date
-          type: string
-          example: yyyy-MM-dd HH:mm:ss
-        bookBookingsId__bookBookbookingsHour:
-          description: Booking hour
-          type: string
-          example: HH:mm:ss
         bookBookingsId__bookBookingsBookUsersId__usr_first_name:
           description: First name
-          type: string
-        bookBookingsId__bookBookingsBookUsersId__bookBookusersEmail:
-          description: Email
           type: string
         bookGuestsId__usr_last_name:
           description: Last name
@@ -145,10 +71,10 @@ components:
         bookBookingsId:
           description: Room
           type: string
-        bookBookingsId__bookBookbookingsStartDate:
-          description: Start date
+        bookBookingsId__bookBookingsDate:
+          description: Booking date
           type: string
-          example: yyyy-MM-dd HH:mm:ss
+          example: yyyy-MM-dd
         bookBookingsId__bookBookingsBookUsersId:
           description: Room Book users
           type: string
@@ -158,6 +84,17 @@ components:
         bookBookingsGuestsBookRoomId__bookRoomBookRoomTypeId__bookRoomtypType:
           description: Room Type
           type: string
+        bookBookingsId__bookBookingsEndDate:
+          description: End date
+          type: string
+          example: yyyy-MM-dd HH:mm:ss
+        bookBookingsId__bookBookingsStatus:
+          description: Status
+          type: string
+          enum:
+          - EA
+          - TR
+          - Cl
         bookBookingsGuestsBookRoomId__bookRoomSuperficie:
           description: Room Surface area
           type: string
@@ -166,23 +103,16 @@ components:
           - '15'
           - '17'
           - '22'
+        bookBookingsId__bookBookingsHour:
+          description: Booking hour
+          type: string
+          example: HH:mm:ss
         bookGuestsId:
           description: Guest
           type: string
         bookBookingsGuestsBookRoomId__bookRoomBookRoomTypeId:
           description: Room Room Type
           type: string
-        bookBookingsId__bookBookbookingsDate:
-          description: Booking date
-          type: string
-          example: yyyy-MM-dd
-        bookBookingsId__bookBookbookingsStatut:
-          description: Status
-          type: string
-          enum:
-          - EA
-          - TR
-          - Cl
         bookBookingsGuestsBookRoomId__bookRoomFloor:
           description: Room Floor
           type: string
@@ -200,9 +130,13 @@ components:
         bookBookingsGuestsBookRoomId__bookRoomPhoto:
           description: Room Photo
           type: object
-        bookGuestsId__bookBookusersEmail:
+        bookGuestsId__bookUserEmail:
           description: Guest email
           type: string
+        bookBookingsId__bookBookingsStartDate:
+          description: Start date
+          type: string
+          example: yyyy-MM-dd HH:mm:ss
         bookBookingsGuestsBookRoomId__bookRoomPriceht:
           description: Room Price
           type: number
@@ -214,6 +148,9 @@ components:
           type: string
         bookBookingsGuestsBookRoomId__bookRoomLabel:
           description: Room Label
+          type: string
+        bookBookingsId__bookBookingsBookUsersId__bookUserEmail:
+          description: Email
           type: string
     ArrayOfBookUsers:
       type: array
@@ -436,29 +373,18 @@ components:
     BookBookings:
       type: object
       properties:
-        bookBookbookingsGuestNumber:
-          description: Number of people
-          type: string
-          enum:
-          - '1'
-          - '2'
-          - '3'
-          - '4'
-          - '5'
-          - '6'
-          - '7'
-          - '8'
-          - '9'
-          - '10'
-        bookBookbookingsDate:
+        bookBookingsDate:
           description: Booking date
           type: string
           example: yyyy-MM-dd
-        bookBookbookingsPaymentTDate:
-          description: Total payment date
+        bookBookingsBookUsersId__bookUserEmail:
+          description: Email
           type: string
-          example: yyyy-MM-dd
-        bookBookbookingsComments:
+        bookBookingsStartDate:
+          description: Start date
+          type: string
+          example: yyyy-MM-dd HH:mm:ss
+        bookBookingsComments:
           description: Comments
           type: string
         bookBookingsBookUsersId__usr_title:
@@ -468,28 +394,22 @@ components:
           - MR
           - MRS
           - MS
-        bookBookbookingsStatut:
-          description: Status
-          type: string
-          enum:
-          - EA
-          - TR
-          - Cl
         bookBookingsBookUsersId:
           description: Book users
           type: string
-        bookBookbookingsPaymentDone:
-          description: Payment done ?
-          type: boolean
-        bookBookbookingsHour:
+        bookBookingsPaymentDate:
+          description: Total payment date
+          type: string
+          example: yyyy-MM-dd
+        bookBookingsEndDate:
+          description: End date
+          type: string
+          example: yyyy-MM-dd HH:mm:ss
+        bookBookingsHour:
           description: Booking hour
           type: string
           example: HH:mm:ss
-        bookBookbookingsStartDate:
-          description: Start date
-          type: string
-          example: yyyy-MM-dd HH:mm:ss
-        bookBookbookingsRoomNumber:
+        bookBookingsRoomNumber:
           description: Number oof rooms
           type: string
           enum:
@@ -506,27 +426,27 @@ components:
         bookBookingsBookUsersId__usr_first_name:
           description: First name
           type: string
-        bookBookbookingsAmountDate:
-          description: Account date
+        bookBookingsStatus:
+          description: Status
           type: string
-          example: yyyy-MM-dd
-        bookBookingsBookUsersId__bookBookusersEmail:
-          description: Email
-          type: string
-        bookBookbookingsEndDate:
-          description: End date
-          type: string
-          example: yyyy-MM-dd HH:mm:ss
+          enum:
+          - EA
+          - TR
+          - Cl
+        bookBookingsPaymentDone:
+          description: Payment done ?
+          type: boolean
         row_id:
           description: Unique technical row ID
           type: string
         bookBookingsBookUsersId__usr_last_name:
           description: Last name
           type: string
-    BookBookingsHistoric:
-      type: object
-      properties:
-        bookBookbookingsGuestNumber:
+        bookBookingsAmountDate:
+          description: Account date
+          type: string
+          example: yyyy-MM-dd
+        bookBookingsGuestNumber:
           description: Number of people
           type: string
           enum:
@@ -540,15 +460,21 @@ components:
           - '8'
           - '9'
           - '10'
-        bookBookbookingsDate:
+    BookBookingsHistoric:
+      type: object
+      properties:
+        bookBookingsDate:
           description: Booking date
           type: string
           example: yyyy-MM-dd
-        bookBookbookingsPaymentTDate:
-          description: Total payment date
+        bookBookingsBookUsersId__bookUserEmail:
+          description: Book users Email
           type: string
-          example: yyyy-MM-dd
-        bookBookbookingsComments:
+        bookBookingsStartDate:
+          description: Start date
+          type: string
+          example: yyyy-MM-dd HH:mm:ss
+        bookBookingsComments:
           description: Comments
           type: string
         created_dt_hist:
@@ -562,34 +488,28 @@ components:
           - MR
           - MRS
           - MS
-        bookBookbookingsStatut:
-          description: Status
-          type: string
-          enum:
-          - EA
-          - TR
-          - Cl
         row_ref_id:
           description: Record row ID
           type: string
         bookBookingsBookUsersId:
           description: Book users
           type: string
-        bookBookbookingsPaymentDone:
-          description: Payment done ?
-          type: boolean
-        bookBookbookingsHour:
-          description: Booking hour
+        bookBookingsPaymentDate:
+          description: Total payment date
           type: string
-          example: HH:mm:ss
+          example: yyyy-MM-dd
         row_idx:
           description: History record index
           type: integer
-        bookBookbookingsStartDate:
-          description: Start date
+        bookBookingsEndDate:
+          description: End date
           type: string
           example: yyyy-MM-dd HH:mm:ss
-        bookBookbookingsRoomNumber:
+        bookBookingsHour:
+          description: Booking hour
+          type: string
+          example: HH:mm:ss
+        bookBookingsRoomNumber:
           description: Number oof rooms
           type: string
           enum:
@@ -606,29 +526,49 @@ components:
         bookBookingsBookUsersId__usr_first_name:
           description: First name
           type: string
-        bookBookbookingsAmountDate:
-          description: Account date
+        bookBookingsStatus:
+          description: Status
           type: string
-          example: yyyy-MM-dd
-        bookBookingsBookUsersId__bookBookusersEmail:
-          description: Book users Email
-          type: string
-        bookBookbookingsEndDate:
-          description: End date
-          type: string
-          example: yyyy-MM-dd HH:mm:ss
+          enum:
+          - EA
+          - TR
+          - Cl
+        bookBookingsPaymentDone:
+          description: Payment done ?
+          type: boolean
         row_id:
           description: Unique technical row ID
           type: string
         bookBookingsBookUsersId__usr_last_name:
           description: Last name
           type: string
+        bookBookingsAmountDate:
+          description: Account date
+          type: string
+          example: yyyy-MM-dd
+        bookBookingsGuestNumber:
+          description: Number of people
+          type: string
+          enum:
+          - '1'
+          - '2'
+          - '3'
+          - '4'
+          - '5'
+          - '6'
+          - '7'
+          - '8'
+          - '9'
+          - '10'
         created_by_hist:
           description: Created by
           type: string
     BookUsers:
       type: object
       properties:
+        bookUserEmail:
+          description: Email
+          type: string
         usr_home_num:
           description: Home phone
           type: string
@@ -676,13 +616,16 @@ components:
         usr_city:
           description: City
           type: string
-        bookBookusersEmail:
-          description: Email
-          type: string
         bookUserGeoCoord:
           description: Geo coordinates
           type: string
           example: latitude;longitude
+        bookUserType:
+          description: Type
+          type: string
+          enum:
+          - CUS
+          - ACC
         row_id:
           description: Unique technical row ID
           type: string
@@ -695,12 +638,6 @@ components:
         usr_first_name:
           description: First name
           type: string
-        bookBookusersType:
-          description: Type
-          type: string
-          enum:
-          - CUS
-          - ACC
     ArrayOfBookPayments:
       type: array
       items:
@@ -739,6 +676,10 @@ components:
         bookPayAmount:
           description: Amount
           type: number
+        bookPaymentsBookBookingsId__bookBookingsHour:
+          description: Booking hour
+          type: string
+          example: HH:mm:ss
         bookPaymentsBookBookingsId__bookBookingsBookUsersId__usr_title:
           description: Title
           type: string
@@ -749,27 +690,26 @@ components:
         bookPaymentsBookBookingsId__bookBookingsBookUsersId:
           description: Booking|Bookings Book users
           type: string
-        bookPaymentsBookBookingsId__bookBookbookingsStartDate:
-          description: Start date
+        bookPaymentsBookBookingsId__bookBookingsEndDate:
+          description: End date
           type: string
           example: yyyy-MM-dd HH:mm:ss
         bookPayPaymId__bookPaymCode:
           description: Payment method Code
           type: string
-        bookPaymentsBookBookingsId__bookBookingsBookUsersId__usr_first_name:
-          description: First name
-          type: string
-        bookPaymentsBookBookingsId__bookBookbookingsEndDate:
-          description: End date
-          type: string
-          example: yyyy-MM-dd HH:mm:ss
-        bookPaymentsBookBookingsId__bookBookingsBookUsersId__usr_last_name:
-          description: Last name
-          type: string
-        bookPaymentsBookBookingsId__bookBookbookingsDate:
+        bookPaymentsBookBookingsId__bookBookingsDate:
           description: Booking date
           type: string
           example: yyyy-MM-dd
+        bookPaymentsBookBookingsId__bookBookingsBookUsersId__usr_first_name:
+          description: First name
+          type: string
+        bookPaymentsBookBookingsId__bookBookingsBookUsersId__usr_last_name:
+          description: Last name
+          type: string
+        bookPaymentsBookBookingsId__bookBookingsBookUsersId__bookUserEmail:
+          description: Email
+          type: string
         bookPayPaymId:
           description: Payment method
           type: string
@@ -779,18 +719,15 @@ components:
         bookPaymentsBookBookingsId:
           description: Booking|Bookings
           type: string
-        bookPaymentsBookBookingsId__bookBookbookingsHour:
-          description: Booking hour
-          type: string
-          example: HH:mm:ss
         bookPayComments:
           description: Comments
           type: string
+        bookPaymentsBookBookingsId__bookBookingsStartDate:
+          description: Start date
+          type: string
+          example: yyyy-MM-dd HH:mm:ss
         bookPayPaymId__bookPaymLibell:
           description: Payment method Label
-          type: string
-        bookPaymentsBookBookingsId__bookBookingsBookUsersId__bookBookusersEmail:
-          description: Email
           type: string
     BookRoomService:
       type: object
@@ -1407,115 +1344,11 @@ paths:
       - schema:
           type: string
           enum:
-          - MR
-          - MRS
-          - MS
-        in: query
-        name: usr_title
-        description: Search filter for Title
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: usr_last_name
-        description: Search filter for Last name
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: usr_first_name
-        description: Search filter for First name
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: usr_work_num
-        description: Search filter for Work phone number
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: usr_home_num
-        description: Search filter for Home phone
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: usr_cell_num
-        description: Search filter for Mobile/cellular phone number
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: usr_address1
-        description: Search filter for Address line 1
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: usr_address2
-        description: Search filter for Address line 2
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: usr_zipcode
-        description: Search filter for Postal/ZIP code
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: usr_city
-        description: Search filter for City
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: usr_state
-        description: Search filter for State
-        required: false
-      - schema:
-          type: string
-          enum:
-          - FR
-          - UK
-          - ES
-          - DE
-          - BE
-          - CH
-          - IE
-          - IT
-          - PT
-          - NL
-          - CZ
-          - AT
-          - CA
-          - US
-          - AU
-        in: query
-        name: usr_country
-        description: Search filter for Country
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: bookBookusersEmail
-        description: Search filter for Email
-        required: false
-      - schema:
-          type: string
-          enum:
           - CUS
           - ACC
         in: query
-        name: bookBookusersType
+        name: bookUserType
         description: Search filter for Type
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: bookUserGeoCoord
-        description: Search filter for Geo coordinates
         required: false
       tags:
       - BookGuests
@@ -2212,55 +2045,55 @@ paths:
       - schema:
           type: string
         in: query
-        name: bookBookingsBookUsersId__bookBookusersEmail
+        name: bookBookingsBookUsersId__bookUserEmail
         description: Search filter for Email
         required: false
       - schema:
           type: string
         in: query
-        name: bookBookbookingsDate
+        name: bookBookingsDate
         description: Search filter for Booking date
         required: false
       - schema:
           type: string
         in: query
-        name: bookBookbookingsHour
+        name: bookBookingsHour
         description: Search filter for Booking hour
         required: false
       - schema:
           type: string
         in: query
-        name: bookBookbookingsStartDate
+        name: bookBookingsStartDate
         description: Search filter for Start date
         required: false
       - schema:
           type: string
         in: query
-        name: bookBookbookingsEndDate
+        name: bookBookingsEndDate
         description: Search filter for End date
         required: false
       - schema:
           type: string
         in: query
-        name: bookBookbookingsPaymentTDate
+        name: bookBookingsPaymentDate
         description: Search filter for Total payment date
         required: false
       - schema:
           type: string
         in: query
-        name: bookBookbookingsAmountDate
+        name: bookBookingsAmountDate
         description: Search filter for Account date
         required: false
       - schema:
           type: boolean
         in: query
-        name: bookBookbookingsPaymentDone
+        name: bookBookingsPaymentDone
         description: Search filter for Payment done ?
         required: false
       - schema:
           type: string
         in: query
-        name: bookBookbookingsComments
+        name: bookBookingsComments
         description: Search filter for Comments
         required: false
       - schema:
@@ -2270,7 +2103,7 @@ paths:
           - TR
           - Cl
         in: query
-        name: bookBookbookingsStatut
+        name: bookBookingsStatus
         description: Search filter for Status
         required: false
       - schema:
@@ -2287,7 +2120,7 @@ paths:
           - '9'
           - '10'
         in: query
-        name: bookBookbookingsRoomNumber
+        name: bookBookingsRoomNumber
         description: Search filter for Number oof rooms
         required: false
       - schema:
@@ -2304,7 +2137,7 @@ paths:
           - '9'
           - '10'
         in: query
-        name: bookBookbookingsGuestNumber
+        name: bookBookingsGuestNumber
         description: Search filter for Number of people
         required: false
       tags:
@@ -2644,7 +2477,7 @@ paths:
       - schema:
           type: string
         in: query
-        name: bookBookusersEmail
+        name: bookUserEmail
         description: Search filter for Email
         required: false
       - schema:
@@ -2653,7 +2486,7 @@ paths:
           - CUS
           - ACC
         in: query
-        name: bookBookusersType
+        name: bookUserType
         description: Search filter for Type
         required: false
       - schema:
@@ -4073,13 +3906,13 @@ paths:
       - schema:
           type: string
         in: query
-        name: bookPaymentsBookBookingsId__bookBookbookingsDate
+        name: bookPaymentsBookBookingsId__bookBookingsDate
         description: Search filter for Booking date
         required: false
       - schema:
           type: string
         in: query
-        name: bookPaymentsBookBookingsId__bookBookbookingsHour
+        name: bookPaymentsBookBookingsId__bookBookingsHour
         description: Search filter for Booking hour
         required: false
       - schema:
@@ -4107,19 +3940,19 @@ paths:
       - schema:
           type: string
         in: query
-        name: bookPaymentsBookBookingsId__bookBookingsBookUsersId__bookBookusersEmail
+        name: bookPaymentsBookBookingsId__bookBookingsBookUsersId__bookUserEmail
         description: Search filter for Email
         required: false
       - schema:
           type: string
         in: query
-        name: bookPaymentsBookBookingsId__bookBookbookingsStartDate
+        name: bookPaymentsBookBookingsId__bookBookingsStartDate
         description: Search filter for Start date
         required: false
       - schema:
           type: string
         in: query
-        name: bookPaymentsBookBookingsId__bookBookbookingsEndDate
+        name: bookPaymentsBookBookingsId__bookBookingsEndDate
         description: Search filter for End date
         required: false
       - schema:
@@ -4255,55 +4088,55 @@ paths:
       - schema:
           type: string
         in: query
-        name: bookBookingsBookUsersId__bookBookusersEmail
+        name: bookBookingsBookUsersId__bookUserEmail
         description: Search filter for Book users Email
         required: false
       - schema:
           type: string
         in: query
-        name: bookBookbookingsDate
+        name: bookBookingsDate
         description: Search filter for Booking date
         required: false
       - schema:
           type: string
         in: query
-        name: bookBookbookingsHour
+        name: bookBookingsHour
         description: Search filter for Booking hour
         required: false
       - schema:
           type: string
         in: query
-        name: bookBookbookingsStartDate
+        name: bookBookingsStartDate
         description: Search filter for Start date
         required: false
       - schema:
           type: string
         in: query
-        name: bookBookbookingsEndDate
+        name: bookBookingsEndDate
         description: Search filter for End date
         required: false
       - schema:
           type: string
         in: query
-        name: bookBookbookingsPaymentTDate
+        name: bookBookingsPaymentDate
         description: Search filter for Total payment date
         required: false
       - schema:
           type: string
         in: query
-        name: bookBookbookingsAmountDate
+        name: bookBookingsAmountDate
         description: Search filter for Account date
         required: false
       - schema:
           type: boolean
         in: query
-        name: bookBookbookingsPaymentDone
+        name: bookBookingsPaymentDone
         description: Search filter for Payment done ?
         required: false
       - schema:
           type: string
         in: query
-        name: bookBookbookingsComments
+        name: bookBookingsComments
         description: Search filter for Comments
         required: false
       - schema:
@@ -4313,7 +4146,7 @@ paths:
           - TR
           - Cl
         in: query
-        name: bookBookbookingsStatut
+        name: bookBookingsStatus
         description: Search filter for Status
         required: false
       - schema:
@@ -4330,7 +4163,7 @@ paths:
           - '9'
           - '10'
         in: query
-        name: bookBookbookingsRoomNumber
+        name: bookBookingsRoomNumber
         description: Search filter for Number oof rooms
         required: false
       - schema:
@@ -4347,7 +4180,7 @@ paths:
           - '9'
           - '10'
         in: query
-        name: bookBookbookingsGuestNumber
+        name: bookBookingsGuestNumber
         description: Search filter for Number of people
         required: false
       tags:
@@ -4524,31 +4357,31 @@ paths:
       - schema:
           type: string
         in: query
-        name: bookBookingsId__bookBookingsBookUsersId__bookBookusersEmail
+        name: bookBookingsId__bookBookingsBookUsersId__bookUserEmail
         description: Search filter for Email
         required: false
       - schema:
           type: string
         in: query
-        name: bookBookingsId__bookBookbookingsDate
+        name: bookBookingsId__bookBookingsDate
         description: Search filter for Booking date
         required: false
       - schema:
           type: string
         in: query
-        name: bookBookingsId__bookBookbookingsHour
+        name: bookBookingsId__bookBookingsHour
         description: Search filter for Booking hour
         required: false
       - schema:
           type: string
         in: query
-        name: bookBookingsId__bookBookbookingsStartDate
+        name: bookBookingsId__bookBookingsStartDate
         description: Search filter for Start date
         required: false
       - schema:
           type: string
         in: query
-        name: bookBookingsId__bookBookbookingsEndDate
+        name: bookBookingsId__bookBookingsEndDate
         description: Search filter for End date
         required: false
       - schema:
@@ -4558,32 +4391,8 @@ paths:
           - TR
           - Cl
         in: query
-        name: bookBookingsId__bookBookbookingsStatut
+        name: bookBookingsId__bookBookingsStatus
         description: Search filter for Status
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: bookGuestsId
-        description: Search filter for Guest
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: bookGuestsId__usr_last_name
-        description: Search filter for Last name
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: bookGuestsId__usr_first_name
-        description: Search filter for First name
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: bookGuestsId__bookBookusersEmail
-        description: Search filter for Guest email
         required: false
       - schema:
           type: string
@@ -4652,48 +4461,32 @@ paths:
         name: bookBookingsGuestsBookRoomId__bookRoomPriceht
         description: Search filter for Room Price
         required: false
-      tags:
-      - BookBookingsBookGuests
-  /rest/BookGuests/{row_id}/placemap:BookUsersMaps:
-    get:
-      summary: Call a place map for BookGuests business object
-      security:
-      - bearerAuth: []
-      operationId: obj-bookguests-placemap-bookusersmaps
-      responses:
-        '200':
-          description: Success in calling the place map adat
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/PlaceMapData'
-        '401':
-          description: Unauthorized
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error401'
-        '500':
-          description: Internal server error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error500'
-        '404':
-          description: Not found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error404'
-      parameters:
       - schema:
           type: string
-        in: path
-        name: row_id
-        description: Row ID (or empty or _ for all row IDs)
-        required: true
+        in: query
+        name: bookGuestsId
+        description: Search filter for Guest
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: bookGuestsId__usr_last_name
+        description: Search filter for Last name
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: bookGuestsId__usr_first_name
+        description: Search filter for First name
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: bookGuestsId__bookUserEmail
+        description: Search filter for Guest email
+        required: false
       tags:
-      - BookGuests
+      - BookBookingsBookGuests
   /rest/BookPayments/{row_id}:
     post:
       summary: Create a new BookPaymentsbusiness object record

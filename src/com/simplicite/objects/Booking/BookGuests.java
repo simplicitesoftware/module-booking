@@ -10,6 +10,13 @@ public class BookGuests extends BookUsers {
 	private static final long serialVersionUID = 1L;
 	
 	@Override
+	public String preCreate() {
+		setFieldValue("bookUserType","ACC");
+		return null;
+	}
+	 
+		
+	@Override
 	public String postCreate() {
 		String demandId = getGrant().getParameter("DEMANDID");
 		if (isProcessInstance() && !Tool.isEmpty(demandId)){

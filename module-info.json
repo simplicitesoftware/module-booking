@@ -1,9 +1,9 @@
 {
-    "date": "2022-07-19 13:23:57",
+    "date": "2022-07-19 17:24:57",
     "name": "Booking",
-    "format": "xml",
-    "files": ["Booking.xml"],
+    "format": "json",
+    "files": ["Booking.json"],
     "repository": {},
     "version": "0.1",
-    "platform": "5.4.0-alpha"
+    "platform": "5.2.10"
 }

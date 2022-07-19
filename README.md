@@ -26,18 +26,18 @@ Bookings of a customer
 | _Ref. `bookBookingsBookUsersId.usr_title`_                   | _enum(5) using `USER_TITLE` list_        |          |           | yes      | _Title_                                                                          |
 | _Ref. `bookBookingsBookUsersId.usr_last_name`_               | _char(50)_                               |          |           | yes      | _Last name_                                                                      |
 | _Ref. `bookBookingsBookUsersId.usr_first_name`_              | _char(50)_                               |          |           | yes      | _First name_                                                                     |
-| _Ref. `bookBookingsBookUsersId.bookBookusersEmail`_          | _email(100)_                             |          |           |          | -                                                                                |
-| `bookBookbookingsDate`                                       | date                                     | yes*     |           |          | -                                                                                |
-| `bookBookbookingsHour`                                       | time                                     | yes*     |           |          | -                                                                                |
-| `bookBookbookingsStartDate`                                  | datetime                                 | yes      | yes       |          | -                                                                                |
-| `bookBookbookingsEndDate`                                    | datetime                                 | yes      | yes       |          | -                                                                                |
-| `bookBookbookingsPaymentTDate`                               | date                                     |          |           |          | -                                                                                |
-| `bookBookbookingsAmountDate`                                 | date                                     |          |           |          | -                                                                                |
-| `bookBookbookingsPaymentDone`                                | boolean                                  |          | yes       |          | -                                                                                |
-| `bookBookbookingsComments`                                   | html(2000)                               |          | yes       |          | -                                                                                |
-| `bookBookbookingsStatut`                                     | enum(2) using `BOOKBOOKBOOKINGSSTATUT` list |          | yes       |          | -                                                                                |
-| `bookBookbookingsRoomNumber`                                 | enum(100) using `BOOKBOOKBOOKINGSROOMNUMBER` list | yes      | yes       |          | -                                                                                |
-| `bookBookbookingsGuestNumber`                                | enum(2) using `BOOKBOOKBOOKINGSROOMNUMBER` list |          | yes       |          | -                                                                                |
+| _Ref. `bookBookingsBookUsersId.bookUserEmail`_               | _email(100)_                             |          |           |          | -                                                                                |
+| `bookBookingsDate`                                           | date                                     | yes*     |           |          | -                                                                                |
+| `bookBookingsHour`                                           | time                                     | yes*     |           |          | -                                                                                |
+| `bookBookingsStartDate`                                      | datetime                                 | yes      | yes       |          | -                                                                                |
+| `bookBookingsEndDate`                                        | datetime                                 | yes      | yes       |          | -                                                                                |
+| `bookBookingsPaymentDate`                                    | date                                     |          |           |          | -                                                                                |
+| `bookBookingsAmountDate`                                     | date                                     |          |           |          | -                                                                                |
+| `bookBookingsPaymentDone`                                    | boolean                                  |          | yes       |          | -                                                                                |
+| `bookBookingsComments`                                       | html(2000)                               |          | yes       |          | -                                                                                |
+| `bookBookingsStatus`                                         | enum(2) using `BOOKBOOKINGSSTATUS` list  |          | yes       |          | -                                                                                |
+| `bookBookingsRoomNumber`                                     | enum(100) using `BOOKBOOKINGSROOMNUMBER` list | yes      | yes       |          | -                                                                                |
+| `bookBookingsGuestNumber`                                    | enum(2) using `BOOKBOOKINGSROOMNUMBER` list |          | yes       |          | -                                                                                |
 
 ### Lists
 
@@ -45,11 +45,11 @@ Bookings of a customer
     - `MR` 
     - `MRS` 
     - `MS` 
-* `BOOKBOOKBOOKINGSSTATUT`
+* `BOOKBOOKINGSSTATUS`
     - `EA` En attente
     - `TR` Traitée
     - `Cl` Clôturée
-* `BOOKBOOKBOOKINGSROOMNUMBER`
+* `BOOKBOOKINGSROOMNUMBER`
     - `1` 1
     - `2` 2
     - `3` 3
@@ -74,16 +74,12 @@ Bookings of a customer
 | _Ref. `bookBookingsId.bookBookingsBookUsersId`_              | _id_                                     |          |           |          | -                                                                                |
 | _Ref. `bookBookingsBookUsersId.usr_last_name`_               | _char(50)_                               |          |           | yes      | _Last name_                                                                      |
 | _Ref. `bookBookingsBookUsersId.usr_first_name`_              | _char(50)_                               |          |           | yes      | _First name_                                                                     |
-| _Ref. `bookBookingsBookUsersId.bookBookusersEmail`_          | _email(100)_                             |          |           |          | -                                                                                |
-| _Ref. `bookBookingsId.bookBookbookingsDate`_                 | _date_                                   |          |           |          | -                                                                                |
-| _Ref. `bookBookingsId.bookBookbookingsHour`_                 | _time_                                   |          |           |          | -                                                                                |
-| _Ref. `bookBookingsId.bookBookbookingsStartDate`_            | _datetime_                               |          |           |          | -                                                                                |
-| _Ref. `bookBookingsId.bookBookbookingsEndDate`_              | _datetime_                               |          |           |          | -                                                                                |
-| _Ref. `bookBookingsId.bookBookbookingsStatut`_               | _enum(2) using `BOOKBOOKBOOKINGSSTATUT` list_ |          |           |          | -                                                                                |
-| `bookGuestsId` link to **`BookGuests`**                      | id                                       | *        | yes       |          | -                                                                                |
-| _Ref. `bookGuestsId.usr_last_name`_                          | _char(50)_                               |          |           | yes      | _Last name_                                                                      |
-| _Ref. `bookGuestsId.usr_first_name`_                         | _char(50)_                               |          |           | yes      | _First name_                                                                     |
-| _Ref. `bookGuestsId.bookBookusersEmail`_                     | _email(100)_                             |          |           |          | -                                                                                |
+| _Ref. `bookBookingsBookUsersId.bookUserEmail`_               | _email(100)_                             |          |           |          | -                                                                                |
+| _Ref. `bookBookingsId.bookBookingsDate`_                     | _date_                                   |          |           |          | -                                                                                |
+| _Ref. `bookBookingsId.bookBookingsHour`_                     | _time_                                   |          |           |          | -                                                                                |
+| _Ref. `bookBookingsId.bookBookingsStartDate`_                | _datetime_                               |          |           |          | -                                                                                |
+| _Ref. `bookBookingsId.bookBookingsEndDate`_                  | _datetime_                               |          |           |          | -                                                                                |
+| _Ref. `bookBookingsId.bookBookingsStatus`_                   | _enum(2) using `BOOKBOOKINGSSTATUS` list_ |          |           |          | -                                                                                |
 | `bookBookingsGuestsBookRoomId` link to **`BookRoom`**        | id                                       |          | yes       |          | -                                                                                |
 | _Ref. `bookBookingsGuestsBookRoomId.bookRoomCode`_           | _char(20)_                               |          |           |          | -                                                                                |
 | _Ref. `bookBookingsGuestsBookRoomId.bookRoomLabel`_          | _char(255)_                              |          |           |          | -                                                                                |
@@ -93,10 +89,14 @@ Bookings of a customer
 | _Ref. `bookBookingsGuestsBookRoomId.bookRoomFloor`_          | _enum(2) using `BOOKROOMFLOOR` list_     |          |           |          | -                                                                                |
 | _Ref. `bookBookingsGuestsBookRoomId.bookRoomPhoto`_          | _image_                                  |          |           |          | -                                                                                |
 | _Ref. `bookBookingsGuestsBookRoomId.bookRoomPriceht`_        | _float(11, 2)_                           |          |           |          | -                                                                                |
+| `bookGuestsId` link to **`BookGuests`**                      | id                                       | *        | yes       |          | -                                                                                |
+| _Ref. `bookGuestsId.usr_last_name`_                          | _char(50)_                               |          |           | yes      | _Last name_                                                                      |
+| _Ref. `bookGuestsId.usr_first_name`_                         | _char(50)_                               |          |           | yes      | _First name_                                                                     |
+| _Ref. `bookGuestsId.bookUserEmail`_                          | _email(100)_                             |          |           |          | -                                                                                |
 
 ### Lists
 
-* `BOOKBOOKBOOKINGSSTATUT`
+* `BOOKBOOKINGSSTATUS`
     - `EA` En attente
     - `TR` Traitée
     - `Cl` Clôturée
@@ -126,23 +126,23 @@ Bookings of a customer
 | `row_ref_id` link to **`BookBookings`**                      | id                                       | yes*     |           |          | Record row ID                                                                    |
 | `row_idx`                                                    | int(11)                                  | yes*     | yes       |          | History record index                                                             |
 | `created_by_hist`                                            | char(100)                                | yes*     |           |          | Created by                                                                       |
-| `created_dt_hist`                                            | datetime                                 | yes*     | yes       |          | Created date                                                                     |
+| `created_dt_hist`                                            | datetime                                 | yes*     |           |          | Created date                                                                     |
 | `bookBookingsBookUsersId` link to **`BookUsers`**            | id                                       | yes*     | yes       |          | -                                                                                |
 | _Ref. `bookBookingsBookUsersId.usr_title`_                   | _enum(5) using `USER_TITLE` list_        |          |           | yes      | _Title_                                                                          |
 | _Ref. `bookBookingsBookUsersId.usr_last_name`_               | _char(50)_                               |          |           | yes      | _Last name_                                                                      |
 | _Ref. `bookBookingsBookUsersId.usr_first_name`_              | _char(50)_                               |          |           | yes      | _First name_                                                                     |
-| _Ref. `bookBookingsBookUsersId.bookBookusersEmail`_          | _email(100)_                             |          |           |          | -                                                                                |
-| `bookBookbookingsDate`                                       | date                                     | yes*     |           |          | -                                                                                |
-| `bookBookbookingsHour`                                       | time                                     | yes*     |           |          | -                                                                                |
-| `bookBookbookingsStartDate`                                  | datetime                                 | yes      | yes       |          | -                                                                                |
-| `bookBookbookingsEndDate`                                    | datetime                                 | yes      | yes       |          | -                                                                                |
-| `bookBookbookingsPaymentTDate`                               | date                                     |          |           |          | -                                                                                |
-| `bookBookbookingsAmountDate`                                 | date                                     |          |           |          | -                                                                                |
-| `bookBookbookingsPaymentDone`                                | boolean                                  |          | yes       |          | -                                                                                |
-| `bookBookbookingsComments`                                   | html(2000)                               |          | yes       |          | -                                                                                |
-| `bookBookbookingsStatut`                                     | enum(2) using `BOOKBOOKBOOKINGSSTATUT` list |          | yes       |          | -                                                                                |
-| `bookBookbookingsRoomNumber`                                 | enum(100) using `BOOKBOOKBOOKINGSROOMNUMBER` list | yes      | yes       |          | -                                                                                |
-| `bookBookbookingsGuestNumber`                                | enum(2) using `BOOKBOOKBOOKINGSROOMNUMBER` list |          | yes       |          | -                                                                                |
+| _Ref. `bookBookingsBookUsersId.bookUserEmail`_               | _email(100)_                             |          |           |          | -                                                                                |
+| `bookBookingsDate`                                           | date                                     | yes*     |           |          | -                                                                                |
+| `bookBookingsHour`                                           | time                                     | yes*     |           |          | -                                                                                |
+| `bookBookingsStartDate`                                      | datetime                                 | yes      | yes       |          | -                                                                                |
+| `bookBookingsEndDate`                                        | datetime                                 | yes      | yes       |          | -                                                                                |
+| `bookBookingsPaymentDate`                                    | date                                     |          |           |          | -                                                                                |
+| `bookBookingsAmountDate`                                     | date                                     |          |           |          | -                                                                                |
+| `bookBookingsPaymentDone`                                    | boolean                                  |          | yes       |          | -                                                                                |
+| `bookBookingsComments`                                       | html(2000)                               |          | yes       |          | -                                                                                |
+| `bookBookingsStatus`                                         | enum(2) using `BOOKBOOKINGSSTATUS` list  |          | yes       |          | -                                                                                |
+| `bookBookingsRoomNumber`                                     | enum(100) using `BOOKBOOKINGSROOMNUMBER` list | yes      | yes       |          | -                                                                                |
+| `bookBookingsGuestNumber`                                    | enum(2) using `BOOKBOOKINGSROOMNUMBER` list |          | yes       |          | -                                                                                |
 
 ### Lists
 
@@ -150,11 +150,11 @@ Bookings of a customer
     - `MR` 
     - `MRS` 
     - `MS` 
-* `BOOKBOOKBOOKINGSSTATUT`
+* `BOOKBOOKINGSSTATUS`
     - `EA` En attente
     - `TR` Traitée
     - `Cl` Clôturée
-* `BOOKBOOKBOOKINGSROOMNUMBER`
+* `BOOKBOOKINGSROOMNUMBER`
     - `1` 1
     - `2` 2
     - `3` 3
@@ -175,7 +175,7 @@ Bookings of a customer
 
 | Name                                                         | Type                                     | Required | Updatable | Personal | Description                                                                      |
 |--------------------------------------------------------------|------------------------------------------|----------|-----------|----------|----------------------------------------------------------------------------------|
-| `bookBookusersType`                                          | enum(3) using `BOOKBOOKUSERSTYPE` list   | yes      | yes       |          | -                                                                                |
+| `bookUserType`                                               | enum(3) using `BOOKBOOKUSERSTYPE` list   | yes      | yes       |          | -                                                                                |
 
 ### Lists
 
@@ -194,14 +194,14 @@ Bookings payments
 |--------------------------------------------------------------|------------------------------------------|----------|-----------|----------|----------------------------------------------------------------------------------|
 | `bookPaymentsBookBookingsId` link to **`BookBookings`**      | id                                       | yes*     | yes       |          | -                                                                                |
 | _Ref. `bookPaymentsBookBookingsId.bookBookingsBookUsersId`_  | _id_                                     |          |           |          | -                                                                                |
-| _Ref. `bookPaymentsBookBookingsId.bookBookbookingsDate`_     | _date_                                   |          |           |          | -                                                                                |
-| _Ref. `bookPaymentsBookBookingsId.bookBookbookingsHour`_     | _time_                                   |          |           |          | -                                                                                |
+| _Ref. `bookPaymentsBookBookingsId.bookBookingsDate`_         | _date_                                   |          |           |          | -                                                                                |
+| _Ref. `bookPaymentsBookBookingsId.bookBookingsHour`_         | _time_                                   |          |           |          | -                                                                                |
 | _Ref. `bookBookingsBookUsersId.usr_title`_                   | _enum(5) using `USER_TITLE` list_        |          |           | yes      | _Title_                                                                          |
 | _Ref. `bookBookingsBookUsersId.usr_last_name`_               | _char(50)_                               |          |           | yes      | _Last name_                                                                      |
 | _Ref. `bookBookingsBookUsersId.usr_first_name`_              | _char(50)_                               |          |           | yes      | _First name_                                                                     |
-| _Ref. `bookBookingsBookUsersId.bookBookusersEmail`_          | _email(100)_                             |          |           |          | -                                                                                |
-| _Ref. `bookPaymentsBookBookingsId.bookBookbookingsStartDate`_ | _datetime_                               |          |           |          | -                                                                                |
-| _Ref. `bookPaymentsBookBookingsId.bookBookbookingsEndDate`_  | _datetime_                               |          |           |          | -                                                                                |
+| _Ref. `bookBookingsBookUsersId.bookUserEmail`_               | _email(100)_                             |          |           |          | -                                                                                |
+| _Ref. `bookPaymentsBookBookingsId.bookBookingsStartDate`_    | _datetime_                               |          |           |          | -                                                                                |
+| _Ref. `bookPaymentsBookBookingsId.bookBookingsEndDate`_      | _datetime_                               |          |           |          | -                                                                                |
 | `bookPayPaymId` link to **`BookPaymentMethod`**              | id                                       | yes*     | yes       |          | -                                                                                |
 | _Ref. `bookPayPaymId.bookPaymCode`_                          | _char(20)_                               |          |           |          | -                                                                                |
 | _Ref. `bookPayPaymId.bookPaymLibell`_                        | _char(100)_                              |          |           |          | -                                                                                |
@@ -214,57 +214,6 @@ Bookings payments
     - `MR` 
     - `MRS` 
     - `MS` 
-
-`BookUsers` business object definition
---------------------------------------
-
-Customers
-
-### Fields
-
-| Name                                                         | Type                                     | Required | Updatable | Personal | Description                                                                      |
-|--------------------------------------------------------------|------------------------------------------|----------|-----------|----------|----------------------------------------------------------------------------------|
-| `usr_title`                                                  | enum(5) using `USER_TITLE` list          |          | yes       | yes      | Title                                                                            |
-| `usr_last_name`                                              | char(50)                                 |          | yes       | yes      | Last name                                                                        |
-| `usr_first_name`                                             | char(50)                                 |          | yes       | yes      | First name                                                                       |
-| `usr_work_num`                                               | phone(20)                                |          | yes       | yes      | Work phone number                                                                |
-| `usr_home_num`                                               | phone(20)                                |          | yes       |          | -                                                                                |
-| `usr_cell_num`                                               | phone(20)                                |          | yes       | yes      | Mobile/cellular phone number                                                     |
-| `usr_address1`                                               | char(100)                                |          | yes       | yes      | Address line 1                                                                   |
-| `usr_address2`                                               | char(100)                                |          | yes       | yes      | Address line 2                                                                   |
-| `usr_zipcode`                                                | char(10)                                 |          | yes       | yes      | Postal/ZIP code                                                                  |
-| `usr_city`                                                   | char(50)                                 |          | yes       | yes      | City                                                                             |
-| `usr_state`                                                  | char(50)                                 |          | yes       | yes      | State                                                                            |
-| `usr_country`                                                | enum(20) using `COUNTRY` list            |          | yes       | yes      | Country                                                                          |
-| `bookBookusersEmail`                                         | email(100)                               | yes*     | yes       |          | -                                                                                |
-| `bookBookusersType`                                          | enum(3) using `BOOKBOOKUSERSTYPE` list   | yes      | yes       |          | -                                                                                |
-| `bookUserGeoCoord`                                           | geocoords                                |          | yes       |          | -                                                                                |
-
-### Lists
-
-* `USER_TITLE`
-    - `MR` 
-    - `MRS` 
-    - `MS` 
-* `COUNTRY`
-    - `FR` France
-    - `UK` United Kingdom
-    - `ES` Spain
-    - `DE` Germany
-    - `BE` Belgium
-    - `CH` Switzerland
-    - `IE` Ireland
-    - `IT` Italy
-    - `PT` Portugal
-    - `NL` Netherlands
-    - `CZ` Czech Republic
-    - `AT` Austria
-    - `CA` Canada
-    - `US` United States of America
-    - `AU` Australia
-* `BOOKBOOKUSERSTYPE`
-    - `CUS` Client
-    - `ACC` Accompagnateur
 
 `BookRoomEquipment` business object definition
 ----------------------------------------------
@@ -382,6 +331,57 @@ Booking rooms
 | _Ref. `bookroomservBookServiceId.bookRservCode`_             | _char(20)_                               |          |           |          | -                                                                                |
 | _Ref. `bookroomservBookServiceId.bookRservLibell`_           | _char(255)_                              |          |           |          | -                                                                                |
 
+`BookUsers` business object definition
+--------------------------------------
+
+Customers
+
+### Fields
+
+| Name                                                         | Type                                     | Required | Updatable | Personal | Description                                                                      |
+|--------------------------------------------------------------|------------------------------------------|----------|-----------|----------|----------------------------------------------------------------------------------|
+| `usr_title`                                                  | enum(5) using `USER_TITLE` list          |          | yes       | yes      | Title                                                                            |
+| `usr_last_name`                                              | char(50)                                 |          | yes       | yes      | Last name                                                                        |
+| `usr_first_name`                                             | char(50)                                 |          | yes       | yes      | First name                                                                       |
+| `usr_work_num`                                               | phone(20)                                |          | yes       | yes      | Work phone number                                                                |
+| `usr_home_num`                                               | phone(20)                                |          | yes       |          | -                                                                                |
+| `usr_cell_num`                                               | phone(20)                                |          | yes       | yes      | Mobile/cellular phone number                                                     |
+| `usr_address1`                                               | char(100)                                |          | yes       | yes      | Address line 1                                                                   |
+| `usr_address2`                                               | char(100)                                |          | yes       | yes      | Address line 2                                                                   |
+| `usr_zipcode`                                                | char(10)                                 |          | yes       | yes      | Postal/ZIP code                                                                  |
+| `usr_city`                                                   | char(50)                                 |          | yes       | yes      | City                                                                             |
+| `usr_state`                                                  | char(50)                                 |          | yes       | yes      | State                                                                            |
+| `usr_country`                                                | enum(20) using `COUNTRY` list            |          | yes       | yes      | Country                                                                          |
+| `bookUserEmail`                                              | email(100)                               | yes*     | yes       |          | -                                                                                |
+| `bookUserType`                                               | enum(3) using `BOOKBOOKUSERSTYPE` list   | yes      | yes       |          | -                                                                                |
+| `bookUserGeoCoord`                                           | geocoords                                |          | yes       |          | -                                                                                |
+
+### Lists
+
+* `USER_TITLE`
+    - `MR` 
+    - `MRS` 
+    - `MS` 
+* `COUNTRY`
+    - `FR` France
+    - `UK` United Kingdom
+    - `ES` Spain
+    - `DE` Germany
+    - `BE` Belgium
+    - `CH` Switzerland
+    - `IE` Ireland
+    - `IT` Italy
+    - `PT` Portugal
+    - `NL` Netherlands
+    - `CZ` Czech Republic
+    - `AT` Austria
+    - `CA` Canada
+    - `US` United States of America
+    - `AU` Australia
+* `BOOKBOOKUSERSTYPE`
+    - `CUS` Client
+    - `ACC` Accompagnateur
+
 `BookingCreation` business process definition
 ---------------------------------------------
 
@@ -394,6 +394,12 @@ Process to create booking
 * `End`: 
 * `CreateGuests`: Create Guests
 * `Identification`: Identification : Customer creation
+
+`BookBookingAgenda` external object definition
+----------------------------------------------
+
+
+
 
 `BookBookingFrontEnd` external object definition
 ------------------------------------------------

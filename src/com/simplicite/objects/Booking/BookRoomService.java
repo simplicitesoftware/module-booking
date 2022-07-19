@@ -12,7 +12,7 @@ public class BookRoomService extends ObjectDB {
 	@Override
 	public List<String> postValidate() {
 		List<String> msgs = new ArrayList<>();
-		if (isNew()|| isCopied())
+		if (!isBatchInstance() && (isNew()|| isCopied()))
 		   setFieldValue("bookRservCode", BookCommon.getNumber(getGrant(),"RSERV","book_room_service", "book_rserv_code"));
 		
 		return msgs;
