@@ -569,8 +569,14 @@ paths:
         - BE
         - CH
         - IE
-        - US
+        - IT
+        - PT
+        - NL
+        - CZ
+        - AT
         - CA
+        - US
+        - AU
       - in: query
         name: bookBookusersEmail
         description: Search filter for Email
@@ -1529,8 +1535,14 @@ paths:
         - BE
         - CH
         - IE
-        - US
+        - IT
+        - PT
+        - NL
+        - CZ
+        - AT
         - CA
+        - US
+        - AU
       - in: query
         name: bookBookusersEmail
         description: Search filter for Email
@@ -3644,8 +3656,14 @@ definitions:
         - BE
         - CH
         - IE
-        - US
+        - IT
+        - PT
+        - NL
+        - CZ
+        - AT
         - CA
+        - US
+        - AU
       usr_title:
         description: Title
         type: string
@@ -4220,8 +4238,14 @@ definitions:
         - BE
         - CH
         - IE
-        - US
+        - IT
+        - PT
+        - NL
+        - CZ
+        - AT
         - CA
+        - US
+        - AU
       usr_title:
         description: Title
         type: string

@@ -24,7 +24,7 @@ public class BookUsers extends ObjectDB {
 
 			if (coords.isEmpty() || a1.hasChanged() || a2.hasChanged() || zc.hasChanged() || ci.hasChanged() || co.hasChanged()) {
 				String a = a1.getValue() + (a2.isEmpty() ? "" : ", " + a2.getValue()) + ", " + zc.getValue() + ", " + ci.getValue() + ", " + co.getValue();
-				AppLog.info("Try to geocode " + a, getGrant());
+				AppLog.info("Try to geocode " + a, getGrant());  
 				Location c = new GMapTool(getGrant()).geocodeOne(a);
 				AppLog.info("Coordinates = " + c, getGrant());
 				coords.setValue(c==null ?  "" : c.toString());

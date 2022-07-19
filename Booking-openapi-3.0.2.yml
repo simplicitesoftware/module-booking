@@ -61,8 +61,14 @@ components:
           - BE
           - CH
           - IE
-          - US
+          - IT
+          - PT
+          - NL
+          - CZ
+          - AT
           - CA
+          - US
+          - AU
         usr_title:
           description: Title
           type: string
@@ -637,8 +643,14 @@ components:
           - BE
           - CH
           - IE
-          - US
+          - IT
+          - PT
+          - NL
+          - CZ
+          - AT
           - CA
+          - US
+          - AU
         usr_title:
           description: Title
           type: string
@@ -1472,8 +1484,14 @@ paths:
           - BE
           - CH
           - IE
-          - US
+          - IT
+          - PT
+          - NL
+          - CZ
+          - AT
           - CA
+          - US
+          - AU
         in: query
         name: usr_country
         description: Search filter for Country
@@ -2611,8 +2629,14 @@ paths:
           - BE
           - CH
           - IE
-          - US
+          - IT
+          - PT
+          - NL
+          - CZ
+          - AT
           - CA
+          - US
+          - AU
         in: query
         name: usr_country
         description: Search filter for Country

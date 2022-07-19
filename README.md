@@ -248,14 +248,20 @@ Customers
     - `MS` 
 * `COUNTRY`
     - `FR` France
-    - `UK` Royaume Uni
-    - `ES` Espagne
-    - `DE` Allemagne
-    - `BE` Belgique
-    - `CH` Suisse
+    - `UK` United Kingdom
+    - `ES` Spain
+    - `DE` Germany
+    - `BE` Belgium
+    - `CH` Switzerland
     - `IE` Ireland
+    - `IT` Italy
+    - `PT` Portugal
+    - `NL` Netherlands
+    - `CZ` Czech Republic
+    - `AT` Austria
     - `CA` Canada
-    - `US` Etats Unis
+    - `US` United States of America
+    - `AU` Australia
 * `BOOKBOOKUSERSTYPE`
     - `CUS` Client
     - `ACC` Accompagnateur

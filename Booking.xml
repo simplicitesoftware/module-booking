@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<simplicite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.simplicite.fr/base" xsi:schemaLocation="http://www.simplicite.fr/base https://www.simplicite.io/resources/schemas/base.xsd">
+<simplicite elements="693" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.simplicite.fr/base" xsi:schemaLocation="http://www.simplicite.fr/base https://www.simplicite.io/resources/schemas/base.xsd">
 <object>
 	<name>Module</name>
 	<action>upsert</action>
@@ -53,13 +53,14 @@
 	<action>upsert</action>
 	<data>
 		<viw_name>BookingScope</viw_name>
+		<viw_type>H</viw_type>
 		<viw_ui><![CDATA[<div class="area" data-area="1,2"></div>]]></viw_ui>
 		<viw_order>11</viw_order>
 		<viw_icon>fas/store-alt</viw_icon>
 		<viw_disp_id.dis_code/>
 		<viw_scope>Booking</viw_scope>
 		<row_module_id.mdl_name>Booking</row_module_id.mdl_name>
-		<viw_theme_id.thm_name>ThemeV5</viw_theme_id.thm_name>
+		<viw_theme_id.thm_name>BookingTheme</viw_theme_id.thm_name>
 		<viw_lang>ENU;FRA</viw_lang>
 	</data>
 </object>
@@ -88,34 +89,6 @@
 		<mod_doc>files/Model/BookProcess.svg</mod_doc>
 		<mod_json/>
 		<mod_image>files/Model/BookProcess.png</mod_image>
-		<row_module_id.mdl_name>Booking</row_module_id.mdl_name>
-	</data>
-</object>
-<object>
-	<name>Group</name>
-	<action>upsert</action>
-	<data>
-		<grp_name>BOOK_ADMIN</grp_name>
-		<grp_comment><![CDATA[Administrateur de l'application de réservation de chambres]]></grp_comment>
-		<grp_type>G</grp_type>
-		<grp_parent_id.grp_name/>
-		<grp_home_id.viw_name>BookingScope</grp_home_id.viw_name>
-		<row_module_id.mdl_name>Booking</row_module_id.mdl_name>
-	</data>
-	<data>
-		<grp_name>BOOK_READERS</grp_name>
-		<grp_comment><![CDATA[Profil de lecture seule de l'application de réservation de chambres]]></grp_comment>
-		<grp_type>G</grp_type>
-		<grp_parent_id.grp_name/>
-		<grp_home_id.viw_name/>
-		<row_module_id.mdl_name>Booking</row_module_id.mdl_name>
-	</data>
-	<data>
-		<grp_name>BOOK_USERS</grp_name>
-		<grp_comment><![CDATA[Profil utilisateur de l'application de réservation de chambres]]></grp_comment>
-		<grp_type>G</grp_type>
-		<grp_parent_id.grp_name/>
-		<grp_home_id.viw_name>BookingScope</grp_home_id.viw_name>
 		<row_module_id.mdl_name>Booking</row_module_id.mdl_name>
 	</data>
 </object>
@@ -3041,32 +3014,6 @@
 	</data>
 </object>
 <object>
-	<name>Domain</name>
-	<action>upsert</action>
-	<data>
-		<obd_name>DomainBookingRef</obd_name>
-		<obd_comment/>
-		<obd_type>D</obd_type>
-		<obd_view_id.viw_name/>
-		<obd_nohome>0</obd_nohome>
-		<obd_icon>img/color/data_configuration</obd_icon>
-		<obd_order>5000</obd_order>
-		<obd_domain_id.obd_name/>
-		<row_module_id.mdl_name>Booking</row_module_id.mdl_name>
-	</data>
-	<data>
-		<obd_name>DomainBooking</obd_name>
-		<obd_comment/>
-		<obd_type>D</obd_type>
-		<obd_view_id.viw_name/>
-		<obd_nohome>0</obd_nohome>
-		<obd_icon>img/color/calendar</obd_icon>
-		<obd_order>6000</obd_order>
-		<obd_domain_id.obd_name/>
-		<row_module_id.mdl_name>Booking</row_module_id.mdl_name>
-	</data>
-</object>
-<object>
 	<name>ObjectExternal</name>
 	<action>upsert</action>
 	<data>
@@ -3150,6 +3097,8 @@
 		<obo_maxrows/>
 		<obo_sortable>1</obo_sortable>
 		<obo_list_areas>1</obo_list_areas>
+		<obo_minifiable>M</obo_minifiable>
+		<obo_minified>0</obo_minified>
 	</data>
 	<data>
 		<obo_name>BookBookingsBookGuests</obo_name>
@@ -3217,6 +3166,8 @@
 		<obo_maxrows/>
 		<obo_sortable>1</obo_sortable>
 		<obo_list_areas>1</obo_list_areas>
+		<obo_minifiable>M</obo_minifiable>
+		<obo_minified>0</obo_minified>
 	</data>
 	<data>
 		<obo_name>BookBookingsHistoric</obo_name>
@@ -3284,6 +3235,8 @@
 		<obo_maxrows/>
 		<obo_sortable>1</obo_sortable>
 		<obo_list_areas>1</obo_list_areas>
+		<obo_minifiable>M</obo_minifiable>
+		<obo_minified>0</obo_minified>
 	</data>
 	<data>
 		<obo_name>BookEquRoom</obo_name>
@@ -3351,6 +3304,8 @@
 		<obo_maxrows/>
 		<obo_sortable>1</obo_sortable>
 		<obo_list_areas>1</obo_list_areas>
+		<obo_minifiable>M</obo_minifiable>
+		<obo_minified>0</obo_minified>
 	</data>
 	<data>
 		<obo_name>BookUsers</obo_name>
@@ -3418,6 +3373,8 @@
 		<obo_maxrows/>
 		<obo_sortable>1</obo_sortable>
 		<obo_list_areas>1</obo_list_areas>
+		<obo_minifiable>M</obo_minifiable>
+		<obo_minified>0</obo_minified>
 	</data>
 	<data>
 		<obo_name>BookGuests</obo_name>
@@ -3485,6 +3442,8 @@
 		<obo_maxrows/>
 		<obo_sortable>1</obo_sortable>
 		<obo_list_areas>1</obo_list_areas>
+		<obo_minifiable>M</obo_minifiable>
+		<obo_minified>0</obo_minified>
 	</data>
 	<data>
 		<obo_name>BookPaymentMethod</obo_name>
@@ -3552,6 +3511,8 @@
 		<obo_maxrows/>
 		<obo_sortable>1</obo_sortable>
 		<obo_list_areas>1</obo_list_areas>
+		<obo_minifiable>M</obo_minifiable>
+		<obo_minified>0</obo_minified>
 	</data>
 	<data>
 		<obo_name>BookPayments</obo_name>
@@ -3619,6 +3580,8 @@
 		<obo_maxrows/>
 		<obo_sortable>1</obo_sortable>
 		<obo_list_areas>1</obo_list_areas>
+		<obo_minifiable>M</obo_minifiable>
+		<obo_minified>0</obo_minified>
 	</data>
 	<data>
 		<obo_name>BookRoom</obo_name>
@@ -3686,6 +3649,8 @@
 		<obo_maxrows/>
 		<obo_sortable>1</obo_sortable>
 		<obo_list_areas>1</obo_list_areas>
+		<obo_minifiable>M</obo_minifiable>
+		<obo_minified>0</obo_minified>
 	</data>
 	<data>
 		<obo_name oldvalue="BookRoomBookRoomService">BookRoomBookRoomService</obo_name>
@@ -3753,6 +3718,8 @@
 		<obo_maxrows/>
 		<obo_sortable>1</obo_sortable>
 		<obo_list_areas>1</obo_list_areas>
+		<obo_minifiable>M</obo_minifiable>
+		<obo_minified>0</obo_minified>
 	</data>
 	<data>
 		<obo_name>BookRoomEquipment</obo_name>
@@ -3820,6 +3787,8 @@
 		<obo_maxrows/>
 		<obo_sortable>1</obo_sortable>
 		<obo_list_areas>1</obo_list_areas>
+		<obo_minifiable>M</obo_minifiable>
+		<obo_minified>0</obo_minified>
 	</data>
 	<data>
 		<obo_name>BookRoomService</obo_name>
@@ -3887,6 +3856,8 @@
 		<obo_maxrows/>
 		<obo_sortable>1</obo_sortable>
 		<obo_list_areas>1</obo_list_areas>
+		<obo_minifiable>M</obo_minifiable>
+		<obo_minified>0</obo_minified>
 	</data>
 	<data>
 		<obo_name>BookRoomType</obo_name>
@@ -3954,6 +3925,8 @@
 		<obo_maxrows/>
 		<obo_sortable>1</obo_sortable>
 		<obo_list_areas>1</obo_list_areas>
+		<obo_minifiable>M</obo_minifiable>
+		<obo_minified>0</obo_minified>
 	</data>
 </object>
 <object>
@@ -8117,440 +8090,6 @@
 	</data>
 </object>
 <object>
-	<name>Action</name>
-	<action>upsert</action>
-	<data>
-		<act_name>BOOK_ADDACC</act_name>
-		<act_type>O</act_type>
-		<act_async>0</act_async>
-		<act_job_depth/>
-		<act_method/>
-		<act_script/>
-		<act_url/>
-		<act_image/>
-		<act_confirm>0</act_confirm>
-		<act_confirm_expr/>
-		<act_confirm_ui/>
-		<act_plus>0</act_plus>
-		<act_comment/>
-		<row_module_id.mdl_name>Booking</row_module_id.mdl_name>
-		<act_exec>NUL</act_exec>
-		<act_count/>
-		<act_order>10</act_order>
-		<act_color/>
-		<act_color_bg/>
-	</data>
-	<data>
-		<act_name>BOOKBOOKBOOKINGSSTATUT-EA-TR</act_name>
-		<act_type>O</act_type>
-		<act_async>0</act_async>
-		<act_job_depth/>
-		<act_method/>
-		<act_script/>
-		<act_url/>
-		<act_image/>
-		<act_confirm>1</act_confirm>
-		<act_confirm_expr/>
-		<act_confirm_ui/>
-		<act_plus/>
-		<act_comment><![CDATA[Transition]]></act_comment>
-		<row_module_id.mdl_name>Booking</row_module_id.mdl_name>
-		<act_exec>NUL</act_exec>
-		<act_count/>
-		<act_order/>
-		<act_color/>
-		<act_color_bg/>
-	</data>
-	<data>
-		<act_name>BOOKBOOKBOOKINGSSTATUT-TR-Cl</act_name>
-		<act_type>O</act_type>
-		<act_async>0</act_async>
-		<act_job_depth/>
-		<act_method/>
-		<act_script/>
-		<act_url/>
-		<act_image/>
-		<act_confirm>1</act_confirm>
-		<act_confirm_expr/>
-		<act_confirm_ui/>
-		<act_plus/>
-		<act_comment><![CDATA[Transition]]></act_comment>
-		<row_module_id.mdl_name>Booking</row_module_id.mdl_name>
-		<act_exec>NUL</act_exec>
-		<act_count/>
-		<act_order/>
-		<act_color/>
-		<act_color_bg/>
-	</data>
-	<data>
-		<act_name>BookUsersMap</act_name>
-		<act_type>O</act_type>
-		<act_async>0</act_async>
-		<act_job_depth/>
-		<act_method/>
-		<act_script/>
-		<act_url><![CDATA[javascript:BookUsers.map()]]></act_url>
-		<act_image>img/color/map</act_image>
-		<act_confirm>0</act_confirm>
-		<act_confirm_expr/>
-		<act_confirm_ui/>
-		<act_plus>0</act_plus>
-		<act_comment/>
-		<row_module_id.mdl_name>Booking</row_module_id.mdl_name>
-		<act_exec>FRT</act_exec>
-		<act_count/>
-		<act_order>10</act_order>
-		<act_color/>
-		<act_color_bg/>
-	</data>
-</object>
-<object>
-	<name>Function</name>
-	<action>upsert</action>
-	<data>
-		<fct_name>BOOK_BOOKING_FRONT_END_E</fct_name>
-		<fct_object_id.obj_type>E</fct_object_id.obj_type>
-		<fct_object_id.obj_name>BookBookingFrontEnd</fct_object_id.obj_name>
-		<fct_function>L</fct_function>
-		<fct_action_id.act_name/>
-		<fct_view_id.viw_name/>
-		<row_module_id.mdl_name>Booking</row_module_id.mdl_name>
-	</data>
-	<data>
-		<fct_name>BOOK_BOOKINGS_BOOK_GUESTS_CRUD</fct_name>
-		<fct_object_id.obj_type>O</fct_object_id.obj_type>
-		<fct_object_id.obj_name>BookBookingsBookGuests</fct_object_id.obj_name>
-		<fct_function>CMS</fct_function>
-		<fct_action_id.act_name/>
-		<fct_view_id.viw_name/>
-		<row_module_id.mdl_name>Booking</row_module_id.mdl_name>
-	</data>
-	<data>
-		<fct_name>BOOK_BOOKINGS_BOOK_GUESTS_R</fct_name>
-		<fct_object_id.obj_type>O</fct_object_id.obj_type>
-		<fct_object_id.obj_name>BookBookingsBookGuests</fct_object_id.obj_name>
-		<fct_function>L</fct_function>
-		<fct_action_id.act_name/>
-		<fct_view_id.viw_name/>
-		<row_module_id.mdl_name>Booking</row_module_id.mdl_name>
-	</data>
-	<data>
-		<fct_name>BOOK_DOMAIN_BOOKING_D</fct_name>
-		<fct_object_id.obj_type>D</fct_object_id.obj_type>
-		<fct_object_id.obj_name>DomainBooking</fct_object_id.obj_name>
-		<fct_function>L</fct_function>
-		<fct_action_id.act_name/>
-		<fct_view_id.viw_name/>
-		<row_module_id.mdl_name>Booking</row_module_id.mdl_name>
-	</data>
-	<data>
-		<fct_name>BOOK_DOMAIN_BOOKING_REF_D</fct_name>
-		<fct_object_id.obj_type>D</fct_object_id.obj_type>
-		<fct_object_id.obj_name>DomainBookingRef</fct_object_id.obj_name>
-		<fct_function>L</fct_function>
-		<fct_action_id.act_name/>
-		<fct_view_id.viw_name/>
-		<row_module_id.mdl_name>Booking</row_module_id.mdl_name>
-	</data>
-	<data>
-		<fct_name>BOOK_EQU_CRU</fct_name>
-		<fct_object_id.obj_type>O</fct_object_id.obj_type>
-		<fct_object_id.obj_name>BookRoomEquipment</fct_object_id.obj_name>
-		<fct_function>CM</fct_function>
-		<fct_action_id.act_name/>
-		<fct_view_id.viw_name/>
-		<row_module_id.mdl_name>Booking</row_module_id.mdl_name>
-	</data>
-	<data>
-		<fct_name>BOOK_EQU_CRUD</fct_name>
-		<fct_object_id.obj_type>O</fct_object_id.obj_type>
-		<fct_object_id.obj_name>BookRoomEquipment</fct_object_id.obj_name>
-		<fct_function>CMS</fct_function>
-		<fct_action_id.act_name/>
-		<fct_view_id.viw_name/>
-		<row_module_id.mdl_name>Booking</row_module_id.mdl_name>
-	</data>
-	<data>
-		<fct_name>BOOK_EQU_R</fct_name>
-		<fct_object_id.obj_type>O</fct_object_id.obj_type>
-		<fct_object_id.obj_name>BookRoomEquipment</fct_object_id.obj_name>
-		<fct_function>L</fct_function>
-		<fct_action_id.act_name/>
-		<fct_view_id.viw_name/>
-		<row_module_id.mdl_name>Booking</row_module_id.mdl_name>
-	</data>
-	<data>
-		<fct_name>BOOK_EQUROOM_CRUD</fct_name>
-		<fct_object_id.obj_type>O</fct_object_id.obj_type>
-		<fct_object_id.obj_name>BookEquRoom</fct_object_id.obj_name>
-		<fct_function>CMS</fct_function>
-		<fct_action_id.act_name/>
-		<fct_view_id.viw_name/>
-		<row_module_id.mdl_name>Booking</row_module_id.mdl_name>
-	</data>
-	<data>
-		<fct_name>BOOK_EQUROOM_R</fct_name>
-		<fct_object_id.obj_type>O</fct_object_id.obj_type>
-		<fct_object_id.obj_name>BookEquRoom</fct_object_id.obj_name>
-		<fct_function>L</fct_function>
-		<fct_action_id.act_name/>
-		<fct_view_id.viw_name/>
-		<row_module_id.mdl_name>Booking</row_module_id.mdl_name>
-	</data>
-	<data>
-		<fct_name>BOOK_PAYM_CRU</fct_name>
-		<fct_object_id.obj_type>O</fct_object_id.obj_type>
-		<fct_object_id.obj_name>BookPaymentMethod</fct_object_id.obj_name>
-		<fct_function>CM</fct_function>
-		<fct_action_id.act_name/>
-		<fct_view_id.viw_name/>
-		<row_module_id.mdl_name>Booking</row_module_id.mdl_name>
-	</data>
-	<data>
-		<fct_name>BOOK_PAYM_CRUD</fct_name>
-		<fct_object_id.obj_type>O</fct_object_id.obj_type>
-		<fct_object_id.obj_name>BookPaymentMethod</fct_object_id.obj_name>
-		<fct_function>CMS</fct_function>
-		<fct_action_id.act_name/>
-		<fct_view_id.viw_name/>
-		<row_module_id.mdl_name>Booking</row_module_id.mdl_name>
-	</data>
-	<data>
-		<fct_name>BOOK_PAYM_R</fct_name>
-		<fct_object_id.obj_type>O</fct_object_id.obj_type>
-		<fct_object_id.obj_name>BookPaymentMethod</fct_object_id.obj_name>
-		<fct_function>L</fct_function>
-		<fct_action_id.act_name/>
-		<fct_view_id.viw_name/>
-		<row_module_id.mdl_name>Booking</row_module_id.mdl_name>
-	</data>
-	<data>
-		<fct_name>BOOK_ROOM_CRU</fct_name>
-		<fct_object_id.obj_type>O</fct_object_id.obj_type>
-		<fct_object_id.obj_name>BookRoom</fct_object_id.obj_name>
-		<fct_function>CM</fct_function>
-		<fct_action_id.act_name/>
-		<fct_view_id.viw_name/>
-		<row_module_id.mdl_name>Booking</row_module_id.mdl_name>
-	</data>
-	<data>
-		<fct_name>BOOK_ROOM_CRUD</fct_name>
-		<fct_object_id.obj_type>O</fct_object_id.obj_type>
-		<fct_object_id.obj_name>BookRoom</fct_object_id.obj_name>
-		<fct_function>CMS</fct_function>
-		<fct_action_id.act_name/>
-		<fct_view_id.viw_name/>
-		<row_module_id.mdl_name>Booking</row_module_id.mdl_name>
-	</data>
-	<data>
-		<fct_name>BOOK_ROOM_R</fct_name>
-		<fct_object_id.obj_type>O</fct_object_id.obj_type>
-		<fct_object_id.obj_name>BookRoom</fct_object_id.obj_name>
-		<fct_function>L</fct_function>
-		<fct_action_id.act_name/>
-		<fct_view_id.viw_name/>
-		<row_module_id.mdl_name>Booking</row_module_id.mdl_name>
-	</data>
-	<data>
-		<fct_name>BOOK_ROOMSERV_CRUD</fct_name>
-		<fct_object_id.obj_type>O</fct_object_id.obj_type>
-		<fct_object_id.obj_name>BookRoomBookRoomService</fct_object_id.obj_name>
-		<fct_function>CMS</fct_function>
-		<fct_action_id.act_name/>
-		<fct_view_id.viw_name/>
-		<row_module_id.mdl_name>Booking</row_module_id.mdl_name>
-	</data>
-	<data>
-		<fct_name>BOOK_ROOMSERV_R</fct_name>
-		<fct_object_id.obj_type>O</fct_object_id.obj_type>
-		<fct_object_id.obj_name>BookRoomBookRoomService</fct_object_id.obj_name>
-		<fct_function>L</fct_function>
-		<fct_action_id.act_name/>
-		<fct_view_id.viw_name/>
-		<row_module_id.mdl_name>Booking</row_module_id.mdl_name>
-	</data>
-	<data>
-		<fct_name>BOOK_RSERV_CRU</fct_name>
-		<fct_object_id.obj_type>O</fct_object_id.obj_type>
-		<fct_object_id.obj_name>BookRoomService</fct_object_id.obj_name>
-		<fct_function>CM</fct_function>
-		<fct_action_id.act_name/>
-		<fct_view_id.viw_name/>
-		<row_module_id.mdl_name>Booking</row_module_id.mdl_name>
-	</data>
-	<data>
-		<fct_name>BOOK_RSERV_CRUD</fct_name>
-		<fct_object_id.obj_type>O</fct_object_id.obj_type>
-		<fct_object_id.obj_name>BookRoomService</fct_object_id.obj_name>
-		<fct_function>CMS</fct_function>
-		<fct_action_id.act_name/>
-		<fct_view_id.viw_name/>
-		<row_module_id.mdl_name>Booking</row_module_id.mdl_name>
-	</data>
-	<data>
-		<fct_name>BOOK_RSERV_R</fct_name>
-		<fct_object_id.obj_type>O</fct_object_id.obj_type>
-		<fct_object_id.obj_name>BookRoomService</fct_object_id.obj_name>
-		<fct_function>L</fct_function>
-		<fct_action_id.act_name/>
-		<fct_view_id.viw_name/>
-		<row_module_id.mdl_name>Booking</row_module_id.mdl_name>
-	</data>
-	<data>
-		<fct_name>BookBookings-CU</fct_name>
-		<fct_object_id.obj_type>O</fct_object_id.obj_type>
-		<fct_object_id.obj_name>BookBookings</fct_object_id.obj_name>
-		<fct_function>CM</fct_function>
-		<fct_action_id.act_name/>
-		<fct_view_id.viw_name/>
-		<row_module_id.mdl_name>Booking</row_module_id.mdl_name>
-	</data>
-	<data>
-		<fct_name>BookBookings-CUD</fct_name>
-		<fct_object_id.obj_type>O</fct_object_id.obj_type>
-		<fct_object_id.obj_name>BookBookings</fct_object_id.obj_name>
-		<fct_function>CMS</fct_function>
-		<fct_action_id.act_name/>
-		<fct_view_id.viw_name/>
-		<row_module_id.mdl_name>Booking</row_module_id.mdl_name>
-	</data>
-	<data>
-		<fct_name>BookBookings-H</fct_name>
-		<fct_object_id.obj_type>O</fct_object_id.obj_type>
-		<fct_object_id.obj_name>BookBookingsHistoric</fct_object_id.obj_name>
-		<fct_function>CMS</fct_function>
-		<fct_action_id.act_name/>
-		<fct_view_id.viw_name/>
-		<row_module_id.mdl_name>Booking</row_module_id.mdl_name>
-	</data>
-	<data>
-		<fct_name>BookBookings-R</fct_name>
-		<fct_object_id.obj_type>O</fct_object_id.obj_type>
-		<fct_object_id.obj_name>BookBookings</fct_object_id.obj_name>
-		<fct_function>L</fct_function>
-		<fct_action_id.act_name/>
-		<fct_view_id.viw_name/>
-		<row_module_id.mdl_name>Booking</row_module_id.mdl_name>
-	</data>
-	<data>
-		<fct_name>BookGuests-CU</fct_name>
-		<fct_object_id.obj_type>O</fct_object_id.obj_type>
-		<fct_object_id.obj_name>BookGuests</fct_object_id.obj_name>
-		<fct_function>CM</fct_function>
-		<fct_action_id.act_name/>
-		<fct_view_id.viw_name/>
-		<row_module_id.mdl_name>Booking</row_module_id.mdl_name>
-	</data>
-	<data>
-		<fct_name>BookGuests-CUD</fct_name>
-		<fct_object_id.obj_type>O</fct_object_id.obj_type>
-		<fct_object_id.obj_name>BookGuests</fct_object_id.obj_name>
-		<fct_function>CMS</fct_function>
-		<fct_action_id.act_name/>
-		<fct_view_id.viw_name/>
-		<row_module_id.mdl_name>Booking</row_module_id.mdl_name>
-	</data>
-	<data>
-		<fct_name>BookGuests-R</fct_name>
-		<fct_object_id.obj_type>O</fct_object_id.obj_type>
-		<fct_object_id.obj_name>BookGuests</fct_object_id.obj_name>
-		<fct_function>L</fct_function>
-		<fct_action_id.act_name/>
-		<fct_view_id.viw_name/>
-		<row_module_id.mdl_name>Booking</row_module_id.mdl_name>
-	</data>
-	<data>
-		<fct_name>BookPayments-CU</fct_name>
-		<fct_object_id.obj_type>O</fct_object_id.obj_type>
-		<fct_object_id.obj_name>BookPayments</fct_object_id.obj_name>
-		<fct_function>CM</fct_function>
-		<fct_action_id.act_name/>
-		<fct_view_id.viw_name/>
-		<row_module_id.mdl_name>Booking</row_module_id.mdl_name>
-	</data>
-	<data>
-		<fct_name>BookPayments-CUD</fct_name>
-		<fct_object_id.obj_type>O</fct_object_id.obj_type>
-		<fct_object_id.obj_name>BookPayments</fct_object_id.obj_name>
-		<fct_function>CMS</fct_function>
-		<fct_action_id.act_name/>
-		<fct_view_id.viw_name/>
-		<row_module_id.mdl_name>Booking</row_module_id.mdl_name>
-	</data>
-	<data>
-		<fct_name>BookPayments-R</fct_name>
-		<fct_object_id.obj_type>O</fct_object_id.obj_type>
-		<fct_object_id.obj_name>BookPayments</fct_object_id.obj_name>
-		<fct_function>L</fct_function>
-		<fct_action_id.act_name/>
-		<fct_view_id.viw_name/>
-		<row_module_id.mdl_name>Booking</row_module_id.mdl_name>
-	</data>
-	<data>
-		<fct_name>BookRoomType-CUD</fct_name>
-		<fct_object_id.obj_type>O</fct_object_id.obj_type>
-		<fct_object_id.obj_name>BookRoomType</fct_object_id.obj_name>
-		<fct_function>CMS</fct_function>
-		<fct_action_id.act_name/>
-		<fct_view_id.viw_name/>
-		<row_module_id.mdl_name>Booking</row_module_id.mdl_name>
-	</data>
-	<data>
-		<fct_name>BookRoomType-R</fct_name>
-		<fct_object_id.obj_type>O</fct_object_id.obj_type>
-		<fct_object_id.obj_name>BookRoomType</fct_object_id.obj_name>
-		<fct_function>L</fct_function>
-		<fct_action_id.act_name/>
-		<fct_view_id.viw_name/>
-		<row_module_id.mdl_name>Booking</row_module_id.mdl_name>
-	</data>
-	<data>
-		<fct_name>BookUsers-CU</fct_name>
-		<fct_object_id.obj_type>O</fct_object_id.obj_type>
-		<fct_object_id.obj_name>BookUsers</fct_object_id.obj_name>
-		<fct_function>CM</fct_function>
-		<fct_action_id.act_name/>
-		<fct_view_id.viw_name/>
-		<row_module_id.mdl_name>Booking</row_module_id.mdl_name>
-	</data>
-	<data>
-		<fct_name>BookUsers-CUD</fct_name>
-		<fct_object_id.obj_type>O</fct_object_id.obj_type>
-		<fct_object_id.obj_name>BookUsers</fct_object_id.obj_name>
-		<fct_function>CMS</fct_function>
-		<fct_action_id.act_name/>
-		<fct_view_id.viw_name/>
-		<row_module_id.mdl_name>Booking</row_module_id.mdl_name>
-	</data>
-	<data>
-		<fct_name>BookUsers-D</fct_name>
-		<fct_object_id.obj_type>O</fct_object_id.obj_type>
-		<fct_object_id.obj_name>BookUsers</fct_object_id.obj_name>
-		<fct_function>S</fct_function>
-		<fct_action_id.act_name/>
-		<fct_view_id.viw_name/>
-		<row_module_id.mdl_name>Booking</row_module_id.mdl_name>
-	</data>
-	<data>
-		<fct_name>BookUsers-R</fct_name>
-		<fct_object_id.obj_type>O</fct_object_id.obj_type>
-		<fct_object_id.obj_name>BookUsers</fct_object_id.obj_name>
-		<fct_function>L</fct_function>
-		<fct_action_id.act_name/>
-		<fct_view_id.viw_name/>
-		<row_module_id.mdl_name>Booking</row_module_id.mdl_name>
-	</data>
-	<data>
-		<fct_name>BookUsersMap-A</fct_name>
-		<fct_object_id.obj_type>O</fct_object_id.obj_type>
-		<fct_object_id.obj_name>BookUsers</fct_object_id.obj_name>
-		<fct_function>A</fct_function>
-		<fct_action_id.act_name>BookUsersMap</fct_action_id.act_name>
-		<fct_view_id.viw_name/>
-		<row_module_id.mdl_name>Booking</row_module_id.mdl_name>
-	</data>
-</object>
-<object>
 	<name>Grant</name>
 	<action>upsert</action>
 	<data>
@@ -8560,16 +8099,6 @@
 		<grt_function_id.fct_object_id.obj_name>BookUsers</grt_function_id.fct_object_id.obj_name>
 		<grt_function_id.fct_action_id.act_name/>
 		<grt_function_id.fct_function>S</grt_function_id.fct_function>
-		<grt_activ>1</grt_activ>
-		<row_module_id.mdl_name>Booking</row_module_id.mdl_name>
-	</data>
-	<data>
-		<grt_group_id.grp_name>BOOK_ADMIN</grt_group_id.grp_name>
-		<grt_function_id.fct_name>BOOK_BOOKING_FRONT_END_E</grt_function_id.fct_name>
-		<grt_function_id.fct_object_id.obj_type>E</grt_function_id.fct_object_id.obj_type>
-		<grt_function_id.fct_object_id.obj_name>BookBookingFrontEnd</grt_function_id.fct_object_id.obj_name>
-		<grt_function_id.fct_action_id.act_name/>
-		<grt_function_id.fct_function>L</grt_function_id.fct_function>
 		<grt_activ>1</grt_activ>
 		<row_module_id.mdl_name>Booking</row_module_id.mdl_name>
 	</data>
@@ -8724,26 +8253,6 @@
 		<row_module_id.mdl_name>Booking</row_module_id.mdl_name>
 	</data>
 	<data>
-		<grt_group_id.grp_name>BOOK_ADMIN</grt_group_id.grp_name>
-		<grt_function_id.fct_name>BOOK_DOMAIN_BOOKING_D</grt_function_id.fct_name>
-		<grt_function_id.fct_object_id.obj_type>D</grt_function_id.fct_object_id.obj_type>
-		<grt_function_id.fct_object_id.obj_name>DomainBooking</grt_function_id.fct_object_id.obj_name>
-		<grt_function_id.fct_action_id.act_name/>
-		<grt_function_id.fct_function>L</grt_function_id.fct_function>
-		<grt_activ>1</grt_activ>
-		<row_module_id.mdl_name>Booking</row_module_id.mdl_name>
-	</data>
-	<data>
-		<grt_group_id.grp_name>BOOK_ADMIN</grt_group_id.grp_name>
-		<grt_function_id.fct_name>BOOK_DOMAIN_BOOKING_REF_D</grt_function_id.fct_name>
-		<grt_function_id.fct_object_id.obj_type>D</grt_function_id.fct_object_id.obj_type>
-		<grt_function_id.fct_object_id.obj_name>DomainBookingRef</grt_function_id.fct_object_id.obj_name>
-		<grt_function_id.fct_action_id.act_name/>
-		<grt_function_id.fct_function>L</grt_function_id.fct_function>
-		<grt_activ>1</grt_activ>
-		<row_module_id.mdl_name>Booking</row_module_id.mdl_name>
-	</data>
-	<data>
 		<grt_group_id.grp_name>BOOK_READERS</grt_group_id.grp_name>
 		<grt_function_id.fct_name>BookBookings-R</grt_function_id.fct_name>
 		<grt_function_id.fct_object_id.obj_type>O</grt_function_id.fct_object_id.obj_type>
@@ -8838,36 +8347,6 @@
 		<grt_function_id.fct_name>BookUsers-R</grt_function_id.fct_name>
 		<grt_function_id.fct_object_id.obj_type>O</grt_function_id.fct_object_id.obj_type>
 		<grt_function_id.fct_object_id.obj_name>BookUsers</grt_function_id.fct_object_id.obj_name>
-		<grt_function_id.fct_action_id.act_name/>
-		<grt_function_id.fct_function>L</grt_function_id.fct_function>
-		<grt_activ>1</grt_activ>
-		<row_module_id.mdl_name>Booking</row_module_id.mdl_name>
-	</data>
-	<data>
-		<grt_group_id.grp_name>BOOK_READERS</grt_group_id.grp_name>
-		<grt_function_id.fct_name>BOOK_DOMAIN_BOOKING_D</grt_function_id.fct_name>
-		<grt_function_id.fct_object_id.obj_type>D</grt_function_id.fct_object_id.obj_type>
-		<grt_function_id.fct_object_id.obj_name>DomainBooking</grt_function_id.fct_object_id.obj_name>
-		<grt_function_id.fct_action_id.act_name/>
-		<grt_function_id.fct_function>L</grt_function_id.fct_function>
-		<grt_activ>1</grt_activ>
-		<row_module_id.mdl_name>Booking</row_module_id.mdl_name>
-	</data>
-	<data>
-		<grt_group_id.grp_name>BOOK_READERS</grt_group_id.grp_name>
-		<grt_function_id.fct_name>BOOK_DOMAIN_BOOKING_REF_D</grt_function_id.fct_name>
-		<grt_function_id.fct_object_id.obj_type>D</grt_function_id.fct_object_id.obj_type>
-		<grt_function_id.fct_object_id.obj_name>DomainBookingRef</grt_function_id.fct_object_id.obj_name>
-		<grt_function_id.fct_action_id.act_name/>
-		<grt_function_id.fct_function>L</grt_function_id.fct_function>
-		<grt_activ>1</grt_activ>
-		<row_module_id.mdl_name>Booking</row_module_id.mdl_name>
-	</data>
-	<data>
-		<grt_group_id.grp_name>BOOK_USERS</grt_group_id.grp_name>
-		<grt_function_id.fct_name>BOOK_BOOKING_FRONT_END_E</grt_function_id.fct_name>
-		<grt_function_id.fct_object_id.obj_type>E</grt_function_id.fct_object_id.obj_type>
-		<grt_function_id.fct_object_id.obj_name>BookBookingFrontEnd</grt_function_id.fct_object_id.obj_name>
 		<grt_function_id.fct_action_id.act_name/>
 		<grt_function_id.fct_function>L</grt_function_id.fct_function>
 		<grt_activ>1</grt_activ>
@@ -8990,26 +8469,6 @@
 		<grt_function_id.fct_object_id.obj_name>BookUsers</grt_function_id.fct_object_id.obj_name>
 		<grt_function_id.fct_action_id.act_name>BookUsersMap</grt_function_id.fct_action_id.act_name>
 		<grt_function_id.fct_function>A</grt_function_id.fct_function>
-		<grt_activ>1</grt_activ>
-		<row_module_id.mdl_name>Booking</row_module_id.mdl_name>
-	</data>
-	<data>
-		<grt_group_id.grp_name>BOOK_USERS</grt_group_id.grp_name>
-		<grt_function_id.fct_name>BOOK_DOMAIN_BOOKING_D</grt_function_id.fct_name>
-		<grt_function_id.fct_object_id.obj_type>D</grt_function_id.fct_object_id.obj_type>
-		<grt_function_id.fct_object_id.obj_name>DomainBooking</grt_function_id.fct_object_id.obj_name>
-		<grt_function_id.fct_action_id.act_name/>
-		<grt_function_id.fct_function>L</grt_function_id.fct_function>
-		<grt_activ>1</grt_activ>
-		<row_module_id.mdl_name>Booking</row_module_id.mdl_name>
-	</data>
-	<data>
-		<grt_group_id.grp_name>BOOK_USERS</grt_group_id.grp_name>
-		<grt_function_id.fct_name>BOOK_DOMAIN_BOOKING_REF_D</grt_function_id.fct_name>
-		<grt_function_id.fct_object_id.obj_type>D</grt_function_id.fct_object_id.obj_type>
-		<grt_function_id.fct_object_id.obj_name>DomainBookingRef</grt_function_id.fct_object_id.obj_name>
-		<grt_function_id.fct_action_id.act_name/>
-		<grt_function_id.fct_function>L</grt_function_id.fct_function>
 		<grt_activ>1</grt_activ>
 		<row_module_id.mdl_name>Booking</row_module_id.mdl_name>
 	</data>
@@ -9570,7 +9029,6 @@
 		<ctb_name>BookBookings-TC</ctb_name>
 		<ctb_object_id.obo_name>BookBookingsBookGuests</ctb_object_id.obo_name>
 		<ctb_function>S</ctb_function>
-		<ctb_grantable>0</ctb_grantable>
 		<ctb_visible>1</ctb_visible>
 		<ctb_fixedcolors>1</ctb_fixedcolors>
 		<ctb_precision/>
@@ -9689,48 +9147,96 @@
 	<action>upsert</action>
 	<data>
 		<map_domain_id.obd_name>DomainBookingRef</map_domain_id.obd_name>
-		<map_object_id.obj_name>BookRoom</map_object_id.obj_name>
+		<map_object_id.obj_name/>
 		<map_process_id.pcs_name/>
+		<map_object>
+			<object>
+				<name>ObjectInternal</name>
+				<data>
+					<obo_name>BookRoom</obo_name>
+				</data>
+			</object>
+		</map_object>
 		<map_order>5000</map_order>
 		<map_ext>0</map_ext>
 		<row_module_id.mdl_name>Booking</row_module_id.mdl_name>
 	</data>
 	<data>
 		<map_domain_id.obd_name>DomainBookingRef</map_domain_id.obd_name>
-		<map_object_id.obj_name>BookRoomType</map_object_id.obj_name>
+		<map_object_id.obj_name/>
 		<map_process_id.pcs_name/>
+		<map_object>
+			<object>
+				<name>ObjectInternal</name>
+				<data>
+					<obo_name>BookRoomType</obo_name>
+				</data>
+			</object>
+		</map_object>
 		<map_order>5010</map_order>
 		<map_ext>0</map_ext>
 		<row_module_id.mdl_name>Booking</row_module_id.mdl_name>
 	</data>
 	<data>
 		<map_domain_id.obd_name>DomainBookingRef</map_domain_id.obd_name>
-		<map_object_id.obj_name>BookRoomService</map_object_id.obj_name>
+		<map_object_id.obj_name/>
 		<map_process_id.pcs_name/>
+		<map_object>
+			<object>
+				<name>ObjectInternal</name>
+				<data>
+					<obo_name>BookRoomService</obo_name>
+				</data>
+			</object>
+		</map_object>
 		<map_order>5020</map_order>
 		<map_ext>0</map_ext>
 		<row_module_id.mdl_name>Booking</row_module_id.mdl_name>
 	</data>
 	<data>
 		<map_domain_id.obd_name>DomainBookingRef</map_domain_id.obd_name>
-		<map_object_id.obj_name>BookRoomEquipment</map_object_id.obj_name>
+		<map_object_id.obj_name/>
 		<map_process_id.pcs_name/>
+		<map_object>
+			<object>
+				<name>ObjectInternal</name>
+				<data>
+					<obo_name>BookRoomEquipment</obo_name>
+				</data>
+			</object>
+		</map_object>
 		<map_order>5030</map_order>
 		<map_ext>0</map_ext>
 		<row_module_id.mdl_name>Booking</row_module_id.mdl_name>
 	</data>
 	<data>
 		<map_domain_id.obd_name>DomainBookingRef</map_domain_id.obd_name>
-		<map_object_id.obj_name>BookPaymentMethod</map_object_id.obj_name>
+		<map_object_id.obj_name/>
 		<map_process_id.pcs_name/>
+		<map_object>
+			<object>
+				<name>ObjectInternal</name>
+				<data>
+					<obo_name>BookPaymentMethod</obo_name>
+				</data>
+			</object>
+		</map_object>
 		<map_order>5060</map_order>
 		<map_ext>0</map_ext>
 		<row_module_id.mdl_name>Booking</row_module_id.mdl_name>
 	</data>
 	<data>
 		<map_domain_id.obd_name>DomainBooking</map_domain_id.obd_name>
-		<map_object_id.obj_name>BookUsers</map_object_id.obj_name>
+		<map_object_id.obj_name/>
 		<map_process_id.pcs_name/>
+		<map_object>
+			<object>
+				<name>ObjectInternal</name>
+				<data>
+					<obo_name>BookUsers</obo_name>
+				</data>
+			</object>
+		</map_object>
 		<map_order>6040</map_order>
 		<map_ext>0</map_ext>
 		<row_module_id.mdl_name>Booking</row_module_id.mdl_name>
@@ -9738,47 +9244,95 @@
 	<data>
 		<map_domain_id.obd_name>DomainBooking</map_domain_id.obd_name>
 		<map_object_id.obj_name/>
-		<map_process_id.pcs_name>BookingCreation</map_process_id.pcs_name>
+		<map_process_id.pcs_name/>
+		<map_object>
+			<object>
+				<name>BPMProcess</name>
+				<data>
+					<pcs_name>BookingCreation</pcs_name>
+				</data>
+			</object>
+		</map_object>
 		<map_order>6045</map_order>
 		<map_ext>0</map_ext>
 		<row_module_id.mdl_name>Booking</row_module_id.mdl_name>
 	</data>
 	<data>
 		<map_domain_id.obd_name>DomainBooking</map_domain_id.obd_name>
-		<map_object_id.obj_name>BookBookings</map_object_id.obj_name>
+		<map_object_id.obj_name/>
 		<map_process_id.pcs_name/>
+		<map_object>
+			<object>
+				<name>ObjectInternal</name>
+				<data>
+					<obo_name>BookBookings</obo_name>
+				</data>
+			</object>
+		</map_object>
 		<map_order>6050</map_order>
 		<map_ext>0</map_ext>
 		<row_module_id.mdl_name>Booking</row_module_id.mdl_name>
 	</data>
 	<data>
 		<map_domain_id.obd_name>DomainBooking</map_domain_id.obd_name>
-		<map_object_id.obj_name>BookPayments</map_object_id.obj_name>
+		<map_object_id.obj_name/>
 		<map_process_id.pcs_name/>
+		<map_object>
+			<object>
+				<name>ObjectInternal</name>
+				<data>
+					<obo_name>BookPayments</obo_name>
+				</data>
+			</object>
+		</map_object>
 		<map_order>6070</map_order>
 		<map_ext>0</map_ext>
 		<row_module_id.mdl_name>Booking</row_module_id.mdl_name>
 	</data>
 	<data>
 		<map_domain_id.obd_name>DomainBooking</map_domain_id.obd_name>
-		<map_object_id.obj_name>BookGuests</map_object_id.obj_name>
+		<map_object_id.obj_name/>
 		<map_process_id.pcs_name/>
+		<map_object>
+			<object>
+				<name>ObjectInternal</name>
+				<data>
+					<obo_name>BookGuests</obo_name>
+				</data>
+			</object>
+		</map_object>
 		<map_order>6080</map_order>
 		<map_ext>0</map_ext>
 		<row_module_id.mdl_name>Booking</row_module_id.mdl_name>
 	</data>
 	<data>
 		<map_domain_id.obd_name>DomainBooking</map_domain_id.obd_name>
-		<map_object_id.obj_name>BookBookingsBookGuests</map_object_id.obj_name>
+		<map_object_id.obj_name/>
 		<map_process_id.pcs_name/>
+		<map_object>
+			<object>
+				<name>ObjectInternal</name>
+				<data>
+					<obo_name>BookBookingsBookGuests</obo_name>
+				</data>
+			</object>
+		</map_object>
 		<map_order>6090</map_order>
 		<map_ext>0</map_ext>
 		<row_module_id.mdl_name>Booking</row_module_id.mdl_name>
 	</data>
 	<data>
 		<map_domain_id.obd_name>DomainBooking</map_domain_id.obd_name>
-		<map_object_id.obj_name>BookBookingFrontEnd</map_object_id.obj_name>
+		<map_object_id.obj_name/>
 		<map_process_id.pcs_name/>
+		<map_object>
+			<object>
+				<name>ObjectExternal</name>
+				<data>
+					<obe_name>BookBookingFrontEnd</obe_name>
+				</data>
+			</object>
+		</map_object>
 		<map_order>6095</map_order>
 		<map_ext>1</map_ext>
 		<row_module_id.mdl_name>Booking</row_module_id.mdl_name>
@@ -9825,22 +9379,6 @@
 		<vwi_crosstab_id.ctb_name/>
 		<vwi_printtmpl_id.prt_name/>
 		<vwi_printtmpl_id.prt_lang/>
-		<row_module_id.mdl_name>Booking</row_module_id.mdl_name>
-	</data>
-</object>
-<object>
-	<name>ViewGroup</name>
-	<action>upsert</action>
-	<data>
-		<vig_view_id.viw_name>BookingScope</vig_view_id.viw_name>
-		<vig_group_id.grp_name>BOOK_ADMIN</vig_group_id.grp_name>
-		<vig_group_id.grp_comment><![CDATA[Administrateur de l'application de réservation de chambres]]></vig_group_id.grp_comment>
-		<row_module_id.mdl_name>Booking</row_module_id.mdl_name>
-	</data>
-	<data>
-		<vig_view_id.viw_name>BookingScope</vig_view_id.viw_name>
-		<vig_group_id.grp_name>BOOK_USERS</vig_group_id.grp_name>
-		<vig_group_id.grp_comment><![CDATA[Profil utilisateur de l'application de réservation de chambres]]></vig_group_id.grp_comment>
 		<row_module_id.mdl_name>Booking</row_module_id.mdl_name>
 	</data>
 </object>
@@ -10600,6 +10138,18 @@
 		<tsl_id.fld_name>bookUserGeoCoord</tsl_id.fld_name>
 		<tsl_lang>ENU</tsl_lang>
 		<tsl_value>Geo coordinates</tsl_value>
+		<tsl_simplehelp/>
+		<tsl_short_value/>
+		<tsl_placeholder/>
+		<tsl_listhelp/>
+		<row_module_id.mdl_name>Booking</row_module_id.mdl_name>
+		<tsl_tooltip/>
+	</data>
+	<data>
+		<tsl_typeField>F</tsl_typeField>
+		<tsl_id.fld_name>obf_fld_exportable</tsl_id.fld_name>
+		<tsl_lang>ENU</tsl_lang>
+		<tsl_value>Exportable?</tsl_value>
 		<tsl_simplehelp/>
 		<tsl_short_value/>
 		<tsl_placeholder/>
@@ -12731,9 +12281,91 @@
 	<action>upsert</action>
 	<data>
 		<row_module_id.mdl_name>Booking</row_module_id.mdl_name>
-		<dt_name>Booking-data-20220321142042</dt_name>
-		<dt_file>data/Booking-data-20220321142042.zip</dt_file>
-		<dt_desc><![CDATA[Created by module's data export on 2022-03-21 14:20:42]]></dt_desc>
+		<dt_name>booking-data</dt_name>
+		<dt_file>data/booking-data.zip</dt_file>
+		<dt_desc/>
+	</data>
+</object>
+<object>
+	<name>Permission</name>
+	<action>upsert</action>
+	<data>
+		<prm_group_id.grp_name>BOOK_ADMIN</prm_group_id.grp_name>
+		<prm_object/>
+		<prm_perm>1</prm_perm>
+		<prm_upd>0</prm_upd>
+		<prm_req>0</prm_req>
+		<row_module_id.mdl_name>Booking</row_module_id.mdl_name>
+	</data>
+	<data>
+		<prm_group_id.grp_name>BOOK_ADMIN</prm_group_id.grp_name>
+		<prm_object/>
+		<prm_perm>1</prm_perm>
+		<prm_upd>0</prm_upd>
+		<prm_req>0</prm_req>
+		<row_module_id.mdl_name>Booking</row_module_id.mdl_name>
+	</data>
+	<data>
+		<prm_group_id.grp_name>BOOK_ADMIN</prm_group_id.grp_name>
+		<prm_object>
+			<object>
+				<name>ObjectExternal</name>
+				<data>
+					<obe_name>BookBookingFrontEnd</obe_name>
+				</data>
+			</object>
+		</prm_object>
+		<prm_perm>1</prm_perm>
+		<prm_upd>0</prm_upd>
+		<prm_req>0</prm_req>
+		<row_module_id.mdl_name>Booking</row_module_id.mdl_name>
+	</data>
+	<data>
+		<prm_group_id.grp_name>BOOK_READERS</prm_group_id.grp_name>
+		<prm_object/>
+		<prm_perm>1</prm_perm>
+		<prm_upd>0</prm_upd>
+		<prm_req>0</prm_req>
+		<row_module_id.mdl_name>Booking</row_module_id.mdl_name>
+	</data>
+	<data>
+		<prm_group_id.grp_name>BOOK_READERS</prm_group_id.grp_name>
+		<prm_object/>
+		<prm_perm>1</prm_perm>
+		<prm_upd>0</prm_upd>
+		<prm_req>0</prm_req>
+		<row_module_id.mdl_name>Booking</row_module_id.mdl_name>
+	</data>
+	<data>
+		<prm_group_id.grp_name>BOOK_USERS</prm_group_id.grp_name>
+		<prm_object/>
+		<prm_perm>1</prm_perm>
+		<prm_upd>0</prm_upd>
+		<prm_req>0</prm_req>
+		<row_module_id.mdl_name>Booking</row_module_id.mdl_name>
+	</data>
+	<data>
+		<prm_group_id.grp_name>BOOK_USERS</prm_group_id.grp_name>
+		<prm_object/>
+		<prm_perm>1</prm_perm>
+		<prm_upd>0</prm_upd>
+		<prm_req>0</prm_req>
+		<row_module_id.mdl_name>Booking</row_module_id.mdl_name>
+	</data>
+	<data>
+		<prm_group_id.grp_name>BOOK_USERS</prm_group_id.grp_name>
+		<prm_object>
+			<object>
+				<name>ObjectExternal</name>
+				<data>
+					<obe_name>BookBookingFrontEnd</obe_name>
+				</data>
+			</object>
+		</prm_object>
+		<prm_perm>1</prm_perm>
+		<prm_upd>0</prm_upd>
+		<prm_req>0</prm_req>
+		<row_module_id.mdl_name>Booking</row_module_id.mdl_name>
 	</data>
 </object>
 </simplicite>
