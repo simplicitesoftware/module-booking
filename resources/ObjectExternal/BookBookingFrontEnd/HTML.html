@@ -1,0 +1,32 @@
+<template id="booking-template">
+<div class="cover">
+	<div class="cover-image" style="background-image : url({{bannerURL}})"></div>
+	<div class="row">
+		<div class="col-md-12 text-center head-title">
+			<h1><span class="text-primary"> Booking</span></h1>
+			<div class="baseline"><h2>Text</h2></div>
+		</div>
+	</div>
+</div>
+<div class="container">
+	<div class="row">
+		{{#list}}
+		<div class="col-md-4">
+			<h1 class="text-primary text-center title">{{bookRoomLabel}}</h1>
+			<h3 class="text-muted text-center">
+				{{#bookRoomPhoto}}<img src="data:{{mime}};base64,{{content}}" alt="{{bookRoomLabel}}"/>{{/bookRoomPhoto}}
+				<br/>
+			</h3>
+			<p class="text-left text-muted">{{{bookRoomDesc}}}</p>
+			<p class="text-right"><a href='#' class="btn btn-danger">{{#toFixed}}{{bookRoomPriceht}} ${{/toFixed}}</a></p>
+		</div>
+		{{/list}}
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-12">
+		<hr><p class="text-center">&copy; Simplcit&eacute; Software</p>
+	</div>
+</div>
+</template>
+<div id="bookingfrontend" class="text-center"><h3>Loading...</h3></div>
