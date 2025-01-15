@@ -3,10 +3,11 @@
 # \__ \ | '  \| '_ \ | / _| |  _/ -_)
 # |___/_|_|_|_| .__/_|_\__|_|\__\___|
 #             |_| Module: Booking 0.1
+basePath: /api
 paths:
   /rest/BookPaymentMethod/{row_id}:
     post:
-      summary: Create a new BookPaymentMethodbusiness object record
+      summary: Create a new BookPaymentMethod business object record
       security:
       - bearerAuth: []
       produces:
@@ -125,7 +126,7 @@ paths:
       tags:
       - BookPaymentMethod
     put:
-      summary: Update a BookPaymentMethodbusiness object record
+      summary: Update a BookPaymentMethod business object record
       security:
       - bearerAuth: []
       produces:
@@ -299,7 +300,7 @@ paths:
       - session
   /rest/BookRoomBookRoomService/{row_id}:
     post:
-      summary: Create a new BookRoomBookRoomServicebusiness object record
+      summary: Create a new BookRoomBookRoomService business object record
       security:
       - bearerAuth: []
       produces:
@@ -418,7 +419,7 @@ paths:
       tags:
       - BookRoomBookRoomService
     put:
-      summary: Update a BookRoomBookRoomServicebusiness object record
+      summary: Update a BookRoomBookRoomService business object record
       security:
       - bearerAuth: []
       produces:
@@ -496,6 +497,96 @@ paths:
         name: _doc
         description: Documentation?
         type: boolean
+        required: false
+      - in: query
+        name: bookUserTitle
+        description: Search filter for Title
+        type: string
+        required: false
+        enum:
+        - MR
+        - MRS
+        - MS
+      - in: query
+        name: BookUserLastname
+        description: Search filter for Last name
+        type: string
+        required: false
+      - in: query
+        name: bookUserFirstname
+        description: Search filter for First name
+        type: string
+        required: false
+      - in: query
+        name: bookUserWorknum
+        description: Search filter for Work phone number
+        type: string
+        required: false
+      - in: query
+        name: bookUserHomenum
+        description: Search filter for Home number
+        type: string
+        required: false
+      - in: query
+        name: bookUserCellnum
+        description: Search filter for Mobile/cellular phone number
+        type: string
+        required: false
+      - in: query
+        name: bookUserAddress1
+        description: Search filter for Address line 1
+        type: string
+        required: false
+      - in: query
+        name: bookUserAddress2
+        description: Search filter for Address line 2
+        type: string
+        required: false
+      - in: query
+        name: bookUserZipcode
+        description: Search filter for Postal/ZIP code
+        type: string
+        required: false
+      - in: query
+        name: bookUserCity
+        description: Search filter for City
+        type: string
+        required: false
+      - in: query
+        name: bookUserState
+        description: Search filter for State
+        type: string
+        required: false
+      - in: query
+        name: bookUserCountry
+        description: Search filter for Country
+        type: string
+        required: false
+        enum:
+        - FR
+        - UK
+        - ES
+        - DE
+        - BE
+        - CH
+        - IE
+        - IT
+        - PT
+        - NL
+        - CZ
+        - AT
+        - CA
+        - US
+        - AU
+      - in: query
+        name: bookUserEmail
+        description: Search filter for Email
+        type: string
+        required: false
+      - in: query
+        name: bookUserGeoCoord
+        description: Search filter for Geo coordinates
+        type: string
         required: false
       - in: query
         name: bookUserType
@@ -701,7 +792,7 @@ paths:
       - BookEquRoom
   /rest/BookRoom/{row_id}:
     post:
-      summary: Create a new BookRoombusiness object record
+      summary: Create a new BookRoom business object record
       security:
       - bearerAuth: []
       produces:
@@ -820,7 +911,7 @@ paths:
       tags:
       - BookRoom
     put:
-      summary: Update a BookRoombusiness object record
+      summary: Update a BookRoom business object record
       security:
       - bearerAuth: []
       produces:
@@ -863,7 +954,7 @@ paths:
       - application/json
   /rest/BookBookingsBookGuests/{row_id}:
     post:
-      summary: Create a new BookBookingsBookGuestsbusiness object record
+      summary: Create a new BookBookingsBookGuests business object record
       security:
       - bearerAuth: []
       produces:
@@ -982,7 +1073,7 @@ paths:
       tags:
       - BookBookingsBookGuests
     put:
-      summary: Update a BookBookingsBookGuestsbusiness object record
+      summary: Update a BookBookingsBookGuests business object record
       security:
       - bearerAuth: []
       produces:
@@ -1067,7 +1158,7 @@ paths:
         type: string
         required: false
       - in: query
-        name: bookBookingsBookUsersId__usr_title
+        name: bookBookingsBookUsersId__bookUserTitle
         description: Search filter for Title
         type: string
         required: false
@@ -1076,12 +1167,12 @@ paths:
         - MRS
         - MS
       - in: query
-        name: bookBookingsBookUsersId__usr_last_name
+        name: bookBookingsBookUsersId__BookUserLastname
         description: Search filter for Last name
         type: string
         required: false
       - in: query
-        name: bookBookingsBookUsersId__usr_first_name
+        name: bookBookingsBookUsersId__bookUserFirstname
         description: Search filter for First name
         type: string
         required: false
@@ -1141,7 +1232,7 @@ paths:
         - Cl
       - in: query
         name: bookBookingsRoomNumber
-        description: Search filter for Number oof rooms
+        description: Search filter for Number of rooms
         type: string
         required: false
         enum:
@@ -1175,7 +1266,7 @@ paths:
       - BookBookings
   /rest/BookRoomType/{row_id}:
     post:
-      summary: Create a new BookRoomTypebusiness object record
+      summary: Create a new BookRoomType business object record
       security:
       - bearerAuth: []
       produces:
@@ -1294,7 +1385,7 @@ paths:
       tags:
       - BookRoomType
     put:
-      summary: Update a BookRoomTypebusiness object record
+      summary: Update a BookRoomType business object record
       security:
       - bearerAuth: []
       produces:
@@ -1374,7 +1465,7 @@ paths:
         type: boolean
         required: false
       - in: query
-        name: usr_title
+        name: bookUserTitle
         description: Search filter for Title
         type: string
         required: false
@@ -1383,57 +1474,57 @@ paths:
         - MRS
         - MS
       - in: query
-        name: usr_last_name
+        name: BookUserLastname
         description: Search filter for Last name
         type: string
         required: false
       - in: query
-        name: usr_first_name
+        name: bookUserFirstname
         description: Search filter for First name
         type: string
         required: false
       - in: query
-        name: usr_work_num
+        name: bookUserWorknum
         description: Search filter for Work phone number
         type: string
         required: false
       - in: query
-        name: usr_home_num
-        description: Search filter for Home phone
+        name: bookUserHomenum
+        description: Search filter for Home number
         type: string
         required: false
       - in: query
-        name: usr_cell_num
+        name: bookUserCellnum
         description: Search filter for Mobile/cellular phone number
         type: string
         required: false
       - in: query
-        name: usr_address1
+        name: bookUserAddress1
         description: Search filter for Address line 1
         type: string
         required: false
       - in: query
-        name: usr_address2
+        name: bookUserAddress2
         description: Search filter for Address line 2
         type: string
         required: false
       - in: query
-        name: usr_zipcode
+        name: bookUserZipcode
         description: Search filter for Postal/ZIP code
         type: string
         required: false
       - in: query
-        name: usr_city
+        name: bookUserCity
         description: Search filter for City
         type: string
         required: false
       - in: query
-        name: usr_state
+        name: bookUserState
         description: Search filter for State
         type: string
         required: false
       - in: query
-        name: usr_country
+        name: bookUserCountry
         description: Search filter for Country
         type: string
         required: false
@@ -1559,7 +1650,7 @@ paths:
       - BookUsers
   /rest/BookEquRoom/{row_id}:
     post:
-      summary: Create a new BookEquRoombusiness object record
+      summary: Create a new BookEquRoom business object record
       security:
       - bearerAuth: []
       produces:
@@ -1678,7 +1769,7 @@ paths:
       tags:
       - BookEquRoom
     put:
-      summary: Update a BookEquRoombusiness object record
+      summary: Update a BookEquRoom business object record
       security:
       - bearerAuth: []
       produces:
@@ -1721,7 +1812,7 @@ paths:
       - application/json
   /rest/BookUsers/{row_id}:
     post:
-      summary: Create a new BookUsersbusiness object record
+      summary: Create a new BookUsers business object record
       security:
       - bearerAuth: []
       produces:
@@ -1840,7 +1931,7 @@ paths:
       tags:
       - BookUsers
     put:
-      summary: Update a BookUsersbusiness object record
+      summary: Update a BookUsers business object record
       security:
       - bearerAuth: []
       produces:
@@ -1883,7 +1974,7 @@ paths:
       - application/json
   /rest/BookRoomService/{row_id}:
     post:
-      summary: Create a new BookRoomServicebusiness object record
+      summary: Create a new BookRoomService business object record
       security:
       - bearerAuth: []
       produces:
@@ -2002,7 +2093,7 @@ paths:
       tags:
       - BookRoomService
     put:
-      summary: Update a BookRoomServicebusiness object record
+      summary: Update a BookRoomService business object record
       security:
       - bearerAuth: []
       produces:
@@ -2096,7 +2187,7 @@ paths:
       - BookPaymentMethod
   /rest/BookBookings/{row_id}:
     post:
-      summary: Create a new BookBookingsbusiness object record
+      summary: Create a new BookBookings business object record
       security:
       - bearerAuth: []
       produces:
@@ -2215,7 +2306,7 @@ paths:
       tags:
       - BookBookings
     put:
-      summary: Update a BookBookingsbusiness object record
+      summary: Update a BookBookings business object record
       security:
       - bearerAuth: []
       produces:
@@ -2258,7 +2349,7 @@ paths:
       - application/json
   /rest/BookRoomEquipment/{row_id}:
     post:
-      summary: Create a new BookRoomEquipmentbusiness object record
+      summary: Create a new BookRoomEquipment business object record
       security:
       - bearerAuth: []
       produces:
@@ -2377,7 +2468,7 @@ paths:
       tags:
       - BookRoomEquipment
     put:
-      summary: Update a BookRoomEquipmentbusiness object record
+      summary: Update a BookRoomEquipment business object record
       security:
       - bearerAuth: []
       produces:
@@ -2437,7 +2528,7 @@ paths:
       - session
   /rest/BookGuests/{row_id}:
     post:
-      summary: Create a new BookGuestsbusiness object record
+      summary: Create a new BookGuests business object record
       security:
       - bearerAuth: []
       produces:
@@ -2556,7 +2647,7 @@ paths:
       tags:
       - BookGuests
     put:
-      summary: Update a BookGuestsbusiness object record
+      summary: Update a BookGuests business object record
       security:
       - bearerAuth: []
       produces:
@@ -2642,7 +2733,7 @@ paths:
         required: false
       - in: query
         name: bookPaymentsBookBookingsId__bookBookingsBookUsersId
-        description: Search filter for Booking|Bookings Book users
+        description: Search filter for Booking Book users
         type: string
         required: false
       - in: query
@@ -2656,7 +2747,7 @@ paths:
         type: string
         required: false
       - in: query
-        name: bookPaymentsBookBookingsId__bookBookingsBookUsersId__usr_title
+        name: bookPaymentsBookBookingsId__bookBookingsBookUsersId__bookUserTitle
         description: Search filter for Title
         type: string
         required: false
@@ -2665,12 +2756,12 @@ paths:
         - MRS
         - MS
       - in: query
-        name: bookPaymentsBookBookingsId__bookBookingsBookUsersId__usr_last_name
+        name: bookPaymentsBookBookingsId__bookBookingsBookUsersId__BookUserLastname
         description: Search filter for Last name
         type: string
         required: false
       - in: query
-        name: bookPaymentsBookBookingsId__bookBookingsBookUsersId__usr_first_name
+        name: bookPaymentsBookBookingsId__bookBookingsBookUsersId__bookUserFirstname
         description: Search filter for First name
         type: string
         required: false
@@ -2781,7 +2872,7 @@ paths:
         type: string
         required: false
       - in: query
-        name: bookBookingsBookUsersId__usr_title
+        name: bookBookingsBookUsersId__bookUserTitle
         description: Search filter for Title
         type: string
         required: false
@@ -2790,12 +2881,12 @@ paths:
         - MRS
         - MS
       - in: query
-        name: bookBookingsBookUsersId__usr_last_name
+        name: bookBookingsBookUsersId__BookUserLastname
         description: Search filter for Last name
         type: string
         required: false
       - in: query
-        name: bookBookingsBookUsersId__usr_first_name
+        name: bookBookingsBookUsersId__bookUserFirstname
         description: Search filter for First name
         type: string
         required: false
@@ -2855,7 +2946,7 @@ paths:
         - Cl
       - in: query
         name: bookBookingsRoomNumber
-        description: Search filter for Number oof rooms
+        description: Search filter for Number of rooms
         type: string
         required: false
         enum:
@@ -3022,12 +3113,12 @@ paths:
         type: string
         required: false
       - in: query
-        name: bookBookingsId__bookBookingsBookUsersId__usr_last_name
+        name: bookBookingsId__bookBookingsBookUsersId__BookUserLastname
         description: Search filter for Last name
         type: string
         required: false
       - in: query
-        name: bookBookingsId__bookBookingsBookUsersId__usr_first_name
+        name: bookBookingsId__bookBookingsBookUsersId__bookUserFirstname
         description: Search filter for First name
         type: string
         required: false
@@ -3047,13 +3138,13 @@ paths:
         type: string
         required: false
       - in: query
-        name: bookBookingsId__bookBookingsStartDate
-        description: Search filter for Start date
+        name: bookBookingsId__bookBookingsEndDate
+        description: Search filter for End date
         type: string
         required: false
       - in: query
-        name: bookBookingsId__bookBookingsEndDate
-        description: Search filter for End date
+        name: bookBookingsId__bookBookingsStartDate
+        description: Search filter for Start date
         type: string
         required: false
       - in: query
@@ -3083,6 +3174,11 @@ paths:
       - in: query
         name: bookBookingsGuestsBookRoomId__bookRoomBookRoomTypeId
         description: Search filter for Room Room Type
+        type: string
+        required: false
+      - in: query
+        name: bookBookingsGuestsBookRoomId__bookRoomBookRoomTypeId__bookRoomtypCode
+        description: Search filter for Room Room Type book roomtyp code
         type: string
         required: false
       - in: query
@@ -3129,12 +3225,12 @@ paths:
         type: string
         required: false
       - in: query
-        name: bookGuestsId__usr_last_name
+        name: bookGuestsId__BookUserLastname
         description: Search filter for Last name
         type: string
         required: false
       - in: query
-        name: bookGuestsId__usr_first_name
+        name: bookGuestsId__bookUserFirstname
         description: Search filter for First name
         type: string
         required: false
@@ -3145,9 +3241,42 @@ paths:
         required: false
       tags:
       - BookBookingsBookGuests
+  /rest/BookGuests/{row_id}/placemap:BookUsersMaps:
+    get:
+      summary: Call a place map for BookGuests business object
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-bookguests-placemap-bookusersmaps
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/PlaceMapData'
+          description: Success in calling the place map adat
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+        '404':
+          schema:
+            $ref: '#/definitions/Error404'
+          description: Not found
+      parameters:
+      - in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        type: string
+        required: true
+      tags:
+      - BookGuests
   /rest/BookPayments/{row_id}:
     post:
-      summary: Create a new BookPaymentsbusiness object record
+      summary: Create a new BookPayments business object record
       security:
       - bearerAuth: []
       produces:
@@ -3266,7 +3395,7 @@ paths:
       tags:
       - BookPayments
     put:
-      summary: Update a BookPaymentsbusiness object record
+      summary: Update a BookPayments business object record
       security:
       - bearerAuth: []
       produces:
@@ -3309,7 +3438,7 @@ paths:
       - application/json
   /rest/BookBookingsHistoric/{row_id}:
     post:
-      summary: Create a new BookBookingsHistoricbusiness object record
+      summary: Create a new BookBookingsHistoric business object record
       security:
       - bearerAuth: []
       produces:
@@ -3428,7 +3557,7 @@ paths:
       tags:
       - BookBookingsHistoric
     put:
-      summary: Update a BookBookingsHistoricbusiness object record
+      summary: Update a BookBookingsHistoric business object record
       security:
       - bearerAuth: []
       produces:
@@ -3519,6 +3648,62 @@ definitions:
   BookGuests:
     type: object
     properties:
+      bookUserEmail:
+        description: Email
+        type: string
+      bookUserFirstname:
+        description: First name
+        type: string
+      bookUserWorknum:
+        description: Work phone number
+        type: string
+      bookUserState:
+        description: State
+        type: string
+      bookUserCity:
+        description: City
+        type: string
+      bookUserGeoCoord:
+        description: Geo coordinates
+        type: string
+        example: latitude;longitude
+      BookUserLastname:
+        description: Last name
+        type: string
+      bookUserHomenum:
+        description: Home number
+        type: string
+      bookUserAddress1:
+        description: Address line 1
+        type: string
+      bookUserZipcode:
+        description: Postal/ZIP code
+        type: string
+      bookUserCountry:
+        description: Country
+        type: string
+        enum:
+        - FR
+        - UK
+        - ES
+        - DE
+        - BE
+        - CH
+        - IE
+        - IT
+        - PT
+        - NL
+        - CZ
+        - AT
+        - CA
+        - US
+        - AU
+      bookUserCellnum:
+        description: Mobile/cellular phone number
+        type: string
+      bookUserAddress2:
+        description: Address line 2
+        type: string
       bookUserType:
         description: Type
         type: string
@@ -3528,33 +3713,49 @@ definitions:
       row_id:
         description: Unique technical row ID
         type: string
+      bookUserTitle:
+        description: Title
+        type: string
+        enum:
+        - MR
+        - MRS
+        - MS
   BookBookingsBookGuests:
     type: object
     properties:
-      bookGuestsId__usr_first_name:
-        description: First name
-        type: string
-      bookBookingsId__bookBookingsBookUsersId__usr_first_name:
-        description: First name
-        type: string
-      bookGuestsId__usr_last_name:
+      bookGuestsId__BookUserLastname:
         description: Last name
         type: string
       bookBookingsId:
         description: Room
-        type: string
-      bookBookingsId__bookBookingsDate:
-        description: Booking date
-        type: string
-        example: yyyy-MM-dd
-      bookBookingsId__bookBookingsBookUsersId:
-        description: Room Book users
         type: string
       bookBookingsGuestsBookRoomId__bookRoomCode:
         description: Room Code
         type: string
       bookBookingsGuestsBookRoomId__bookRoomBookRoomTypeId__bookRoomtypType:
         description: Room Type
+        type: string
+      bookBookingsGuestsBookRoomId__bookRoomSuperficie:
+        description: Room Surface area
+        type: string
+        enum:
+        - '12'
+        - '15'
+        - '17'
+        - '22'
+      bookBookingsGuestsBookRoomId__bookRoomBookRoomTypeId:
+        description: Room Room Type
+        type: string
+      bookBookingsId__bookBookingsStartDate:
+        description: Start date
+        type: string
+        example: yyyy-MM-dd HH:mm:ss
+      bookBookingsId__bookBookingsDate:
+        description: Booking date
+        type: string
+        example: yyyy-MM-dd
+      bookBookingsId__bookBookingsBookUsersId:
+        description: Room Book users
         type: string
       bookBookingsId__bookBookingsEndDate:
         description: End date
@@ -3567,23 +3768,18 @@ definitions:
         - EA
         - TR
         - Cl
-      bookBookingsGuestsBookRoomId__bookRoomSuperficie:
-        description: Room Surface area
-        type: string
-        enum:
-        - '12'
-        - '15'
-        - '17'
-        - '22'
       bookBookingsId__bookBookingsHour:
         description: Booking hour
         type: string
         example: HH:mm:ss
+      bookBookingsId__bookBookingsBookUsersId__bookUserFirstname:
+        description: First name
+        type: string
       bookGuestsId:
         description: Guest
         type: string
-      bookBookingsGuestsBookRoomId__bookRoomBookRoomTypeId:
-        description: Room Room Type
+      bookBookingsId__bookBookingsBookUsersId__BookUserLastname:
+        description: Last name
         type: string
       bookBookingsGuestsBookRoomId__bookRoomFloor:
         description: Room Floor
@@ -3605,24 +3801,23 @@ definitions:
       bookGuestsId__bookUserEmail:
         description: Guest email
         type: string
-      bookBookingsId__bookBookingsStartDate:
-        description: Start date
+      bookGuestsId__bookUserFirstname:
+        description: First name
         type: string
-        example: yyyy-MM-dd HH:mm:ss
       bookBookingsGuestsBookRoomId__bookRoomPriceht:
         description: Room Price
         type: number
       row_id:
         description: Unique technical row ID
         type: string
-      bookBookingsId__bookBookingsBookUsersId__usr_last_name:
-        description: Last name
-        type: string
       bookBookingsGuestsBookRoomId__bookRoomLabel:
         description: Room Label
         type: string
       bookBookingsId__bookBookingsBookUsersId__bookUserEmail:
         description: Email
+        type: string
+      bookBookingsGuestsBookRoomId__bookRoomBookRoomTypeId__bookRoomtypCode:
+        description: Room Room Type book roomtyp code
         type: string
   ArrayOfBookUsers:
     type: array
@@ -3856,23 +4051,29 @@ definitions:
         description: Start date
         type: string
         example: yyyy-MM-dd HH:mm:ss
+      bookBookingsBookUsersId__BookUserLastname:
+        description: Last name
+        type: string
       bookBookingsComments:
         description: Comments
         type: string
-      bookBookingsBookUsersId__usr_title:
+      bookBookingsBookUsersId:
+        description: Book users
+        type: string
+      bookBookingsBookUsersId__bookUserTitle:
         description: Title
         type: string
         enum:
         - MR
         - MRS
         - MS
-      bookBookingsBookUsersId:
-        description: Book users
-        type: string
       bookBookingsPaymentDate:
         description: Total payment date
         type: string
         example: yyyy-MM-dd
+      bookBookingsBookUsersId__bookUserFirstname:
+        description: First name
+        type: string
       bookBookingsEndDate:
         description: End date
         type: string
@@ -3882,7 +4083,7 @@ definitions:
         type: string
         example: HH:mm:ss
       bookBookingsRoomNumber:
-        description: Number oof rooms
+        description: Number of rooms
         type: string
         enum:
         - '1'
@@ -3895,9 +4096,6 @@ definitions:
         - '8'
         - '9'
         - '10'
-      bookBookingsBookUsersId__usr_first_name:
-        description: First name
-        type: string
       bookBookingsStatus:
         description: Status
         type: string
@@ -3910,9 +4108,6 @@ definitions:
         type: boolean
       row_id:
         description: Unique technical row ID
-        type: string
-      bookBookingsBookUsersId__usr_last_name:
-        description: Last name
         type: string
       bookBookingsAmountDate:
         description: Account date
@@ -3946,6 +4141,9 @@ definitions:
         description: Start date
         type: string
         example: yyyy-MM-dd HH:mm:ss
+      bookBookingsBookUsersId__BookUserLastname:
+        description: Last name
+        type: string
       bookBookingsComments:
         description: Comments
         type: string
@@ -3953,19 +4151,19 @@ definitions:
         description: Created date
         type: string
         example: yyyy-MM-dd HH:mm:ss
-      bookBookingsBookUsersId__usr_title:
-        description: Title
-        type: string
-        enum:
-        - MR
-        - MRS
-        - MS
       row_ref_id:
         description: Record row ID
         type: string
       bookBookingsBookUsersId:
         description: Book users
         type: string
+      bookBookingsBookUsersId__bookUserTitle:
+        description: Title
+        type: string
+        enum:
+        - MR
+        - MRS
+        - MS
       bookBookingsPaymentDate:
         description: Total payment date
         type: string
@@ -3973,6 +4171,9 @@ definitions:
       row_idx:
         description: History record index
         type: integer
+      bookBookingsBookUsersId__bookUserFirstname:
+        description: First name
+        type: string
       bookBookingsEndDate:
         description: End date
         type: string
@@ -3982,7 +4183,7 @@ definitions:
         type: string
         example: HH:mm:ss
       bookBookingsRoomNumber:
-        description: Number oof rooms
+        description: Number of rooms
         type: string
         enum:
         - '1'
@@ -3995,9 +4196,6 @@ definitions:
         - '8'
         - '9'
         - '10'
-      bookBookingsBookUsersId__usr_first_name:
-        description: First name
-        type: string
       bookBookingsStatus:
         description: Status
         type: string
@@ -4010,9 +4208,6 @@ definitions:
         type: boolean
       row_id:
         description: Unique technical row ID
-        type: string
-      bookBookingsBookUsersId__usr_last_name:
-        description: Last name
         type: string
       bookBookingsAmountDate:
         description: Account date
@@ -4041,10 +4236,35 @@ definitions:
       bookUserEmail:
         description: Email
         type: string
-      usr_home_num:
-        description: Home phone
+      bookUserFirstname:
+        description: First name
         type: string
-      usr_country:
+      bookUserWorknum:
+        description: Work phone number
+        type: string
+      bookUserState:
+        description: State
+        type: string
+      bookUserCity:
+        description: City
+        type: string
+      bookUserGeoCoord:
+        description: Geo coordinates
+        type: string
+        example: latitude;longitude
+      BookUserLastname:
+        description: Last name
+        type: string
+      bookUserHomenum:
+        description: Home number
+        type: string
+      bookUserAddress1:
+        description: Address line 1
+        type: string
+      bookUserZipcode:
+        description: Postal/ZIP code
+        type: string
+      bookUserCountry:
         description: Country
         type: string
         enum:
@@ -4063,35 +4283,12 @@ definitions:
         - CA
         - US
         - AU
-      usr_title:
-        description: Title
-        type: string
-        enum:
-        - MR
-        - MRS
-        - MS
-      usr_zipcode:
-        description: Postal/ZIP code
-        type: string
-      usr_address1:
-        description: Address line 1
-        type: string
-      usr_address2:
-        description: Address line 2
-        type: string
-      usr_last_name:
-        description: Last name
-        type: string
-      usr_cell_num:
+      bookUserCellnum:
         description: Mobile/cellular phone number
         type: string
-      usr_city:
-        description: City
+      bookUserAddress2:
+        description: Address line 2
         type: string
-      bookUserGeoCoord:
-        description: Geo coordinates
-        type: string
-        example: latitude;longitude
       bookUserType:
         description: Type
         type: string
@@ -4101,15 +4298,13 @@ definitions:
       row_id:
         description: Unique technical row ID
         type: string
-      usr_work_num:
-        description: Work phone number
+      bookUserTitle:
+        description: Title
         type: string
-      usr_state:
-        description: State
-        type: string
-      usr_first_name:
-        description: First name
-        type: string
+        enum:
+        - MR
+        - MRS
+        - MS
   ArrayOfBookPayments:
     type: array
     items:
@@ -4145,6 +4340,13 @@ definitions:
   BookPayments:
     type: object
     properties:
+      bookPaymentsBookBookingsId__bookBookingsBookUsersId__bookUserTitle:
+        description: Title
+        type: string
+        enum:
+        - MR
+        - MRS
+        - MS
       bookPayAmount:
         description: Amount
         type: number
@@ -4152,15 +4354,11 @@ definitions:
         description: Booking hour
         type: string
         example: HH:mm:ss
-      bookPaymentsBookBookingsId__bookBookingsBookUsersId__usr_title:
-        description: Title
-        type: string
-        enum:
-        - MR
-        - MRS
-        - MS
       bookPaymentsBookBookingsId__bookBookingsBookUsersId:
-        description: Booking|Bookings Book users
+        description: Booking Book users
+        type: string
+      bookPaymentsBookBookingsId__bookBookingsBookUsersId__BookUserLastname:
+        description: Last name
         type: string
       bookPaymentsBookBookingsId__bookBookingsEndDate:
         description: End date
@@ -4173,12 +4371,6 @@ definitions:
         description: Booking date
         type: string
         example: yyyy-MM-dd
-      bookPaymentsBookBookingsId__bookBookingsBookUsersId__usr_first_name:
-        description: First name
-        type: string
-      bookPaymentsBookBookingsId__bookBookingsBookUsersId__usr_last_name:
-        description: Last name
-        type: string
       bookPaymentsBookBookingsId__bookBookingsBookUsersId__bookUserEmail:
         description: Email
         type: string
@@ -4200,6 +4392,9 @@ definitions:
         example: yyyy-MM-dd HH:mm:ss
       bookPayPaymId__bookPaymLibell:
         description: Payment method Label
+        type: string
+      bookPaymentsBookBookingsId__bookBookingsBookUsersId__bookUserFirstname:
+        description: First name
         type: string
   BookRoomService:
     type: object

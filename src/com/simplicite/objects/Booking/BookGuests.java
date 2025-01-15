@@ -28,13 +28,14 @@ public class BookGuests extends BookUsers {
 	public void createBookingGuest(Grant g, String demandId, String rowid){
 		try {
 			ObjectDB o = g.getTmpObject("BookBookingsBookGuests");
-			BusinessObjectTool ot = o.getTool();
-			ot.getForCreate();
-			o.setFieldValue("bookBookingsId", demandId); 
-			o.setFieldValue("bookGuestsId", rowid); 
-			ot.validateAndSave();
-			g.removeParameter("DEMANDID");
-			
+			synchronized(o.getLock()){
+				BusinessObjectTool ot = o.getTool();
+				ot.getForCreate();
+				o.setFieldValue("bookBookingsId", demandId); 
+				o.setFieldValue("bookGuestsId", rowid); 
+				ot.validateAndSave();
+				g.removeParameter("DEMANDID");
+			}
 		} catch (Exception e) {
 			AppLog.error(e, g);
 		}

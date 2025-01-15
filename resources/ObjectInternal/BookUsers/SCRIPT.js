@@ -12,8 +12,8 @@ var BookUsers = BookUsers || (function($) {
 				var pos = new google.maps.LatLng(latlgn[0], latlgn[1]);
 				var map = new google.maps.Map($("#client-map").show()[0], { center: pos, zoom: 13, mapTypeId: google.maps.MapTypeId.ROADMAP });
 				var mrk = new google.maps.Marker({ position: pos, map: map });
-				var name = $.escapeHTML(_val("usr_first_name") + " " + _val("usr_last_name"));
-				var addr = $.escapeHTML(_val("usr_address1") + ", " + _val("usr_zipcode") + " " + _val("usr_city") + ", " + _val("usr_country"));
+				var name = $.escapeHTML(_val("bookUserFirstname") + " " + _val("BookUserLastname"));
+				var addr = $.escapeHTML(_val("bookUserAddress1") + ", " + _val("bookUserZipcode") + " " + _val("bookUserCity") + ", " + _val("bookUserCountry"));
 				var inf = new google.maps.InfoWindow({ content: "<div style=\"width: 200px; height: 75px;\"><b>" + name + "</b><br/>" + addr + "</div>" });
 				google.maps.event.addListener(mrk, "click", function() { inf.open(map, mrk); });
 			}
