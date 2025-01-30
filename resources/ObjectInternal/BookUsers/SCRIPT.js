@@ -1,7 +1,7 @@
 //----------------------------------------------------
 // Client-side logic for customer business object
 //----------------------------------------------------
-var BookUsers = BookUsers || (function($) {
+/*var BookUsers = BookUsers || (function($) {
 	// Display Google Map
 	var _map = function() {
 		var rowId = _val("row_id");
@@ -41,4 +41,4 @@ var BookUsers = BookUsers || (function($) {
 			}
 		}
 	}
-})(jQuery);
+})(jQuery);*/
